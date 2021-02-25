@@ -6,17 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>hcharts笔记 | God-son</title>
+  <title>vue3笔记 | God-son</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前言使用github pages服务搭建博客的好处有：  全是静态文件，访问速度快； 免费方便，不用花一分钱就可以搭建一个自由的个人博客，不需要服务器不需要后台； 可以随意绑定自己的域名，不仔细看的话根本看不出来你的网站是基于github的；">
+  <meta name="description" content="1.setUp取代了befocreate 与 created 之间2.setUp 不可以使用this3.渲染流程mount-&gt;render-&gt;patch-&gt;processComponent-&gt;mountComponent4 https:&#x2F;&#x2F;zhuanlan.zhihu.com&#x2F;p&#x2F;306594318 源码分析5.（1）按需编译体积比vue2.0更小 treeShanking">
 <meta property="og:type" content="article">
-<meta property="og:title" content="hcharts笔记">
+<meta property="og:title" content="vue3笔记">
 <meta property="og:url" content="http://example.com/2021/02/24/my-first-blog/index.html">
 <meta property="og:site_name" content="God-son">
-<meta property="og:description" content="前言使用github pages服务搭建博客的好处有：  全是静态文件，访问速度快； 免费方便，不用花一分钱就可以搭建一个自由的个人博客，不需要服务器不需要后台； 可以随意绑定自己的域名，不仔细看的话根本看不出来你的网站是基于github的；">
+<meta property="og:description" content="1.setUp取代了befocreate 与 created 之间2.setUp 不可以使用this3.渲染流程mount-&gt;render-&gt;patch-&gt;processComponent-&gt;mountComponent4 https:&#x2F;&#x2F;zhuanlan.zhihu.com&#x2F;p&#x2F;306594318 源码分析5.（1）按需编译体积比vue2.0更小 treeShanking">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-02-24T09:01:29.000Z">
-<meta property="article:modified_time" content="2021-02-24T09:33:23.949Z">
+<meta property="article:modified_time" content="2021-02-25T09:20:56.143Z">
 <meta property="article:author" content="qingtao Yang">
 <meta name="twitter:card" content="summary">
   
@@ -161,7 +161,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      hcharts笔记
+      vue3笔记
     </h1>
   
 
@@ -174,19 +174,12 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>使用github pages服务搭建博客的好处有：</p>
-<ol>
-<li>全是静态文件，访问速度快；</li>
-<li>免费方便，不用花一分钱就可以搭建一个自由的个人博客，不需要服务器不需要后台；</li>
-<li>可以随意绑定自己的域名，不仔细看的话根本看不出来你的网站是基于github的；</li>
-</ol>
+        <p>1.setUp取代了befocreate 与 created 之间<br>2.setUp 不可以使用this<br>3.渲染流程mount-&gt;render-&gt;patch-&gt;processComponent-&gt;mountComponent<br>4 <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/306594318">https://zhuanlan.zhihu.com/p/306594318</a> 源码分析<br>5.（1）按需编译体积比vue2.0更小 treeShanking support</p>
 <span id="more"></span>
-
-<ol start="4">
-<li>数据绝对安全，基于github的版本管理，想恢复到哪个历史版本都行；</li>
-<li>博客内容可以轻松打包、转移、发布到其它平台；</li>
-<li>等等；</li>
-</ol>
+<p>(2)组合api 和react hooks pacheflag 来判断是动态数据还是静态。只比较动态的才会diff<br>（3）ts支持（4暴漏自定义渲染api<br>6 npm install -g create-vite-app<br>create-vite-app prejectName<br>7.setUp执行时机  created周期还没有创建里面的data和methods没办法用  setUp函数中this指定为undefined  setUp是同步的<br>8.reactive  是vue3提供响应式数据的函数 传入的参数是对象 json或arry<br> 如果不是对象实现不了响应式<br>如果是其他类型的对象就得重新赋值<br>9 ref 本质是reactive 一样也是一个 proxy<br>系统会根据我们ref传入的时候<br>换成ref（xx）–&gt;&gt;reactive({value:xx})<br>vue中使用ref的值时不用通过value获取js时要用<br>10.ref与reactive的区别ref 在vue里 自动添加value   reactive不会<br>vue 是如何决定是否需要自动添加.value<br>vue 在解析数据类型是否时ref类型。如果是就自动添加 否就不添加<br>vue 是根据_ _v_ref 如果是私有属性并且是值是true 则添加.value<br>监听递归 把每层都弄成一个proxy<br>11.只监听第一层shallowRef shallowReactive   shallowRef只监听.vaule的变化<br>state.value.gf.f.s.d<br>triggerRef（state） 没有triggerReactive（state）<br>shawllowRef(10)-&gt;shallowReactive({value:10}<br>shawllowRef(10)创建的数据他监听的是.value<br>本质上value才是 第一层<br>12.let obj = {name:’zs’} let state = reactive(obj)<br>state与obj之间的关系是引用关系 state是proxy对象<br>如果直接修改obj是无法触发界面更新<br>13.ref/reactive数据类型的特点：<br>每次修改都会被跟踪会触发ui界面的改变一些操作不需要被追踪。不需要UI界面就用toRew<br>let obj = {name:’zs’} let state = reactive(obj)<br>let obj2 = toRew(state)获取原始数据<br>14.let obj = {name:’zs’} let state = ref(obj)<br>let obj2 = toRew(state.value)获取原始数据<br>15 let obj = {name:’zs’}   obj = markRaw(obj) 不会被追踪 let state = reactive(obj)<br>16.ref与toRef的区别 let obj = {name:’zs’}<br>ref是复制修改响应式数据不影响之前的数据<br>toRef 引用修改响应式数据会影响原来的数据<br>ref数据发生改变界面会发生改变<br>toRef 数据改变界面不发生改变<br>toRef 应用场景是改变数据又不想改变界面<br>17.setup 函数是同步的实在 beforcreat created之间创建<br>18.readonly    let state=readOnly ({“name”:”jdsadlj”}) 只读 不能改变 是递归只读<br>shallowReadOnly  不是递归  第一层 isReadonly（state)=true<br>19: const 和 readOnly的区别 const创建不能被赋值  readOnly 属性不能被修改<br>20：newPoxy（obj{<br>get(obj,key){<br>return obj[key]}</p>
+<p>set(obj,key,value){<br>obj[key]=value<br>return true}<br>21,let arry:any[]=[100,flkjfl,true]  //数组个数不确定 类型不确定<br>22.void类型在函数声明的时候，小括号后面使用：void代表该函数没有任何返回值<br>23，interface IPerson {<br>  readonly id: number //只读<br>  name: string<br>  age: number //必须有<br>  sex?: string//可有可无<br>}<br>24 接口与接口之间是继承 extends 一个类可以实现 多个接口用，隔开<br>25 A类继承了B类那么A叫做子类B叫做基类   子类-派生类  基类-超类<br>26.父类型的引用指向子类的对象不同类型的对象针对相同的方法产生了不同的行为<br>27.修饰符类中的成员的修饰符主要是描述类中的成员构造函数，方法）的可访问性<br>28.readonly 修饰符首先是一个关键字对类中的属性成员进行修饰，修饰后该属性成员就不能被在外部修改了<br>   构造函数中可以对只读属性的成员进行修改<br>   如果构造函数中没有任何的参数类中的属性成员此时已使用readonly进行了修饰，那么外部也是不能对这个属性进行修改的<br>   构造函数中一旦使用readonly进行修饰后那么类中就有了一个name的属性   外部也不可以修改<br>29.静态属性可以通过类.属性名来获取 修改<br>30.总结：使用Object.create()是将对象继承到原型链上，然后可以通过对象实例的<strong>proto__属性进行访问原型链上的属性<br>var test = Object.create({x:123,y:345});<br>console.log(test);//{}<br>console.log(test.x);//123<br>console.log(test.__proto</strong>.x);//123<br>console.log(test.<strong>proto</strong>.x === test.x);//true</p>
+<p>var test1 = new Object({x:123,y:345});<br>console.log(test1);//{x:123,y:345}<br>console.log(test1.x);//123<br>console.log(test1.<strong>proto</strong>.x);//undefined<br>console.log(test1.<strong>proto</strong>.x === test1.x);//false</p>
+<p>var test2 = {x:123,y:345};<br>console.log(test2);//{x:123,y:345};<br>console.log(test2.x);//123<br>console.log(test2.<strong>proto</strong>.x);//undefined<br>console.log(test2.<strong>proto</strong>.x === test2.x);//false</p>
 
       
 
