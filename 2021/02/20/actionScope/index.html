@@ -6,17 +6,101 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Archives: 2021/2 | God-son</title>
+  <title>作用域 | God-son</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="本人的一些学习笔记及工作过程中遇到的问题填过的坑">
-<meta property="og:type" content="website">
-<meta property="og:title" content="God-son">
-<meta property="og:url" content="http://example.com/archives/2021/02/index.html">
+  <meta name="description" content="作用域作用域是指程序源代码中定义变量的区域。作用域规定了如何查找变量，也就是确定当前执行代码对变量的访问权限。JavaScript 采用词法作用域(lexical scoping)，也就是静态作用域。静态作用域与动态作用域因为 JavaScript 采用的是词法作用域，函数的作用域在函数定义的时候就决定了。而与词法作用域相对的是动态作用域，函数的作用域是在函数调用的时候才决定的。让我们认真看个例子">
+<meta property="og:type" content="article">
+<meta property="og:title" content="作用域">
+<meta property="og:url" content="http://example.com/2021/02/20/actionScope/index.html">
 <meta property="og:site_name" content="God-son">
-<meta property="og:description" content="本人的一些学习笔记及工作过程中遇到的问题填过的坑">
+<meta property="og:description" content="作用域作用域是指程序源代码中定义变量的区域。作用域规定了如何查找变量，也就是确定当前执行代码对变量的访问权限。JavaScript 采用词法作用域(lexical scoping)，也就是静态作用域。静态作用域与动态作用域因为 JavaScript 采用的是词法作用域，函数的作用域在函数定义的时候就决定了。而与词法作用域相对的是动态作用域，函数的作用域是在函数调用的时候才决定的。让我们认真看个例子">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/25659417?s=60&u=68f12ffcc0ece9f2bef75590324543304299ec4b&v=4">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/23159930?s=88&v=4">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/23159930?s=60&v=4">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/11458263?s=88&u=8abd594f236f381da9cbe70bade832663ecb4bd0&v=4">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/11458263?s=60&u=8abd594f236f381da9cbe70bade832663ecb4bd0&v=4">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/7554325?s=88&v=4">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/7554325?s=60&v=4">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/11458263?s=88&u=8abd594f236f381da9cbe70bade832663ecb4bd0&v=4">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/11458263?s=60&u=8abd594f236f381da9cbe70bade832663ecb4bd0&v=4">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/19198985?s=88&u=fcd04d261e7c348bfd53a6c96faf69a65c010abf&v=4">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/19198985?s=60&u=fcd04d261e7c348bfd53a6c96faf69a65c010abf&v=4">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/11458263?s=88&u=8abd594f236f381da9cbe70bade832663ecb4bd0&v=4">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/11458263?s=60&u=8abd594f236f381da9cbe70bade832663ecb4bd0&v=4">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/11458263?s=88&u=8abd594f236f381da9cbe70bade832663ecb4bd0&v=4">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/11458263?s=60&u=8abd594f236f381da9cbe70bade832663ecb4bd0&v=4">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/6510219?s=88&u=1843af5d9dd10644011a42f0d79d6e2e265ef3e0&v=4">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/6510219?s=60&u=1843af5d9dd10644011a42f0d79d6e2e265ef3e0&v=4">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/11458263?s=88&u=8abd594f236f381da9cbe70bade832663ecb4bd0&v=4">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/11458263?s=60&u=8abd594f236f381da9cbe70bade832663ecb4bd0&v=4">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/27950644?s=88&u=f4784f5f1f3e83190d02fffe27f6339c944a68de&v=4">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/27950644?s=60&u=f4784f5f1f3e83190d02fffe27f6339c944a68de&v=4">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/11458263?s=88&u=8abd594f236f381da9cbe70bade832663ecb4bd0&v=4">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/11458263?s=60&u=8abd594f236f381da9cbe70bade832663ecb4bd0&v=4">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/14139852?s=88&u=ccfd00fd109dee3a7505344640b375a796c18145&v=4">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/14139852?s=60&u=ccfd00fd109dee3a7505344640b375a796c18145&v=4">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/15240937?s=88&u=8e10952134c5af98ef26f9b91b373eefa0fcd7c7&v=4">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/15240937?s=60&u=8e10952134c5af98ef26f9b91b373eefa0fcd7c7&v=4">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/11458263?s=88&u=8abd594f236f381da9cbe70bade832663ecb4bd0&v=4">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/11458263?s=60&u=8abd594f236f381da9cbe70bade832663ecb4bd0&v=4">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/37525756?s=88&v=4">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/37525756?s=60&v=4">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/9861824?s=88&u=70ed9ad4c8ad364466ee6fdb59e20203f7b0bd51&v=4">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/9861824?s=60&u=70ed9ad4c8ad364466ee6fdb59e20203f7b0bd51&v=4">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/5675955?s=88&u=2beaeabd03e06756a60ed098cc36208a3a1f9239&v=4">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/5675955?s=60&u=2beaeabd03e06756a60ed098cc36208a3a1f9239&v=4">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/47051132?s=60&u=640a4735cf2cdda519399fc0cfb938e13dd47431&v=4">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/18205362?s=88&u=b31123b12d1699e038803c8f1d039f45687f5d28&v=4">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/18205362?s=60&u=b31123b12d1699e038803c8f1d039f45687f5d28&v=4">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/10958676?s=88&u=31fb9155e0a12f6a8eb4be1aed3d8e1a2a292993&v=4">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/10958676?s=60&u=31fb9155e0a12f6a8eb4be1aed3d8e1a2a292993&v=4">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/20715749?s=88&u=f4ccc93d44c9406926345e3da4de033dd58d37b3&v=4">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/20715749?s=60&u=f4ccc93d44c9406926345e3da4de033dd58d37b3&v=4">
+<meta property="og:image" content="https://user-images.githubusercontent.com/20715749/85103718-c834b980-b239-11ea-9e22-310b086effe3.png">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/14543505?s=88&v=4">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/14543505?s=60&v=4">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/20715749?s=88&u=f4ccc93d44c9406926345e3da4de033dd58d37b3&v=4">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/20715749?s=60&u=f4ccc93d44c9406926345e3da4de033dd58d37b3&v=4">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/22317999?s=60&u=236140f4227c7e3c9ae65a082c88853b7dc7b025&v=4">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/52318200?s=88&v=4">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/52318200?s=60&v=4">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/34484322?s=60&u=eba3d5d2c312917b67c8f5fc13ecd209ce6c138d&v=4">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/13151172?s=88&u=3fa82fa348e2a0e7e857038b16a5a64e362dcccf&v=4">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/13151172?s=60&u=3fa82fa348e2a0e7e857038b16a5a64e362dcccf&v=4">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/59349266?s=88&v=4">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/59349266?s=60&v=4">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/59349266?s=88&v=4">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/59349266?s=60&v=4">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/49391988?s=88&u=f7b182b4d8f471d5ac63d96ea5e779c63c44b793&v=4">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/49391988?s=60&u=f7b182b4d8f471d5ac63d96ea5e779c63c44b793&v=4">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/11750109?s=60&u=42825447a082e48c129a954ce024633b4b8d85b2&v=4">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/32081858?s=88&u=41f57e9a5575b7d4bdec42db96bede482a58962a&v=4">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/32081858?s=60&u=41f57e9a5575b7d4bdec42db96bede482a58962a&v=4">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/32081858?s=88&u=41f57e9a5575b7d4bdec42db96bede482a58962a&v=4">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/32081858?s=60&u=41f57e9a5575b7d4bdec42db96bede482a58962a&v=4">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/32081858?s=88&u=41f57e9a5575b7d4bdec42db96bede482a58962a&v=4">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/32081858?s=60&u=41f57e9a5575b7d4bdec42db96bede482a58962a&v=4">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/32081858?s=88&u=41f57e9a5575b7d4bdec42db96bede482a58962a&v=4">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/32081858?s=60&u=41f57e9a5575b7d4bdec42db96bede482a58962a&v=4">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/32081858?s=88&u=41f57e9a5575b7d4bdec42db96bede482a58962a&v=4">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/32081858?s=60&u=41f57e9a5575b7d4bdec42db96bede482a58962a&v=4">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/59857905?s=88&v=4">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/59857905?s=60&v=4">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/59857905?s=60&v=4">
+<meta property="og:image" content="https://user-images.githubusercontent.com/20715749/85103718-c834b980-b239-11ea-9e22-310b086effe3.png">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/37955708?s=60&u=0906f51a5c2a46855977f2970663acbc3d4c0da4&v=4">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/38326100?s=60&v=4">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/37857727?s=60&u=3533cc7c70aac91b7e4dc904e5e6e2a8f77ce742&v=4">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/41406987?s=88&v=4">
+<meta property="og:image" content="https://avatars.githubusercontent.com/u/41406987?s=60&v=4">
+<meta property="article:published_time" content="2021-02-20T01:12:15.000Z">
+<meta property="article:modified_time" content="2021-03-04T08:37:48.176Z">
 <meta property="article:author" content="qingtao Yang">
+<meta property="article:tag" content="ps">
+<meta property="article:tag" content="ai">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://avatars.githubusercontent.com/u/25659417?s=60&u=68f12ffcc0ece9f2bef75590324543304299ec4b&v=4">
   
     <link rel="alternative" href="/atom.xml" title="God-son" type="application/atom+xml">
   
@@ -152,285 +236,353 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-actionScope" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2021" class="archive-year">2021</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/02/25/photo/" class="archive-article-date">
-  	<time datetime="2021-02-25T09:38:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-02-25</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/02/25/photo/">photo</a>
+    <h1 class="article-title" itemprop="name">
+      作用域
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/02/25/mychart/" class="archive-article-date">
-  	<time datetime="2021-02-25T02:12:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-02-25</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/02/25/mychart/">图表配置</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">ps</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">ai</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Diary//" class="article-tag-list-link color1">Diary</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Diary/PlayStation//" class="article-tag-list-link color2">PlayStation</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Diary/Games//" class="article-tag-list-link color1">Games</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Life//" class="article-tag-list-link color5">Life</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/02/25/chain/" class="archive-article-date">
-  	<time datetime="2021-02-25T02:12:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-02-25</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/02/25/chain/">原形链</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Diary//" class="article-tag-list-link color1">Diary</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Diary/Games//" class="article-tag-list-link color1">Games</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Life//" class="article-tag-list-link color5">Life</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/js//" class="article-tag-list-link color3">js</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/js/PlayStation//" class="article-tag-list-link color2">PlayStation</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/02/24/my-first-blog/" class="archive-article-date">
-  	<time datetime="2021-02-24T09:01:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-02-24</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/02/24/my-first-blog/">vue3笔记</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/02/24/cookie/" class="archive-article-date">
-  	<time datetime="2021-02-24T01:12:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-02-24</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/02/24/cookie/">cookie</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">ps</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">ai</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Diary//" class="article-tag-list-link color1">Diary</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Diary/PlayStation//" class="article-tag-list-link color2">PlayStation</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Diary/Games//" class="article-tag-list-link color1">Games</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Life//" class="article-tag-list-link color5">Life</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/02/20/actionScope/" class="archive-article-date">
+        
+        <a href="/2021/02/20/actionScope/" class="archive-article-date">
   	<time datetime="2021-02-20T01:12:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-02-20</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/02/20/actionScope/">作用域</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <table class="d-block" data-paste-markdown-skip><tbody class="d-block"><tr class="d-block"><td class="d-block comment-body markdown-body  js-comment-body"><h2>作用域</h2><p>作用域是指程序源代码中定义变量的区域。</p><p>作用域规定了如何查找变量，也就是确定当前执行代码对变量的访问权限。</p><p>JavaScript 采用词法作用域(lexical scoping)，也就是静态作用域。</p><h2>静态作用域与动态作用域</h2><p>因为 JavaScript 采用的是词法作用域，函数的作用域在函数定义的时候就决定了。</p><p>而与词法作用域相对的是动态作用域，函数的作用域是在函数调用的时候才决定的。</p><p>让我们认真看个例子就能明白之间的区别：</p>
+<span id="more"></span>
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> <span class="pl-s1">value</span> <span class="pl-c1">=</span> <span class="pl-c1">1</span><span class="pl-kos">;</span>
+<span class="pl-k">function</span> <span class="pl-en">foo</span><span class="pl-kos">(</span><span class="pl-kos">)</span> <span class="pl-kos">{</span>
+    <span class="pl-smi">console</span><span class="pl-kos">.</span><span class="pl-en">log</span><span class="pl-kos">(</span><span class="pl-s1">value</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+<span class="pl-kos">}</span>
 
-        <div class="article-info info-on-right">
-          
+<p><span class="pl-k">function</span> <span class="pl-en">bar</span><span class="pl-kos">(</span><span class="pl-kos">)</span> <span class="pl-kos">{</span><br>    <span class="pl-k">var</span> <span class="pl-s1">value</span> <span class="pl-c1">=</span> <span class="pl-c1">2</span><span class="pl-kos">;</span><br>    <span class="pl-en">foo</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">;</span><br><span class="pl-kos">}</span><br><span class="pl-en">bar</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">;</span><br><span class="pl-c">// 结果是 ???</span></p></pre></div><p>假设JavaScript采用静态作用域，让我们分析下执行过程：</p><p>执行 foo 函数，先从 foo 函数内部查找是否有局部变量 value，如果没有，就根据书写的位置，查找上面一层的代码，也就是 value 等于 1，所以结果会打印 1。</p><p>假设JavaScript采用动态作用域，让我们分析下执行过程：</p><p>执行 foo 函数，依然是从 foo 函数内部查找是否有局部变量 value。如果没有，就从调用函数的作用域，也就是 bar 函数内部查找 value 变量，所以结果会打印 2。</p><p>前面我们已经说了，JavaScript采用的是静态作用域，所以这个例子的结果是 1。</p><h2>动态作用域</h2><p>也许你会好奇什么语言是动态作用域？</p><p>bash 就是动态作用域，不信的话，把下面的脚本存成例如 scope.bash，然后进入相应的目录，用命令行执行 <code>bash ./scope.bash</code>，看看打印的值是多少。</p><div class="highlight highlight-source-shell"><pre>value=1<br><span class="pl-k">function</span> <span class="pl-en">foo</span> () {<br>    <span class="pl-c1">echo</span> <span class="pl-smi">$value</span><span class="pl-k">;</span><br>}<br><span class="pl-k">function</span> <span class="pl-en">bar</span> () {<br>    <span class="pl-k">local</span> value=2<span class="pl-k">;</span><br>    foo<span class="pl-k">;</span><br>}<br>bar</pre></div><p>这个文件也可以在 <a target="_blank" rel="noopener" href="https://github.com/mqyqingfeng/Blog/blob/master/demos/scope/scope.bash">Github 博客仓库</a>中找到。</p><h2>思考题</h2><p>最后，让我们看一个《JavaScript权威指南》中的例子：</p><div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> <span class="pl-s1">scope</span> <span class="pl-c1">=</span> <span class="pl-s">"global scope"</span><span class="pl-kos">;</span><br><span class="pl-k">function</span> <span class="pl-en">checkscope</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">{</span><br>    <span class="pl-k">var</span> <span class="pl-s1">scope</span> <span class="pl-c1">=</span> <span class="pl-s">"local scope"</span><span class="pl-kos">;</span><br>    <span class="pl-k">function</span> <span class="pl-en">f</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">{</span><br>        <span class="pl-k">return</span> <span class="pl-s1">scope</span><span class="pl-kos">;</span><br>    <span class="pl-kos">}</span><br>    <span class="pl-k">return</span> <span class="pl-en">f</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">;</span><br><span class="pl-kos">}</span><br><span class="pl-en">checkscope</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">;</span></pre></div><div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> <span class="pl-s1">scope</span> <span class="pl-c1">=</span> <span class="pl-s">"global scope"</span><span class="pl-kos">;</span><br><span class="pl-k">function</span> <span class="pl-en">checkscope</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">{</span><br>    <span class="pl-k">var</span> <span class="pl-s1">scope</span> <span class="pl-c1">=</span> <span class="pl-s">"local scope"</span><span class="pl-kos">;</span><br>    <span class="pl-k">function</span> <span class="pl-en">f</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">{</span><br>        <span class="pl-k">return</span> <span class="pl-s1">scope</span><span class="pl-kos">;</span><br>    <span class="pl-kos">}</span><br>    <span class="pl-k">return</span> <span class="pl-s1">f</span><span class="pl-kos">;</span><br><span class="pl-kos">}</span><br><span class="pl-en">checkscope</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">;</span></pre></div><p>猜猜两段代码各自的执行结果是多少？</p><p>这里直接告诉大家结果，两段代码都会打印：<code>local scope</code>。</p><p>原因也很简单，因为JavaScript采用的是词法作用域，函数的作用域基于函数创建的位置。</p><p>而引用《JavaScript权威指南》的回答就是：</p><p>JavaScript 函数的执行用到了作用域链，这个作用域链是在函数定义的时候创建的。嵌套的函数 f() 定义在这个作用域链里，其中的变量 scope 一定是局部变量，不管何时何地执行函数 f()，这种绑定在执行 f() 时依然有效。</p><p>但是在这里真正想让大家思考的是：</p><p>虽然两段代码执行的结果一样，但是两段代码究竟有哪些不同呢？</p><p>如果要回答这个问题，就要牵涉到很多的内容，词法作用域只是其中的一小部分，让我们期待下一篇文章————《JavaScript深入之执行上下文栈》。</p><h2>下一篇文章</h2><p><a target="_blank" rel="noopener" href="https://github.com/mqyqingfeng/Blog/issues/4" data-hovercard-type="issue" data-hovercard-url="/mqyqingfeng/Blog/issues/4/hovercard">JavaScript深入之执行上下文栈</a></p><h2>深入系列</h2><p>JavaScript深入系列目录地址：<a target="_blank" rel="noopener" href="https://github.com/mqyqingfeng/Blog">https://github.com/mqyqingfeng/Blog</a>。</p><p>JavaScript深入系列预计写十五篇左右，旨在帮大家捋顺JavaScript底层知识，重点讲解如原型、作用域、执行上下文、变量对象、this、闭包、按值传递、call、apply、bind、new、继承等难点概念。</p><p>如果有错误或者不严谨的地方，请务必给予指正，十分感谢。如果喜欢或者有所启发，欢迎star，对作者也是一种鼓励。</p></td></tr><tr class="d-block pl-3 pr-3 pb-3 js-comment-body-error" hidden><td class="d-block"><div class="flash flash-warn" role="alert"><p class="mb-1"><svg class="octicon octicon-info" height="16" viewbox="0 0 16 16" version="1.1" width="16" aria-hidden="true"><path fill-rule="evenodd" d="M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM0 8a8 8 0 1116 0A8 8 0 010 8zm6.5-.25A.75.75 0 017.25 7h1a.75.75 0 01.75.75v2.75h.25a.75.75 0 010 1.5h-2a.75.75 0 010-1.5h.25v-2h-.25a.75.75 0 01-.75-.75zM8 6a1 1 0 100-2 1 1 0 000 2z"/></svg>The text was updated successfully, but these errors were encountered:</p><ol class="mb-0 pl-4 ml-4"></ol></div></td></tr></tbody></table><p></p>
+<table class="d-block" data-paste-markdown-skip><tbody class="d-block"><tr class="d-block"><td class="d-block comment-body markdown-body  js-comment-body"><p>JS的上下文真的是个很神奇的东西，我看的是汤姆大叔的深入理解JS，这本书里面解释的也挺详细的，让我感觉看了之后稍微懂了，但是后面又会忘。<br>在看你文末两段代码的时候我其实觉得挺奇怪的，因为return f，我认为会返回function f() {};后面再看了一眼，原来checkscope()();也是无奈。</p></td></tr></tbody></table>
+<table class="d-block" data-paste-markdown-skip><tbody class="d-block"><tr class="d-block"><td class="d-block comment-body markdown-body  js-comment-body"><p><a class="user-mention" data-hovercard-type="user" data-hovercard-url="/users/MissCuriosity/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" target="_blank" rel="noopener" href="https://github.com/MissCuriosity">@MissCuriosity</a> 我也看过汤姆大叔的深入理解 JavaScript 系列，深受启发和影响。<code>return f</code> 确实会返回 <code>function f()&#123;&#125;</code>，只是因为 <code>checkscope()()</code>，返回的 <code>f</code> 函数又被执行了~</p></td></tr></tbody></table>
+[![@yangshun352607664](https://avatars.githubusercontent.com/u/25659417?s=88&u=68f12ffcc0ece9f2bef75590324543304299ec4b&v=4)](https://github.com/yangshun352607664)
+
+<p>Copy link</p>
+<h3 id="yangshun352607664-commented-May-27-2017"><a href="#yangshun352607664-commented-May-27-2017" class="headerlink" title=" ** yangshun352607664 ** commented May 27, 2017"></a><a target="_blank" rel="noopener" href="https://github.com/yangshun352607664"><img src="https://avatars.githubusercontent.com/u/25659417?s=60&u=68f12ffcc0ece9f2bef75590324543304299ec4b&v=4" alt="@yangshun352607664"></a> ** <a target="_blank" rel="noopener" href="https://github.com/yangshun352607664">yangshun352607664</a> ** commented <a href="about:blank#issuecomment-304434198">May 27, 2017</a></h3><table class="d-block" data-paste-markdown-skip><tbody class="d-block"><tr class="d-block"><td class="d-block comment-body markdown-body  js-comment-body"><p>作者的案列太过简单，应该写那种嵌套比较深的的</p></td></tr></tbody></table>
+
+<p>👎 22</p>
+<p>This was referenced May 27, 2017</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/mqyqingfeng/Blog/issues/8">JavaScript深入之执行上下文 #8</a></p>
+<p>Open</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/mqyqingfeng/Blog/issues/4">JavaScript深入之执行上下文栈 #4</a></p>
+<p>Open</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/wqxc"><img src="https://avatars.githubusercontent.com/u/23159930?s=88&v=4" alt="@wqxc"></a></p>
+<p>Copy link</p>
+<h3 id="wqxc-commented-May-29-2017"><a href="#wqxc-commented-May-29-2017" class="headerlink" title=" ** wqxc ** commented May 29, 2017"></a><a target="_blank" rel="noopener" href="https://github.com/wqxc"><img src="https://avatars.githubusercontent.com/u/23159930?s=60&v=4" alt="@wqxc"></a> ** <a target="_blank" rel="noopener" href="https://github.com/wqxc">wqxc</a> ** commented <a href="about:blank#issuecomment-304548872">May 29, 2017</a></h3><table class="d-block" data-paste-markdown-skip><tbody class="d-block"><tr class="d-block"><td class="d-block comment-body markdown-body  js-comment-body"><p>谢谢<g-emoji class="g-emoji" alias="stuck_out_tongue_winking_eye" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f61c.png">😜</g-emoji></p></td></tr></tbody></table>
+
+<p><a target="_blank" rel="noopener" href="https://github.com/mqyqingfeng"><img src="https://avatars.githubusercontent.com/u/11458263?s=88&u=8abd594f236f381da9cbe70bade832663ecb4bd0&v=4" alt="@mqyqingfeng"></a></p>
+<p>Copy link</p>
+<p>Owner Author</p>
+<h3 id="mqyqingfeng-commented-May-29-2017"><a href="#mqyqingfeng-commented-May-29-2017" class="headerlink" title=" ** mqyqingfeng ** commented May 29, 2017"></a><a target="_blank" rel="noopener" href="https://github.com/mqyqingfeng"><img src="https://avatars.githubusercontent.com/u/11458263?s=60&u=8abd594f236f381da9cbe70bade832663ecb4bd0&v=4" alt="@mqyqingfeng"></a> ** <a target="_blank" rel="noopener" href="https://github.com/mqyqingfeng">mqyqingfeng</a> ** commented <a href="about:blank#issuecomment-304601077">May 29, 2017</a></h3><table class="d-block" data-paste-markdown-skip><tbody class="d-block"><tr class="d-block"><td class="d-block comment-body markdown-body  js-comment-body"><p><a class="user-mention" data-hovercard-type="user" data-hovercard-url="/users/yangshun352607664/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" target="_blank" rel="noopener" href="https://github.com/yangshun352607664">@yangshun352607664</a> 哈哈，快来举一个例子~~~</p></td></tr></tbody></table>
+
+<p><a target="_blank" rel="noopener" href="https://github.com/rccoder"><img src="https://avatars.githubusercontent.com/u/7554325?s=88&v=4" alt="@rccoder"></a></p>
+<p>Copy link</p>
+<h3 id="rccoder-commented-Jun-1-2017"><a href="#rccoder-commented-Jun-1-2017" class="headerlink" title=" ** rccoder ** commented Jun 1, 2017"></a><a target="_blank" rel="noopener" href="https://github.com/rccoder"><img src="https://avatars.githubusercontent.com/u/7554325?s=60&v=4" alt="@rccoder"></a> ** <a target="_blank" rel="noopener" href="https://github.com/rccoder">rccoder</a> ** commented <a href="about:blank#issuecomment-305378705">Jun 1, 2017</a></h3><table class="d-block" data-paste-markdown-skip><tbody class="d-block"><tr class="d-block"><td class="d-block comment-body markdown-body  js-comment-body"><p>核心就是: <strong>函数的作用域在函数定义的时候就决定了</strong></p><p>真正理解这句话的时候闭包什么的也就理解了。</p><blockquote><p>Like most modern programming languages, JavaScript uses lexical scoping. This means that functions are executed using the variable scope that was in effect when they were defined, not the variable scope that is in effect when they are invoked. In order to implement lexical scoping, the internal state of a JavaScript function object must in- clude not only the code of the function but also a reference to the current scope chain. (Before reading the rest of this section, you may want to review the material on variable scope and the scope chain in §3.10 and §3.10.3.) This combination of a function object and a scope (a set of variable bindings) in which the function’s variables are resolved is called a closure in the computer science literature. (This is an old term that refers to the fact that the function’s variables have bindings in the scope chain and that therefore the function is “closed over” its variables.)</p></blockquote><blockquote><p>Technically, all JavaScript functions are closures: they are objects, and they have a scope chain associated with them. Most functions are invoked using the same scope chain that was in effect when the function was defined, and it doesn’t really matter that there is a closure involved. Closures become interesting when they are invoked under a different scope chain than the one that was in effect when they were defined. This happens most commonly when a nested function object is returned from the function within which it was defined. There are a number of powerful programming techniques that involve this kind of nested function closures, and their use has become relatively common in JavaScript programming. Closures may seem confusing when you first en- counter them, but it is important that you understand them well enough to use them comfortably.</p></blockquote><blockquote><p>JavaScript, The Definite Guide</p></blockquote></td></tr></tbody></table>
+
+<p>👍 86 😄 1 🎉 7 😕 2 ❤️ 8 🚀 7 👀 3</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/mqyqingfeng"><img src="https://avatars.githubusercontent.com/u/11458263?s=88&u=8abd594f236f381da9cbe70bade832663ecb4bd0&v=4" alt="@mqyqingfeng"></a></p>
+<p>Copy link</p>
+<p>Owner Author</p>
+<h3 id="mqyqingfeng-commented-Jun-1-2017-•"><a href="#mqyqingfeng-commented-Jun-1-2017-•" class="headerlink" title=" ** mqyqingfeng ** commented Jun 1, 2017  •"></a><a target="_blank" rel="noopener" href="https://github.com/mqyqingfeng"><img src="https://avatars.githubusercontent.com/u/11458263?s=60&u=8abd594f236f381da9cbe70bade832663ecb4bd0&v=4" alt="@mqyqingfeng"></a> ** <a target="_blank" rel="noopener" href="https://github.com/mqyqingfeng">mqyqingfeng</a> ** commented <a href="about:blank#issuecomment-305381144">Jun 1, 2017</a>  •</h3><p>edited</p>
+<table class="d-block" data-paste-markdown-skip><tbody class="d-block"><tr class="d-block"><td class="d-block comment-body markdown-body  js-comment-body"><p><a class="user-mention" data-hovercard-type="user" data-hovercard-url="/users/rccoder/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" target="_blank" rel="noopener" href="https://github.com/rccoder">@rccoder</a> 感谢补充！非常赞同，词法作用域其实是非常重要的基础，所以才会作为第二篇去讲解。</p></td></tr></tbody></table>
+
+<p><a target="_blank" rel="noopener" href="https://github.com/suoz"><img src="https://avatars.githubusercontent.com/u/19198985?s=88&u=fcd04d261e7c348bfd53a6c96faf69a65c010abf&v=4" alt="@suoz"></a></p>
+<p>Copy link</p>
+<h3 id="suoz-commented-Jun-8-2017"><a href="#suoz-commented-Jun-8-2017" class="headerlink" title=" ** suoz ** commented Jun 8, 2017"></a><a target="_blank" rel="noopener" href="https://github.com/suoz"><img src="https://avatars.githubusercontent.com/u/19198985?s=60&u=fcd04d261e7c348bfd53a6c96faf69a65c010abf&v=4" alt="@suoz"></a> ** <a target="_blank" rel="noopener" href="https://github.com/suoz">suoz</a> ** commented <a href="about:blank#issuecomment-306971309">Jun 8, 2017</a></h3><table class="d-block" data-paste-markdown-skip><tbody class="d-block"><tr class="d-block"><td class="d-block comment-body markdown-body  js-comment-body"><p>在全局作用域中“定义”一个函数到时候，只会创建包含全局作用域的作用域链。<br>只有“执行”该函数的时候，才会复制创建时的作用域，并将当前函数的局部作用域放在作用域链的顶端。</p></td></tr></tbody></table>
+
+<p>👍 35 🎉 1 ❤️ 1</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/mqyqingfeng"><img src="https://avatars.githubusercontent.com/u/11458263?s=88&u=8abd594f236f381da9cbe70bade832663ecb4bd0&v=4" alt="@mqyqingfeng"></a></p>
+<p>Copy link</p>
+<p>Owner Author</p>
+<h3 id="mqyqingfeng-commented-Jun-8-2017"><a href="#mqyqingfeng-commented-Jun-8-2017" class="headerlink" title=" ** mqyqingfeng ** commented Jun 8, 2017"></a><a target="_blank" rel="noopener" href="https://github.com/mqyqingfeng"><img src="https://avatars.githubusercontent.com/u/11458263?s=60&u=8abd594f236f381da9cbe70bade832663ecb4bd0&v=4" alt="@mqyqingfeng"></a> ** <a target="_blank" rel="noopener" href="https://github.com/mqyqingfeng">mqyqingfeng</a> ** commented <a href="about:blank#issuecomment-306978991">Jun 8, 2017</a></h3><table class="d-block" data-paste-markdown-skip><tbody class="d-block"><tr class="d-block"><td class="d-block comment-body markdown-body  js-comment-body"><p><a class="user-mention" data-hovercard-type="user" data-hovercard-url="/users/suoz/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" target="_blank" rel="noopener" href="https://github.com/suoz">@suoz</a> 你剧透了哈~ <g-emoji class="g-emoji" alias="joy" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f602.png">😂</g-emoji></p></td></tr></tbody></table>
+
+<p><a target="_blank" rel="noopener" href="https://github.com/mqyqingfeng"><img src="https://avatars.githubusercontent.com/u/11458263?s=88&u=8abd594f236f381da9cbe70bade832663ecb4bd0&v=4" alt="@mqyqingfeng"></a></p>
+<p>Copy link</p>
+<p>Owner Author</p>
+<h3 id="mqyqingfeng-commented-Jun-15-2017"><a href="#mqyqingfeng-commented-Jun-15-2017" class="headerlink" title=" ** mqyqingfeng ** commented Jun 15, 2017"></a><a target="_blank" rel="noopener" href="https://github.com/mqyqingfeng"><img src="https://avatars.githubusercontent.com/u/11458263?s=60&u=8abd594f236f381da9cbe70bade832663ecb4bd0&v=4" alt="@mqyqingfeng"></a> ** <a target="_blank" rel="noopener" href="https://github.com/mqyqingfeng">mqyqingfeng</a> ** commented <a href="about:blank#issuecomment-308667350">Jun 15, 2017</a></h3><table class="d-block" data-paste-markdown-skip><tbody class="d-block"><tr class="d-block"><td class="d-block comment-body markdown-body  js-comment-body"><p><a class="user-mention" data-hovercard-type="user" data-hovercard-url="/users/rccoder/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" target="_blank" rel="noopener" href="https://github.com/rccoder">@rccoder</a> 我搬运了下你的博客中这段的翻译，希望不要介意~</p><blockquote><p>翻译成中文的话也许是这样：</p></blockquote><blockquote><p>和大多数的现代化编程语言一样，JavaScript是采用词法作用域的，这就意味着函数的执行依赖于函数定义的时候所产生（而不是函数调用的时候产生的）的变量作用域。为了去实现这种词法作用域，JavaScript函数对象的内部状态不仅包含函数逻辑的代码，除此之外还包含当前作用域链的引用。函数对象可以通过这个作用域链相互关联起来，如此，函数体内部的变量都可以保存在函数的作用域内，这在计算机的文献中被称之为闭包。</p></blockquote><blockquote><p>从技术的角度去将，所有的JavaScript函数都是闭包：他们都是对象，他们都有一个关联到他们的作用域链。绝大多数函数在调用的时候使用的作用域链和他们在定义的时候的作用域链是相同的，但是这并不影响闭包。当调用函数的时候闭包所指向的作用域链和定义函数时的作用域链不是同一个作用域链的时候，闭包become interesting。这种interesting的事情往往发生在这样的情况下： 当一个函数嵌套了另外的一个函数，外部的函数将内部嵌套的这个函数作为对象返回。一大批强大的编程技术都利用了这类嵌套的函数闭包，当然，javascript也是这样。可能你第一次碰见闭包觉得比较难以理解，但是去明白闭包然后去非常自如的使用它是非常重要的。</p></blockquote><blockquote><p>通俗点说，在程序语言范畴内的闭包是指函数把其的变量作用域也包含在这个函数的作用域内，形成一个所谓的“闭包”，这样的话外部的函数就无法去访问内部变量。所以按照第二段所说的，严格意义上所有的函数都是闭包。</p></blockquote><blockquote><p>需要注意的是：我们常常所说的闭包指的是让外部函数访问到内部的变量，也就是说，按照一般的做法，是使内部函数返回一个函数，然后操作其中的变量。这样做的话一是可以读取函数内部的变量，二是可以让这些变量的值始终保存在内存中。</p></blockquote><p>链接地址： <a target="_blank" rel="noopener" href="https://github.com/rccoder/blog/issues/3" data-hovercard-type="issue" data-hovercard-url="/rccoder/blog/issues/3/hovercard">rccoder 博客链接</a></p></td></tr></tbody></table>
+
+<p>👍 54 👎 1 😄 3 🎉 9 😕 3 ❤️ 2 🚀 2 👀 5</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/double-chen"><img src="https://avatars.githubusercontent.com/u/6510219?s=88&u=1843af5d9dd10644011a42f0d79d6e2e265ef3e0&v=4" alt="@double-chen"></a></p>
+<p>Copy link</p>
+<h3 id="double-chen-commented-Jun-23-2017-•"><a href="#double-chen-commented-Jun-23-2017-•" class="headerlink" title=" ** double-chen ** commented Jun 23, 2017  •"></a><a target="_blank" rel="noopener" href="https://github.com/double-chen"><img src="https://avatars.githubusercontent.com/u/6510219?s=60&u=1843af5d9dd10644011a42f0d79d6e2e265ef3e0&v=4" alt="@double-chen"></a> ** <a target="_blank" rel="noopener" href="https://github.com/double-chen">double-chen</a> ** commented <a href="about:blank#issuecomment-310627945">Jun 23, 2017</a>  •</h3><p>edited</p>
+<table class="d-block" data-paste-markdown-skip><tbody class="d-block"><tr class="d-block"><td class="d-block comment-body markdown-body  js-comment-body"><p>我有一点想不通，在读作者 执行上下文的文章，感觉执行上下文是在函数调用时准备的，作用域规定了如何查找变量。可是查找的变量是通过执行上下文中的变量对象和作用域链查找的，这是动态作用域的原理啊，为什么JS又是静态作用域了。</p></td></tr></tbody></table>
+
+<p>😄 2</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/mqyqingfeng"><img src="https://avatars.githubusercontent.com/u/11458263?s=88&u=8abd594f236f381da9cbe70bade832663ecb4bd0&v=4" alt="@mqyqingfeng"></a></p>
+<p>Copy link</p>
+<p>Owner Author</p>
+<h3 id="mqyqingfeng-commented-Jun-23-2017"><a href="#mqyqingfeng-commented-Jun-23-2017" class="headerlink" title=" ** mqyqingfeng ** commented Jun 23, 2017"></a><a target="_blank" rel="noopener" href="https://github.com/mqyqingfeng"><img src="https://avatars.githubusercontent.com/u/11458263?s=60&u=8abd594f236f381da9cbe70bade832663ecb4bd0&v=4" alt="@mqyqingfeng"></a> ** <a target="_blank" rel="noopener" href="https://github.com/mqyqingfeng">mqyqingfeng</a> ** commented <a href="about:blank#issuecomment-310633862">Jun 23, 2017</a></h3><table class="d-block" data-paste-markdown-skip><tbody class="d-block"><tr class="d-block"><td class="d-block comment-body markdown-body  js-comment-body"><p><a class="user-mention" data-hovercard-type="user" data-hovercard-url="/users/double-chen/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" target="_blank" rel="noopener" href="https://github.com/double-chen">@double-chen</a> 动态作用域和静态作用域，决定的是作用域链的顺序</p></td></tr></tbody></table>
+
+<p><a target="_blank" rel="noopener" href="https://github.com/yh284914425"><img src="https://avatars.githubusercontent.com/u/27950644?s=88&u=f4784f5f1f3e83190d02fffe27f6339c944a68de&v=4" alt="@yh284914425"></a></p>
+<p>Copy link</p>
+<h3 id="yh284914425-commented-Aug-1-2017-•"><a href="#yh284914425-commented-Aug-1-2017-•" class="headerlink" title=" ** yh284914425 ** commented Aug 1, 2017  •"></a><a target="_blank" rel="noopener" href="https://github.com/yh284914425"><img src="https://avatars.githubusercontent.com/u/27950644?s=60&u=f4784f5f1f3e83190d02fffe27f6339c944a68de&v=4" alt="@yh284914425"></a> ** <a target="_blank" rel="noopener" href="https://github.com/yh284914425">yh284914425</a> ** commented <a href="about:blank#issuecomment-319250752">Aug 1, 2017</a>  •</h3><p>edited by mqyqingfeng</p>
+<table class="d-block" data-paste-markdown-skip><tbody class="d-block"><tr class="d-block"><td class="d-block comment-body markdown-body  js-comment-body"><div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> <span class="pl-s1">a</span> <span class="pl-c1">=</span> <span class="pl-c1">10</span><span class="pl-kos">;</span>
+<span class="pl-k">var</span> <span class="pl-s1">o</span> <span class="pl-c1">=</span> <span class="pl-kos">{</span>
+     <span class="pl-c1">a</span>:<span class="pl-c1">11</span><span class="pl-kos">,</span>
+     <span class="pl-c1">b</span>:<span class="pl-kos">{</span>
+         <span class="pl-en">fn</span>:<span class="pl-k">function</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">{</span>
+              <span class="pl-smi">console</span><span class="pl-kos">.</span><span class="pl-en">log</span><span class="pl-kos">(</span><span class="pl-s1">a</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+         <span class="pl-kos">}</span>
+     <span class="pl-kos">}</span>
+<span class="pl-kos">}</span>
+<span class="pl-s1">o</span><span class="pl-kos">.</span><span class="pl-c1">b</span><span class="pl-kos">.</span><span class="pl-en">fn</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">;</span></pre></div><p>函数包裹函数那种作用域理解了，这样的又有点懵了</p></td></tr></tbody></table>
+
+<p><a target="_blank" rel="noopener" href="https://github.com/mqyqingfeng"><img src="https://avatars.githubusercontent.com/u/11458263?s=88&u=8abd594f236f381da9cbe70bade832663ecb4bd0&v=4" alt="@mqyqingfeng"></a></p>
+<p>Copy link</p>
+<p>Owner Author</p>
+<h3 id="mqyqingfeng-commented-Aug-3-2017"><a href="#mqyqingfeng-commented-Aug-3-2017" class="headerlink" title=" ** mqyqingfeng ** commented Aug 3, 2017"></a><a target="_blank" rel="noopener" href="https://github.com/mqyqingfeng"><img src="https://avatars.githubusercontent.com/u/11458263?s=60&u=8abd594f236f381da9cbe70bade832663ecb4bd0&v=4" alt="@mqyqingfeng"></a> ** <a target="_blank" rel="noopener" href="https://github.com/mqyqingfeng">mqyqingfeng</a> ** commented <a href="about:blank#issuecomment-319848696">Aug 3, 2017</a></h3><table class="d-block" data-paste-markdown-skip><tbody class="d-block"><tr class="d-block"><td class="d-block comment-body markdown-body  js-comment-body"><p><a class="user-mention" data-hovercard-type="user" data-hovercard-url="/users/yangshun352607664/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" target="_blank" rel="noopener" href="https://github.com/yangshun352607664">@yangshun352607664</a> 结果是 10 ，因为变量 a 并不能读取到对象 o 的属性 a ，如果 console.log(o.a)，就会打印 11，函数 fn 的作用域链为 [AO, Global.VO]，而 Global.VO 中包括了变量 a 和变量 o。</p></td></tr></tbody></table>
+
+<p>👍 52 😄 4 ❤️ 1 🚀 6 👀 3</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/mengxin-FE"><img src="https://avatars.githubusercontent.com/u/14139852?s=88&u=ccfd00fd109dee3a7505344640b375a796c18145&v=4" alt="@mengxin-FE"></a></p>
+<p>Copy link</p>
+<h3 id="mengxin-FE-commented-Aug-14-2017-•"><a href="#mengxin-FE-commented-Aug-14-2017-•" class="headerlink" title=" ** mengxin-FE ** commented Aug 14, 2017  •"></a><a target="_blank" rel="noopener" href="https://github.com/mengxin-FE"><img src="https://avatars.githubusercontent.com/u/14139852?s=60&u=ccfd00fd109dee3a7505344640b375a796c18145&v=4" alt="@mengxin-FE"></a> ** <a target="_blank" rel="noopener" href="https://github.com/mengxin-FE">mengxin-FE</a> ** commented <a href="about:blank#issuecomment-322113003">Aug 14, 2017</a>  •</h3><p>edited by mqyqingfeng</p>
+<table class="d-block" data-paste-markdown-skip><tbody class="d-block"><tr class="d-block"><td class="d-block comment-body markdown-body  js-comment-body"><div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> <span class="pl-s1">value</span> <span class="pl-c1">=</span> <span class="pl-c1">1</span><span class="pl-kos">;</span>
+<span class="pl-k">function</span> <span class="pl-en">bar</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">{</span>
+    <span class="pl-k">var</span> <span class="pl-s1">value</span> <span class="pl-c1">=</span><span class="pl-c1">2</span><span class="pl-kos">;</span>
+    <span class="pl-smi">console</span><span class="pl-kos">.</span><span class="pl-en">log</span><span class="pl-kos">(</span><span class="pl-s1">value</span><span class="pl-kos">)</span>
+<span class="pl-kos">}</span>
+<span class="pl-en">bar</span><span class="pl-kos">(</span><span class="pl-kos">)</span> <span class="pl-c">//2</span></pre></div><p>为什么这回又返回2了呢？ 我还是没理解</p></td></tr></tbody></table>
+
+<p><a target="_blank" rel="noopener" href="https://github.com/nicewahson"><img src="https://avatars.githubusercontent.com/u/15240937?s=88&u=8e10952134c5af98ef26f9b91b373eefa0fcd7c7&v=4" alt="@nicewahson"></a></p>
+<p>Copy link</p>
+<h3 id="nicewahson-commented-Aug-14-2017"><a href="#nicewahson-commented-Aug-14-2017" class="headerlink" title=" ** nicewahson ** commented Aug 14, 2017"></a><a target="_blank" rel="noopener" href="https://github.com/nicewahson"><img src="https://avatars.githubusercontent.com/u/15240937?s=60&u=8e10952134c5af98ef26f9b91b373eefa0fcd7c7&v=4" alt="@nicewahson"></a> ** <a target="_blank" rel="noopener" href="https://github.com/nicewahson">nicewahson</a> ** commented <a href="about:blank#issuecomment-322117255">Aug 14, 2017</a></h3><table class="d-block" data-paste-markdown-skip><tbody class="d-block"><tr class="d-block"><td class="d-block comment-body markdown-body  js-comment-body"><p>如果是这样的，function out(function(){console.log(xxx)})这种形式，那括号里的函数作用域是怎么样的？</p></td></tr></tbody></table>
+
+<p><a target="_blank" rel="noopener" href="https://github.com/mqyqingfeng"><img src="https://avatars.githubusercontent.com/u/11458263?s=88&u=8abd594f236f381da9cbe70bade832663ecb4bd0&v=4" alt="@mqyqingfeng"></a></p>
+<p>Copy link</p>
+<p>Owner Author</p>
+<h3 id="mqyqingfeng-commented-Aug-16-2017"><a href="#mqyqingfeng-commented-Aug-16-2017" class="headerlink" title=" ** mqyqingfeng ** commented Aug 16, 2017"></a><a target="_blank" rel="noopener" href="https://github.com/mqyqingfeng"><img src="https://avatars.githubusercontent.com/u/11458263?s=60&u=8abd594f236f381da9cbe70bade832663ecb4bd0&v=4" alt="@mqyqingfeng"></a> ** <a target="_blank" rel="noopener" href="https://github.com/mqyqingfeng">mqyqingfeng</a> ** commented <a href="about:blank#issuecomment-322645177">Aug 16, 2017</a></h3><table class="d-block" data-paste-markdown-skip><tbody class="d-block"><tr class="d-block"><td class="d-block comment-body markdown-body  js-comment-body"><p><a class="user-mention" data-hovercard-type="user" data-hovercard-url="/users/mengxin-FE/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" target="_blank" rel="noopener" href="https://github.com/mengxin-FE">@mengxin-FE</a> 词法作用域决定了变量查找的顺序，这个顺序是从函数内部开始，然后到函数定义的外层，函数内部已经有值，所以就会打印 2</p></td></tr></tbody></table>
+
+<p>👍 21 ❤️ 1</p>
+<p>132 hidden items Load more…</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/Rain1122"><img src="https://avatars.githubusercontent.com/u/37525756?s=88&v=4" alt="@Rain1122"></a></p>
+<p>Copy link</p>
+<h3 id="Rain1122-commented-May-10-2020"><a href="#Rain1122-commented-May-10-2020" class="headerlink" title=" ** Rain1122 ** commented May 10, 2020"></a><a target="_blank" rel="noopener" href="https://github.com/Rain1122"><img src="https://avatars.githubusercontent.com/u/37525756?s=60&v=4" alt="@Rain1122"></a> ** <a target="_blank" rel="noopener" href="https://github.com/Rain1122">Rain1122</a> ** commented <a href="about:blank#issuecomment-626286465">May 10, 2020</a></h3><table class="d-block" data-paste-markdown-skip><tbody class="d-block"><tr class="d-block"><td class="d-block comment-body markdown-body  js-comment-body"><p>如果第二次不重新声明value的话，输出将会是2</p><pre><code>
+var value = 1;
+function foo() &#123;
+    console.log(value);
+&#125;
+function bar() &#123;
+    value = 2;
+    foo();
+&#125;
+bar();//2
+
+<p></p></code></pre></td></tr></tbody></table> <p></p>
+<p>👍 6 🚀 1</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/elainema"><img src="https://avatars.githubusercontent.com/u/9861824?s=88&u=70ed9ad4c8ad364466ee6fdb59e20203f7b0bd51&v=4" alt="@elainema"></a></p>
+<p>Copy link</p>
+<h3 id="elainema-commented-May-18-2020"><a href="#elainema-commented-May-18-2020" class="headerlink" title=" ** elainema ** commented May 18, 2020"></a><a target="_blank" rel="noopener" href="https://github.com/elainema"><img src="https://avatars.githubusercontent.com/u/9861824?s=60&u=70ed9ad4c8ad364466ee6fdb59e20203f7b0bd51&v=4" alt="@elainema"></a> ** <a target="_blank" rel="noopener" href="https://github.com/elainema">elainema</a> ** commented <a href="about:blank#issuecomment-630041107">May 18, 2020</a></h3><table class="d-block" data-paste-markdown-skip><tbody class="d-block"><tr class="d-block"><td class="d-block comment-body markdown-body  js-comment-body"><blockquote><p>如果第二次不重新声明value的话，输出将会是2</p><pre><code>
+var value = 1;
+function foo() &#123;
+    console.log(value);
+&#125;
+function bar() &#123;
+    value = 2;
+    foo();
+&#125;
+bar();//2
+</code></pre></blockquote><p>因为第二次重新声明的话，bar函数内部的value是个局部变量，只在bar函数内部有效<br>value= 2 相当于把全局的value值改为2了，foo()执行时内部没有value变量，外部的value就是全局变量value，这时候已经是2了，肯定输出2 了</p></td></tr></tbody></table>
+
+<p>👍 3</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/juventusforever"><img src="https://avatars.githubusercontent.com/u/5675955?s=88&u=2beaeabd03e06756a60ed098cc36208a3a1f9239&v=4" alt="@juventusforever"></a></p>
+<p>Copy link</p>
+<h3 id="juventusforever-commented-May-24-2020"><a href="#juventusforever-commented-May-24-2020" class="headerlink" title=" ** juventusforever ** commented May 24, 2020"></a><a target="_blank" rel="noopener" href="https://github.com/juventusforever"><img src="https://avatars.githubusercontent.com/u/5675955?s=60&u=2beaeabd03e06756a60ed098cc36208a3a1f9239&v=4" alt="@juventusforever"></a> ** <a target="_blank" rel="noopener" href="https://github.com/juventusforever">juventusforever</a> ** commented <a href="about:blank#issuecomment-633236371">May 24, 2020</a></h3><table class="d-block" data-paste-markdown-skip><tbody class="d-block"><tr class="d-block"><td class="d-block comment-body markdown-body  js-comment-body"><p>感谢一波博主，写的挺好。。就是有些比较难懂，需要储备一定的基础之后来看这些会有茅塞顿开的感觉。。<br>顺便。。不知道是我漏看了还是怎么。。博主好像没有介绍AO和VO分别代表什么。。刚开始看的我一脸懵逼。。我很菜。。勿怪。。</p></td></tr></tbody></table>
+
+<p><a target="_blank" rel="noopener" href="https://github.com/YBFACC"><img src="https://avatars.githubusercontent.com/u/47051132?s=60&u=640a4735cf2cdda519399fc0cfb938e13dd47431&v=4" alt="@YBFACC"></a> <a target="_blank" rel="noopener" href="https://github.com/YBFACC">YBFACC</a> mentioned this issue <a href="about:blank#ref-issue-628250906">Jun 1, 2020</a> </p>
+<p><a target="_blank" rel="noopener" href="https://github.com/YBFACC/blog/issues/6">作用域分类 YBFACC/blog#6</a></p>
+<p>Open</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/meteorlxy"><img src="https://avatars.githubusercontent.com/u/18205362?s=88&u=b31123b12d1699e038803c8f1d039f45687f5d28&v=4" alt="@meteorlxy"></a></p>
+<p>Copy link</p>
+<h3 id="meteorlxy-commented-Jun-9-2020-•"><a href="#meteorlxy-commented-Jun-9-2020-•" class="headerlink" title=" ** meteorlxy ** commented Jun 9, 2020  •"></a><a target="_blank" rel="noopener" href="https://github.com/meteorlxy"><img src="https://avatars.githubusercontent.com/u/18205362?s=60&u=b31123b12d1699e038803c8f1d039f45687f5d28&v=4" alt="@meteorlxy"></a> ** <a target="_blank" rel="noopener" href="https://github.com/meteorlxy">meteorlxy</a> ** commented <a href="about:blank#issuecomment-640996974">Jun 9, 2020</a>  •</h3><p>edited</p>
+<table class="d-block" data-paste-markdown-skip><tbody class="d-block"><tr class="d-block"><td class="d-block comment-body markdown-body  js-comment-body"><blockquote><p>我这里很好奇一个点，ES6中暂死区和函数变量提升如何理解</p><pre><code>// 写法 1
+function logA() &#123;
+   console.log(a)
+&#125;
+// a之前是不能访问到a的
+const a = 1
+logA() // 1
+</code></pre><pre><code>// 写法2
+// 这种是正常写法，但是提升之后跟上面写法一样
+const a = 1
+function logA() &#123;
+   console.log(a)
+&#125;
+logA() // 1
+</code></pre></blockquote><p><a class="user-mention" data-hovercard-type="user" data-hovercard-url="/users/diveDylan/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" target="_blank" rel="noopener" href="https://github.com/diveDylan">@diveDylan</a></p><p>首先，虽然 <code>const a = 1</code> 不会提升，但是 <code>function logA()</code> 是会提升的，所以这两种写法其实是一样的，本质上没有区别。</p><p>然后，暂时性死区 TDZ 是对于当前作用域来说的，函数 <code>logA()</code> 创建了自己的函数作用域，而 <code>const a</code> 是在全局作用域的。</p><p>JS 的静态作用域，决定了 <code>logA()</code> 的作用域链顺序： <code>logA()</code> 函数作用域 -&gt; 全局作用域。</p><p>然后在 <code>logA()</code> 执行时，才会真正按照这个作用域链，从作用域中查找变量。</p><p>在执行 <code>logA()</code> 的时候，全局作用域中已经有 <code>const a</code> ，所以没有问题。</p></td></tr></tbody></table>
+
+<p>👍 2</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/txl910514"><img src="https://avatars.githubusercontent.com/u/10958676?s=88&u=31fb9155e0a12f6a8eb4be1aed3d8e1a2a292993&v=4" alt="@txl910514"></a></p>
+<p>Copy link</p>
+<h3 id="txl910514-commented-Jun-18-2020"><a href="#txl910514-commented-Jun-18-2020" class="headerlink" title=" ** txl910514 ** commented Jun 18, 2020"></a><a target="_blank" rel="noopener" href="https://github.com/txl910514"><img src="https://avatars.githubusercontent.com/u/10958676?s=60&u=31fb9155e0a12f6a8eb4be1aed3d8e1a2a292993&v=4" alt="@txl910514"></a> ** <a target="_blank" rel="noopener" href="https://github.com/txl910514">txl910514</a> ** commented <a href="about:blank#issuecomment-645725020">Jun 18, 2020</a></h3><table class="d-block" data-paste-markdown-skip><tbody class="d-block"><tr class="d-block"><td class="d-block comment-body markdown-body  js-comment-body"><blockquote><blockquote><p>核心就是: <strong>函数的作用域在函数定义的时候就决定了</strong><br>真正理解这句话的时候闭包什么的也就理解了。</p><blockquote><p>Like most modern programming languages, JavaScript uses lexical scoping. This means that functions are executed using the variable scope that was in effect when they were defined, not the variable scope that is in effect when they are invoked. In order to implement lexical scoping, the internal state of a JavaScript function object must in- clude not only the code of the function but also a reference to the current scope chain. (Before reading the rest of this section, you may want to review the material on variable scope and the scope chain in §3.10 and §3.10.3.) This combination of a function object and a scope (a set of variable bindings) in which the function’s variables are resolved is called a closure in the computer science literature. (This is an old term that refers to the fact that the function’s variables have bindings in the scope chain and that therefore the function is “closed over” its variables.)</p></blockquote><blockquote><p>Technically, all JavaScript functions are closures: they are objects, and they have a scope chain associated with them. Most functions are invoked using the same scope chain that was in effect when the function was defined, and it doesn’t really matter that there is a closure involved. Closures become interesting when they are invoked under a different scope chain than the one that was in effect when they were defined. This happens most commonly when a nested function object is returned from the function within which it was defined. There are a number of powerful programming techniques that involve this kind of nested function closures, and their use has become relatively common in JavaScript programming. Closures may seem confusing when you first en- counter them, but it is important that you understand them well enough to use them comfortably.</p></blockquote><blockquote><p>JavaScript, The Definite Guide</p></blockquote></blockquote><p>我有了买这本书的理由了</p></blockquote><p>买的哪本书</p></td></tr></tbody></table>
+
+<p><a target="_blank" rel="noopener" href="https://github.com/ShaoHans"><img src="https://avatars.githubusercontent.com/u/20715749?s=88&u=f4ccc93d44c9406926345e3da4de033dd58d37b3&v=4" alt="@ShaoHans"></a></p>
+<p>Copy link</p>
+<h3 id="ShaoHans-commented-Jun-19-2020-•"><a href="#ShaoHans-commented-Jun-19-2020-•" class="headerlink" title=" ** ShaoHans ** commented Jun 19, 2020  •"></a><a target="_blank" rel="noopener" href="https://github.com/ShaoHans"><img src="https://avatars.githubusercontent.com/u/20715749?s=60&u=f4ccc93d44c9406926345e3da4de033dd58d37b3&v=4" alt="@ShaoHans"></a> ** <a target="_blank" rel="noopener" href="https://github.com/ShaoHans">ShaoHans</a> ** commented <a href="about:blank#issuecomment-646465466">Jun 19, 2020</a>  •</h3><p>edited</p>
+<table class="d-block" data-paste-markdown-skip><tbody class="d-block"><tr class="d-block"><td class="d-block comment-body markdown-body  js-comment-body"><p><a target="_blank" rel="noopener noreferrer" href="https://user-images.githubusercontent.com/20715749/85103718-c834b980-b239-11ea-9e22-310b086effe3.png"><img src="https://user-images.githubusercontent.com/20715749/85103718-c834b980-b239-11ea-9e22-310b086effe3.png" alt="image" style="max-width:100%;"></a><br>@你好，我是通过截图中的推荐阅读找到的你这篇文章。截图中的代码和你的代码机几乎是一样的，只是value的值和书写的位置不一样，但都是全局变量。但截图中说答案是3，而且也给出了解释。但我实际执行了一次，结果是2，如你解释的一样。这篇文章是不是误人子弟啊，原文链接：<a rel="nofollow noopener" target="_blank" href="http://es.xiecheng.live/es6/scope-let-const.html">http://es.xiecheng.live/es6/scope-let-const.html</a></p></td></tr></tbody></table>
+
+<p><a target="_blank" rel="noopener" href="https://github.com/xiaodiao1212"><img src="https://avatars.githubusercontent.com/u/14543505?s=88&v=4" alt="@xiaodiao1212"></a></p>
+<p>Copy link</p>
+<h3 id="xiaodiao1212-commented-Jun-19-2020"><a href="#xiaodiao1212-commented-Jun-19-2020" class="headerlink" title=" ** xiaodiao1212 ** commented Jun 19, 2020"></a><a target="_blank" rel="noopener" href="https://github.com/xiaodiao1212"><img src="https://avatars.githubusercontent.com/u/14543505?s=60&v=4" alt="@xiaodiao1212"></a> ** <a target="_blank" rel="noopener" href="https://github.com/xiaodiao1212">xiaodiao1212</a> ** commented <a href="about:blank#issuecomment-646469052">Jun 19, 2020</a></h3><table class="d-block" data-paste-markdown-skip><tbody class="d-block"><tr class="d-block"><td class="d-block comment-body markdown-body email-format js-comment-body"><div class="email-fragment">作者确实对局部作用域判断有失误，指出错误并且改正就好了，不用说的这么严重，上纲上线！谁没有失误的时候呢，莫慌，淡定～这样也能体现你自己的优秀啊 原始邮件 发件人: ShaoHans&lt;notifications@github.com&gt; 收件人: mqyqingfeng/Blog&lt;Blog@noreply.github.com&gt; 抄送: Subscribed&lt;subscribed@noreply.github.com&gt; 发送时间: 2020年6月19日(周五) 14:42 主题: Re: [mqyqingfeng/Blog] JavaScript深入之词法作用域和动态作用域 (<a class="issue-link js-issue-link" data-error-text="Failed to load title" data-id="223621840" data-permission-text="Title is private" data-url="https://github.com/mqyqingfeng/Blog/issues/3" target="_blank" rel="noopener" href="https://github.com/mqyqingfeng/Blog/issues/3">#3</a>) @你好，我是通过截图中的推荐阅读找到的你这篇文章。截图中的代码和你的代码机几乎是一样的，只是value的值和书写的位置不一样，但都是全局变量。但截图中说答案是3，而且也给出了解释。但我实际执行了一次，结果是2，如你解释的一样。这篇文章是不是误人子弟啊，原文链接：<a target="_blank" rel="noopener" href="http://es.xiecheng.live/es6/scope-let-const.html#%E4%BD%9C%E7%94%A8%E5%9F%9F">http://es.xiecheng.live/es6/scope-let-const.html#%E4%BD%9C%E7%94%A8%E5%9F%9F</a> — You are receiving this because you are subscribed to this thread. Reply to this email directly, view it on GitHub, or unsubscribe.</div></td></tr></tbody></table>
+
+<p><a target="_blank" rel="noopener" href="https://github.com/ShaoHans"><img src="https://avatars.githubusercontent.com/u/20715749?s=88&u=f4ccc93d44c9406926345e3da4de033dd58d37b3&v=4" alt="@ShaoHans"></a></p>
+<p>Copy link</p>
+<h3 id="ShaoHans-commented-Jun-19-2020"><a href="#ShaoHans-commented-Jun-19-2020" class="headerlink" title=" ** ShaoHans ** commented Jun 19, 2020"></a><a target="_blank" rel="noopener" href="https://github.com/ShaoHans"><img src="https://avatars.githubusercontent.com/u/20715749?s=60&u=f4ccc93d44c9406926345e3da4de033dd58d37b3&v=4" alt="@ShaoHans"></a> ** <a target="_blank" rel="noopener" href="https://github.com/ShaoHans">ShaoHans</a> ** commented <a href="about:blank#issuecomment-646480644">Jun 19, 2020</a></h3><table class="d-block" data-paste-markdown-skip><tbody class="d-block"><tr class="d-block"><td class="d-block comment-body markdown-body  js-comment-body"><blockquote><p>作者确实对局部作用域判断有失误，指出错误并且改正就好了，不用说的这么严重，上纲上线！谁没有失误的时候呢，莫慌，淡定～这样也能体现你自己的优秀啊 原始邮件 发件人: ShaoHans<a href="mailto:notifications@github.com">notifications@github.com</a> 收件人: mqyqingfeng/Blog<a href="mailto:Blog@noreply.github.com">Blog@noreply.github.com</a> 抄送: Subscribed<a href="mailto:subscribed@noreply.github.com">subscribed@noreply.github.com</a> 发送时间: 2020年6月19日(周五) 14:42 主题: Re: [mqyqingfeng/Blog] JavaScript深入之词法作用域和动态作用域 (<a class="issue-link js-issue-link" data-error-text="Failed to load title" data-id="223621840" data-permission-text="Title is private" data-url="https://github.com/mqyqingfeng/Blog/issues/3" data-hovercard-type="issue" data-hovercard-url="/mqyqingfeng/Blog/issues/3/hovercard" target="_blank" rel="noopener" href="https://github.com/mqyqingfeng/Blog/issues/3">#3</a>) @你好，我是通过截图中的推荐阅读找到的你这篇文章。截图中的代码和你的代码机几乎是一样的，只是value的值和书写的位置不一样，但都是全局变量。但截图中说答案是3，而且也给出了解释。但我实际执行了一次，结果是2，如你解释的一样。这篇文章是不是误人子弟啊，原文链接：<a target="_blank" href="http://es.xiecheng.live/es6/scope-let-const.html#%E4%BD%9C%E7%94%A8%E5%9F%9F" rel="nofollow noopener">http://es.xiecheng.live/es6/scope-let-const.html#%E4%BD%9C%E7%94%A8%E5%9F%9F</a> — You are receiving this because you are subscribed to this thread. Reply to this email directly, view it on GitHub, or unsubscribe.</p></blockquote><p>嗯嗯，没办法联系到作者，我也很想给他改掉。</p></td></tr></tbody></table>
+
+<p><a target="_blank" rel="noopener" href="https://github.com/conan1992"><img src="https://avatars.githubusercontent.com/u/22317999?s=60&u=236140f4227c7e3c9ae65a082c88853b7dc7b025&v=4" alt="@conan1992"></a> <a target="_blank" rel="noopener" href="https://github.com/conan1992">conan1992</a> mentioned this issue <a href="about:blank#ref-issue-642716621">Jun 22, 2020</a> </p>
+<p><a target="_blank" rel="noopener" href="https://github.com/conan1992/blog/issues/32">作用域、作用域链、闭包 conan1992/blog#32</a></p>
+<p>Open</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/js100cc"><img src="https://avatars.githubusercontent.com/u/52318200?s=88&v=4" alt="@js100cc"></a></p>
+<p>Copy link</p>
+<h3 id="js100cc-commented-Jun-23-2020"><a href="#js100cc-commented-Jun-23-2020" class="headerlink" title=" ** js100cc ** commented Jun 23, 2020"></a><a target="_blank" rel="noopener" href="https://github.com/js100cc"><img src="https://avatars.githubusercontent.com/u/52318200?s=60&v=4" alt="@js100cc"></a> ** <a target="_blank" rel="noopener" href="https://github.com/js100cc">js100cc</a> ** commented <a href="about:blank#issuecomment-648090286">Jun 23, 2020</a></h3><table class="d-block" data-paste-markdown-skip><tbody class="d-block"><tr class="d-block"><td class="d-block comment-body markdown-body  js-comment-body"><blockquote><p>this应该就是典型的动态作用域吧.</p></blockquote><p><code>this</code> 具有类似动态作用域的特性，但不是<strong>典型</strong>动态作用域。动态作用域基于 callstack，作用域链单向的像下层 frame 引用。而 <code>this</code> 只寻址当前函数（非箭头函数），根据函数执行方式由引擎传从 heap 取值传入 frame。</p><p>作为对比，JS 词法作用域是基于 heap 的，作用域关系不受 callstack 的影响，即任何时候都按源代码词法结构生成词法环境底层数据结构（放在 heap 中）。作用域链根据词法环境的单向引用关系。这是 JS 实现闭包的基础。</p></td></tr></tbody></table>
+
+<p><a target="_blank" rel="noopener" href="https://github.com/daydaylee1227"><img src="https://avatars.githubusercontent.com/u/34484322?s=60&u=eba3d5d2c312917b67c8f5fc13ecd209ce6c138d&v=4" alt="@daydaylee1227"></a> <a target="_blank" rel="noopener" href="https://github.com/daydaylee1227">daydaylee1227</a> mentioned this issue <a href="about:blank#ref-issue-646588107">Jun 27, 2020</a> </p>
+<p><a target="_blank" rel="noopener" href="https://github.com/daydaylee1227/Blog/issues/4">聊一聊JavaScript作用域 daydaylee1227/Blog#4</a></p>
+<p>Open</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/afishhhhh"><img src="https://avatars.githubusercontent.com/u/13151172?s=88&u=3fa82fa348e2a0e7e857038b16a5a64e362dcccf&v=4" alt="@afishhhhh"></a></p>
+<p>Copy link</p>
+<h3 id="afishhhhh-commented-Jul-14-2020"><a href="#afishhhhh-commented-Jul-14-2020" class="headerlink" title=" ** afishhhhh ** commented Jul 14, 2020"></a><a target="_blank" rel="noopener" href="https://github.com/afishhhhh"><img src="https://avatars.githubusercontent.com/u/13151172?s=60&u=3fa82fa348e2a0e7e857038b16a5a64e362dcccf&v=4" alt="@afishhhhh"></a> ** <a target="_blank" rel="noopener" href="https://github.com/afishhhhh">afishhhhh</a> ** commented <a href="about:blank#issuecomment-658270309">Jul 14, 2020</a></h3><table class="d-block" data-paste-markdown-skip><tbody class="d-block"><tr class="d-block"><td class="d-block comment-body markdown-body  js-comment-body"><blockquote><blockquote><p><a class="user-mention" data-hovercard-type="user" data-hovercard-url="/users/mqyqingfeng/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" target="_blank" rel="noopener" href="https://github.com/mqyqingfeng">@mqyqingfeng</a> 但是两种写法都能正常运行哦， 按词法作用域的理解应该是输出undefined</p></blockquote><p>如果logA() 在 const a = 1; 之前执行就是输出 undefined，按照顺序执行时作用域就已经确定了</p></blockquote><p>这样的话会报 ReferenceError</p></td></tr></tbody></table>
+
+<p><a target="_blank" rel="noopener" href="https://github.com/70hnXX"><img src="https://avatars.githubusercontent.com/u/59349266?s=88&v=4" alt="@70hnXX"></a></p>
+<p>Copy link</p>
+<h3 id="70hnXX-commented-Aug-20-2020"><a href="#70hnXX-commented-Aug-20-2020" class="headerlink" title=" ** 70hnXX ** commented Aug 20, 2020"></a><a target="_blank" rel="noopener" href="https://github.com/70hnXX"><img src="https://avatars.githubusercontent.com/u/59349266?s=60&v=4" alt="@70hnXX"></a> ** <a target="_blank" rel="noopener" href="https://github.com/70hnXX">70hnXX</a> ** commented <a href="about:blank#issuecomment-677439212">Aug 20, 2020</a></h3><table class="d-block" data-paste-markdown-skip><tbody class="d-block"><tr class="d-block"><td class="d-block comment-body markdown-body  js-comment-body"><blockquote><div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> <span class="pl-s1">value</span> <span class="pl-c1">=</span> <span class="pl-c1">1</span><span class="pl-kos">;</span>
+<span class="pl-k">function</span> <span class="pl-en">bar</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">{</span>
+    <span class="pl-k">var</span> <span class="pl-s1">value</span> <span class="pl-c1">=</span><span class="pl-c1">2</span><span class="pl-kos">;</span>
+    <span class="pl-smi">console</span><span class="pl-kos">.</span><span class="pl-en">log</span><span class="pl-kos">(</span><span class="pl-s1">value</span><span class="pl-kos">)</span>
+<span class="pl-kos">}</span>
+<span class="pl-en">bar</span><span class="pl-kos">(</span><span class="pl-kos">)</span> <span class="pl-c">//2</span></pre></div><p>为什么这回又返回2了呢？ 我还是没理解</p></blockquote><p>console.log(value)是一个函数啊,他定义的时候所在的作用域是在bar()的内部,然后在这个作用域内查找value,就查找到value = 2了.</p></td></tr></tbody></table>
+
+<p>👍 1</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/70hnXX"><img src="https://avatars.githubusercontent.com/u/59349266?s=88&v=4" alt="@70hnXX"></a></p>
+<p>Copy link</p>
+<h3 id="70hnXX-commented-Aug-20-2020-1"><a href="#70hnXX-commented-Aug-20-2020-1" class="headerlink" title=" ** 70hnXX ** commented Aug 20, 2020"></a><a target="_blank" rel="noopener" href="https://github.com/70hnXX"><img src="https://avatars.githubusercontent.com/u/59349266?s=60&v=4" alt="@70hnXX"></a> ** <a target="_blank" rel="noopener" href="https://github.com/70hnXX">70hnXX</a> ** commented <a href="about:blank#issuecomment-677441778">Aug 20, 2020</a></h3><table class="d-block" data-paste-markdown-skip><tbody class="d-block"><tr class="d-block"><td class="d-block comment-body markdown-body  js-comment-body"><blockquote><p>如果第二次不重新声明value的话，输出将会是2</p><pre><code>
+var value = 1;
+function foo() &#123;
+    console.log(value);
+&#125;
+function bar() &#123;
+    value = 2;
+    foo();
+&#125;
+bar();//2
+</code></pre></blockquote><p>没毛病啊,你修改了全局变量value的值,再打印value,当然是2了.</p></td></tr></tbody></table>
+
+<p><a target="_blank" rel="noopener" href="https://github.com/tuyongtao-T"><img src="https://avatars.githubusercontent.com/u/49391988?s=88&u=f7b182b4d8f471d5ac63d96ea5e779c63c44b793&v=4" alt="@tuyongtao-T"></a></p>
+<p>Copy link</p>
+<h3 id="tuyongtao-T-commented-Aug-20-2020"><a href="#tuyongtao-T-commented-Aug-20-2020" class="headerlink" title=" ** tuyongtao-T ** commented Aug 20, 2020"></a><a target="_blank" rel="noopener" href="https://github.com/tuyongtao-T"><img src="https://avatars.githubusercontent.com/u/49391988?s=60&u=f7b182b4d8f471d5ac63d96ea5e779c63c44b793&v=4" alt="@tuyongtao-T"></a> ** <a target="_blank" rel="noopener" href="https://github.com/tuyongtao-T">tuyongtao-T</a> ** commented <a href="about:blank#issuecomment-677448787">Aug 20, 2020</a></h3><table class="d-block" data-paste-markdown-skip><tbody class="d-block"><tr class="d-block"><td class="d-block comment-body markdown-body  js-comment-body"><blockquote><blockquote><div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> <span class="pl-s1">value</span> <span class="pl-c1">=</span> <span class="pl-c1">1</span><span class="pl-kos">;</span>
+<span class="pl-k">function</span> <span class="pl-en">bar</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">{</span>
+    <span class="pl-k">var</span> <span class="pl-s1">value</span> <span class="pl-c1">=</span><span class="pl-c1">2</span><span class="pl-kos">;</span>
+    <span class="pl-smi">console</span><span class="pl-kos">.</span><span class="pl-en">log</span><span class="pl-kos">(</span><span class="pl-s1">value</span><span class="pl-kos">)</span>
+<span class="pl-kos">}</span>
+<span class="pl-en">bar</span><span class="pl-kos">(</span><span class="pl-kos">)</span> <span class="pl-c">//2</span></pre></div><p>为什么这回又返回2了呢？ 我还是没理解</p></blockquote><p>console.log(value)是一个函数啊,他定义的时候所在的作用域是在bar()的内部,然后在这个作用域内查找value,就查找到value = 2了.</p></blockquote><blockquote><blockquote><p>如果第二次不重新声明value的话，输出将会是2</p><pre><code>
+var value = 1;
+function foo() &#123;
+    console.log(value);
+&#125;
+function bar() &#123;
+    value = 2;
+    foo();
+&#125;
+bar();//2
+</code></pre></blockquote><p>没毛病啊,你修改了全局变量value的值,再打印value,当然是2了.</p></blockquote><p>这里bar函数内是 value = 2;没有用var声明，自动成为全局变量，重写了value的值，所以打印的的2</p></td></tr></tbody></table>
+
+<p><a target="_blank" rel="noopener" href="https://github.com/zhaiyy"><img src="https://avatars.githubusercontent.com/u/11750109?s=60&u=42825447a082e48c129a954ce024633b4b8d85b2&v=4" alt="@zhaiyy"></a> <a target="_blank" rel="noopener" href="https://github.com/zhaiyy">zhaiyy</a> mentioned this issue <a href="about:blank#ref-issue-722971289">Oct 16, 2020</a> </p>
+<p><a target="_blank" rel="noopener" href="https://github.com/zhaiyy/Web-front-end-knowledge-summary/issues/2">JavaScript作用域和作用域链 zhaiyy/Web-front-end-knowledge-summary#2</a></p>
+<p>Closed</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/anjina"><img src="https://avatars.githubusercontent.com/u/32081858?s=88&u=41f57e9a5575b7d4bdec42db96bede482a58962a&v=4" alt="@anjina"></a></p>
+<p>Copy link</p>
+<h3 id="anjina-commented-Oct-22-2020"><a href="#anjina-commented-Oct-22-2020" class="headerlink" title=" ** anjina ** commented Oct 22, 2020"></a><a target="_blank" rel="noopener" href="https://github.com/anjina"><img src="https://avatars.githubusercontent.com/u/32081858?s=60&u=41f57e9a5575b7d4bdec42db96bede482a58962a&v=4" alt="@anjina"></a> ** <a target="_blank" rel="noopener" href="https://github.com/anjina">anjina</a> ** commented <a href="about:blank#issuecomment-714823574">Oct 22, 2020</a></h3><table class="d-block" data-paste-markdown-skip><tbody class="d-block"><tr class="d-block"><td class="d-block comment-body markdown-body  js-comment-body"><blockquote><p>`<br>var x = 21;</p><pre><code>var talk = function () &#123;
+
+<pre><code>console.log(x);
+
+var x = 20;
+</code></pre>
+<p>};</p>
+<p>talk ();<br></p></code></pre><p>`<br>这个怎么用词法作用域解释下呢</p></blockquote></td></tr></tbody></table><p></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/anjina"><img src="https://avatars.githubusercontent.com/u/32081858?s=88&u=41f57e9a5575b7d4bdec42db96bede482a58962a&v=4" alt="@anjina"></a></p>
+<p>Copy link</p>
+<h3 id="anjina-commented-Oct-23-2020"><a href="#anjina-commented-Oct-23-2020" class="headerlink" title=" ** anjina ** commented Oct 23, 2020"></a><a target="_blank" rel="noopener" href="https://github.com/anjina"><img src="https://avatars.githubusercontent.com/u/32081858?s=60&u=41f57e9a5575b7d4bdec42db96bede482a58962a&v=4" alt="@anjina"></a> ** <a target="_blank" rel="noopener" href="https://github.com/anjina">anjina</a> ** commented <a href="about:blank#issuecomment-714825296">Oct 23, 2020</a></h3><table class="d-block" data-paste-markdown-skip><tbody class="d-block"><tr class="d-block"><td class="d-block comment-body markdown-body  js-comment-body"><p>talk 函数执行时的作用域链为 [talk.AO, globalContext.VO]， 在执行上下文的准备阶段，会进行活动对象AO的初始化，活动对象包括[ arguments, x=undefined] ; 在执行上下文的执行阶段，执行console.log时， 在talk的作用域中就找到了x， 所以直接打印 此时没有值， 打印为undefined</p></td></tr></tbody></table>
+
+<p><a target="_blank" rel="noopener" href="https://github.com/anjina"><img src="https://avatars.githubusercontent.com/u/32081858?s=88&u=41f57e9a5575b7d4bdec42db96bede482a58962a&v=4" alt="@anjina"></a></p>
+<p>Copy link</p>
+<h3 id="anjina-commented-Oct-23-2020-1"><a href="#anjina-commented-Oct-23-2020-1" class="headerlink" title=" ** anjina ** commented Oct 23, 2020"></a><a target="_blank" rel="noopener" href="https://github.com/anjina"><img src="https://avatars.githubusercontent.com/u/32081858?s=60&u=41f57e9a5575b7d4bdec42db96bede482a58962a&v=4" alt="@anjina"></a> ** <a target="_blank" rel="noopener" href="https://github.com/anjina">anjina</a> ** commented <a href="about:blank#issuecomment-714829878">Oct 23, 2020</a></h3><table class="d-block" data-paste-markdown-skip><tbody class="d-block"><tr class="d-block"><td class="d-block comment-body markdown-body  js-comment-body"><blockquote><p>闭包能理解，前面的静态作用域的例子不大能理解。。。为啥foo()中没找到value之后，就去最外层找了？不应该去bar()中找吗？求助大神们</p></blockquote><p>作用域在函数创建时就确定了，这就是词法作用域</p></td></tr></tbody></table>
+
+<p><a target="_blank" rel="noopener" href="https://github.com/anjina"><img src="https://avatars.githubusercontent.com/u/32081858?s=88&u=41f57e9a5575b7d4bdec42db96bede482a58962a&v=4" alt="@anjina"></a></p>
+<p>Copy link</p>
+<h3 id="anjina-commented-Oct-23-2020-2"><a href="#anjina-commented-Oct-23-2020-2" class="headerlink" title=" ** anjina ** commented Oct 23, 2020"></a><a target="_blank" rel="noopener" href="https://github.com/anjina"><img src="https://avatars.githubusercontent.com/u/32081858?s=60&u=41f57e9a5575b7d4bdec42db96bede482a58962a&v=4" alt="@anjina"></a> ** <a target="_blank" rel="noopener" href="https://github.com/anjina">anjina</a> ** commented <a href="about:blank#issuecomment-714831622">Oct 23, 2020</a></h3><table class="d-block" data-paste-markdown-skip><tbody class="d-block"><tr class="d-block"><td class="d-block comment-body markdown-body  js-comment-body"><blockquote><p>但是两种写法都能正常运行哦， 按词法作用域的理解应该是输出undefined</p></blockquote><p>词法作用域规定的是函数创建时候的作用域，函数logA的作用域链为[logA.AO, globalContext.VO]，在函数执行时，外层作用域已经定义并赋值了 变量a ，所以logA console.log 查找a时，在当前作用域没有，在外层找到了 ，输出a</p></td></tr></tbody></table>
+
+<p><a target="_blank" rel="noopener" href="https://github.com/anjina"><img src="https://avatars.githubusercontent.com/u/32081858?s=88&u=41f57e9a5575b7d4bdec42db96bede482a58962a&v=4" alt="@anjina"></a></p>
+<p>Copy link</p>
+<h3 id="anjina-commented-Oct-23-2020-3"><a href="#anjina-commented-Oct-23-2020-3" class="headerlink" title=" ** anjina ** commented Oct 23, 2020"></a><a target="_blank" rel="noopener" href="https://github.com/anjina"><img src="https://avatars.githubusercontent.com/u/32081858?s=60&u=41f57e9a5575b7d4bdec42db96bede482a58962a&v=4" alt="@anjina"></a> ** <a target="_blank" rel="noopener" href="https://github.com/anjina">anjina</a> ** commented <a href="about:blank#issuecomment-714832994">Oct 23, 2020</a></h3><table class="d-block" data-paste-markdown-skip><tbody class="d-block"><tr class="d-block"><td class="d-block comment-body markdown-body  js-comment-body"><blockquote><blockquote><p><a class="user-mention" data-hovercard-type="user" data-hovercard-url="/users/mqyqingfeng/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" target="_blank" rel="noopener" href="https://github.com/mqyqingfeng">@mqyqingfeng</a> 但是两种写法都能正常运行哦， 按词法作用域的理解应该是输出undefined</p></blockquote><p>如果logA() 在 const a = 1; 之前执行就是输出 undefined，按照顺序执行时作用域就已经确定了</p></blockquote><p>这个 应该是会报错的， const 定义变量，存在暂时性死区， 不能在声明前访问</p></td></tr></tbody></table>
+
+<p><a target="_blank" rel="noopener" href="https://github.com/youjiaqi421"><img src="https://avatars.githubusercontent.com/u/59857905?s=88&v=4" alt="@youjiaqi421"></a></p>
+<p>Copy link</p>
+<h3 id="youjiaqi421-commented-Nov-5-2020"><a href="#youjiaqi421-commented-Nov-5-2020" class="headerlink" title=" ** youjiaqi421 ** commented Nov 5, 2020"></a><a target="_blank" rel="noopener" href="https://github.com/youjiaqi421"><img src="https://avatars.githubusercontent.com/u/59857905?s=60&v=4" alt="@youjiaqi421"></a> ** <a target="_blank" rel="noopener" href="https://github.com/youjiaqi421">youjiaqi421</a> ** commented <a href="about:blank#issuecomment-722320694">Nov 5, 2020</a></h3><table class="d-block" data-paste-markdown-skip><tbody class="d-block"><tr class="d-block"><td class="d-block comment-body markdown-body  js-comment-body"><p>一个函数是一个作用域 因为js词法作用域,所以当第一个foo函数Ao对象没有对应的值的时候回去window上寻找也就是Go对象上寻找,而动态语法就是函数在那个函数体里运行,并且所处的作用域也就是这个函数的作用域,</p></td></tr></tbody></table>
+
+<p><a target="_blank" rel="noopener" href="https://github.com/youjiaqi421"><img src="https://avatars.githubusercontent.com/u/59857905?s=60&v=4" alt="@youjiaqi421"></a> <a target="_blank" rel="noopener" href="https://github.com/youjiaqi421">youjiaqi421</a> mentioned this issue <a href="about:blank#ref-issue-736910061">Nov 5, 2020</a> </p>
+<p><a target="_blank" rel="noopener" href="https://github.com/mqyqingfeng/Blog/issues/188"><img src="https://user-images.githubusercontent.com/20715749/85103718-c834b980-b239-11ea-9e22-310b086effe3.png" alt="image"> #188</a></p>
+<p>Open</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/webbj97"><img src="https://avatars.githubusercontent.com/u/37955708?s=60&u=0906f51a5c2a46855977f2970663acbc3d4c0da4&v=4" alt="@webbj97"></a> <a target="_blank" rel="noopener" href="https://github.com/webbj97">webbj97</a> mentioned this issue <a href="about:blank#ref-issue-747300407">Nov 20, 2020</a> </p>
+<p><a target="_blank" rel="noopener" href="https://github.com/webbj97/summary/issues/3">JavaScript基础（三）作用域 webbj97/summary#3</a></p>
+<p>Open</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/Zijue"><img src="https://avatars.githubusercontent.com/u/38326100?s=60&v=4" alt="@Zijue"></a> <a target="_blank" rel="noopener" href="https://github.com/Zijue">Zijue</a> mentioned this issue <a href="about:blank#ref-issue-758212231">Dec 8, 2020</a> </p>
+<p><a target="_blank" rel="noopener" href="https://github.com/Zijue/blog/issues/7">作用域、执行上下文、作用域链 Zijue/blog#7</a></p>
+<p>Open</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/guapi233"><img src="https://avatars.githubusercontent.com/u/37857727?s=60&u=3533cc7c70aac91b7e4dc904e5e6e2a8f77ce742&v=4" alt="@guapi233"></a> <a target="_blank" rel="noopener" href="https://github.com/guapi233">guapi233</a> mentioned this issue <a href="about:blank#ref-issue-770754751">Dec 18, 2020</a> </p>
+<p><a target="_blank" rel="noopener" href="https://github.com/guapi233/Blog/issues/44">理解JavaScript执行上下文 guapi233/Blog#44</a></p>
+<p>Open</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/iszhangjin"><img src="https://avatars.githubusercontent.com/u/41406987?s=88&v=4" alt="@iszhangjin"></a></p>
+<p>Copy link</p>
+<h3 id="iszhangjin-commented-Jan-17-2021-•"><a href="#iszhangjin-commented-Jan-17-2021-•" class="headerlink" title=" ** iszhangjin ** commented Jan 17, 2021  •"></a><a target="_blank" rel="noopener" href="https://github.com/iszhangjin"><img src="https://avatars.githubusercontent.com/u/41406987?s=60&v=4" alt="@iszhangjin"></a> ** <a target="_blank" rel="noopener" href="https://github.com/iszhangjin">iszhangjin</a> ** commented <a href="about:blank#issuecomment-761811244">Jan 17, 2021</a>  •</h3><p>edited</p>
+<table class="d-block" data-paste-markdown-skip><tbody class="d-block"><tr class="d-block"><td class="d-block comment-body markdown-body  js-comment-body"><blockquote><div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> <span class="pl-s1">a</span> <span class="pl-c1">=</span> <span class="pl-c1">10</span><span class="pl-kos">;</span>
+<span class="pl-k">var</span> <span class="pl-s1">o</span> <span class="pl-c1">=</span> <span class="pl-kos">{</span>
+     <span class="pl-c1">a</span>:<span class="pl-c1">11</span><span class="pl-kos">,</span>
+     <span class="pl-c1">b</span>:<span class="pl-kos">{</span>
+         <span class="pl-en">fn</span>:<span class="pl-k">function</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">{</span>
+              <span class="pl-smi">console</span><span class="pl-kos">.</span><span class="pl-en">log</span><span class="pl-kos">(</span><span class="pl-s1">a</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+         <span class="pl-kos">}</span>
+     <span class="pl-kos">}</span>
+<span class="pl-kos">}</span>
+<span class="pl-s1">o</span><span class="pl-kos">.</span><span class="pl-c1">b</span><span class="pl-kos">.</span><span class="pl-en">fn</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">;</span></pre></div><p>函数包裹函数那种作用域理解了，这样的又有点懵了</p></blockquote><p>es6之前只有全局作用域和函数作用域，后面有了局部作用域。你这里声明一个具有属性a的对象o，其实并没有创建作用域</p></td></tr></tbody></table>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -446,7 +598,7 @@
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -471,17 +623,108 @@
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2021/02/20/actionScope/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2021/02/24/cookie/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          cookie
+        
+      </div>
+    </a>
   
   
-    </div></section>
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -504,8 +747,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
