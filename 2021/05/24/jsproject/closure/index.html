@@ -6,16 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>God-son</title>
+  <title>带你看透闭包的本质，百发百中 | God-son</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="本人的一些学习笔记及工作过程中遇到的问题填过的坑">
-<meta property="og:type" content="website">
-<meta property="og:title" content="God-son">
-<meta property="og:url" content="http://example.com/page/3/index.html">
+  <meta name="description" content="1、概念闭包函数：声明在一个函数中的函数，叫做闭包函数。 闭包：内部函数总是可以访问其所在的外部函数中声明的参数和变量，即使在其外部函数被返回（寿命终结）了之后。 2、特点 让外部访问函数内部变量成为可能；  局部变量会常驻在内存中；  可以避免使用全局变量，防止全局变量污染；  会造成内存泄漏（有一块内存空间被长期占用，而不被释放）">
+<meta property="og:type" content="article">
+<meta property="og:title" content="带你看透闭包的本质，百发百中">
+<meta property="og:url" content="http://example.com/2021/05/24/jsproject/closure/index.html">
 <meta property="og:site_name" content="God-son">
-<meta property="og:description" content="本人的一些学习笔记及工作过程中遇到的问题填过的坑">
+<meta property="og:description" content="1、概念闭包函数：声明在一个函数中的函数，叫做闭包函数。 闭包：内部函数总是可以访问其所在的外部函数中声明的参数和变量，即使在其外部函数被返回（寿命终结）了之后。 2、特点 让外部访问函数内部变量成为可能；  局部变量会常驻在内存中；  可以避免使用全局变量，防止全局变量污染；  会造成内存泄漏（有一块内存空间被长期占用，而不被释放）">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-05-24T06:15:15.000Z">
+<meta property="article:modified_time" content="2021-05-24T06:16:08.391Z">
 <meta property="article:author" content="qingtao Yang">
+<meta property="article:tag" content="js">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="God-son" type="application/atom+xml">
@@ -152,106 +155,107 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-my-first-blog" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-jsproject/closure" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/02/24/my-first-blog/">vue3笔记</a>
+    <h1 class="article-title" itemprop="name">
+      带你看透闭包的本质，百发百中
     </h1>
   
 
         
-        <a href="/2021/02/24/my-first-blog/" class="archive-article-date">
-  	<time datetime="2021-02-24T09:01:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-02-24</time>
+        <a href="/2021/05/24/jsproject/closure/" class="archive-article-date">
+  	<time datetime="2021-05-24T06:15:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-05-24</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>1.setUp取代了befocreate 与 created 之间<br>2.setUp 不可以使用this<br>3.渲染流程mount-&gt;render-&gt;patch-&gt;processComponent-&gt;mountComponent<br>4 <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/306594318">https://zhuanlan.zhihu.com/p/306594318</a> 源码分析<br>5.（1）按需编译体积比vue2.0更小 treeShanking support</p>
-        
-          <a class="article-more-a" href="/2021/02/24/my-first-blog/#more">more >></a>
-        
+        <h3 id="1、概念"><a href="#1、概念" class="headerlink" title="1、概念"></a>1、概念</h3><p><strong>闭包函数：</strong>声明在一个函数中的函数，叫做闭包函数。</p>
+<p><strong>闭包：</strong>内部函数总是可以访问其所在的外部函数中声明的参数和变量，即使在其外部函数被返回（寿命终结）了之后。</p>
+<h3 id="2、特点"><a href="#2、特点" class="headerlink" title="2、特点"></a>2、特点</h3><p> 让外部访问函数内部变量成为可能；</p>
+<p> 局部变量会常驻在内存中；</p>
+<p> 可以避免使用全局变量，防止全局变量污染；</p>
+<p> 会造成内存泄漏（有一块内存空间被长期占用，而不被释放）<br> <span id="more"></span></p>
+<h3 id="3、闭包的创建：­­­"><a href="#3、闭包的创建：­­­" class="headerlink" title="3、闭包的创建：­­­"></a>3、<strong>闭包的创建：</strong>­­­</h3><p>闭包就是可以创建一个独立的环境，每个闭包里面的环境都是独立的，互不干扰。闭包会发生内存泄漏，<strong>每次外部函数执行的时 候，外部函数的引用地址不同，都会重新创建一个新的地址。</strong>但凡是当前活动对象中有被内部子集引用的数据，那么这个时候，这个数据不删除，保留一根指针给内部活动对象。</p>
+<p>闭包内存泄漏为： key = value，key 被删除了 value 常驻内存中; 局部变量闭包升级版（中间引用的变量） =&gt; 自由变量；</p>
+<p>上面的都是什么鬼，是人话么，能看懂早就看懂了，生气······</p>
+<p>不过，答应我，看完例子再回看上面的概念，会理解的更！透！彻！</p>
+<h3 id="——————————————–我是容易看懂的分界线———————————————–"><a href="#——————————————–我是容易看懂的分界线———————————————–" class="headerlink" title="-——————————————–我是容易看懂的分界线———————————————–"></a>-——————————————–我是容易看懂的分界线———————————————–</h3><h3 id="4、闭包的应用场景"><a href="#4、闭包的应用场景" class="headerlink" title="4、闭包的应用场景"></a><strong>4、闭包的应用场景</strong></h3><h1 id="结论：-闭包找到的是同一地址中父级函数中对应变量最终的值"><a href="#结论：-闭包找到的是同一地址中父级函数中对应变量最终的值" class="headerlink" title="结论：**闭包找到的是同一地址中父级函数中对应变量最终的值**"></a><strong>结论：**</strong>闭包找到的是同一地址中父级函数中对应变量最终的值**</h1><p><strong>最终秘诀就这一句话，每个例子请自行带入这个结论！！！！！！！！！！！！！</strong></p>
+<p><strong>/* 例子1 */</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">function funA()&#123;</span><br><span class="line">  var a &#x3D; 10;  &#x2F;&#x2F; funA的活动对象之中;</span><br><span class="line">  return function()&#123;   &#x2F;&#x2F;匿名函数的活动对象;</span><br><span class="line">        alert(a);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">var b &#x3D; funA();</span><br><span class="line">b();  &#x2F;&#x2F;10 </span><br></pre></td></tr></table></figure>
+
+<p><strong>/* 例子2 */</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">function outerFn()&#123;</span><br><span class="line">  var i &#x3D; 0; </span><br><span class="line">  function innerFn()&#123;</span><br><span class="line">      i++;</span><br><span class="line">      console.log(i);</span><br><span class="line">  &#125;</span><br><span class="line">  return innerFn;</span><br><span class="line">&#125;</span><br><span class="line">var inner &#x3D; outerFn();  &#x2F;&#x2F;每次外部函数执行的时候,都会开辟一块内存空间,外部函数的地址不同，都会重新创建一个新的地址</span><br><span class="line">inner();</span><br><span class="line">inner();</span><br><span class="line">inner();</span><br><span class="line">var inner2 &#x3D; outerFn();</span><br><span class="line">inner2();</span><br><span class="line">inner2();</span><br><span class="line">inner2();   &#x2F;&#x2F;1 2 3 1 2 3 </span><br></pre></td></tr></table></figure>
+
+<p><strong>/* 例子3 */</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">var i &#x3D; 0;</span><br><span class="line">function outerFn()&#123;</span><br><span class="line">  function innnerFn()&#123;</span><br><span class="line">       i++;</span><br><span class="line">       console.log(i);</span><br><span class="line">  &#125;</span><br><span class="line">  return innnerFn;</span><br><span class="line">&#125;</span><br><span class="line">var inner1 &#x3D; outerFn();</span><br><span class="line">var inner2 &#x3D; outerFn();</span><br><span class="line">inner1();</span><br><span class="line">inner2();</span><br><span class="line">inner1();</span><br><span class="line">inner2();     &#x2F;&#x2F;1 2 3 4 </span><br></pre></td></tr></table></figure>
+
+<p><strong>/* 例子4 */</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">function fn()&#123;</span><br><span class="line">	var a &#x3D; 3;</span><br><span class="line">	return function()&#123;</span><br><span class="line">		return  ++a;                                     </span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">alert(fn()());  &#x2F;&#x2F;4</span><br><span class="line">alert(fn()());  &#x2F;&#x2F;4 </span><br></pre></td></tr></table></figure>
+
+<p><strong>/* 例子5 */</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">function outerFn()&#123;</span><br><span class="line">var i &#x3D; 0;</span><br><span class="line">  function innnerFn()&#123;</span><br><span class="line">      i++;</span><br><span class="line">      console.log(i);</span><br><span class="line">  &#125;</span><br><span class="line">  return innnerFn;</span><br><span class="line">&#125;</span><br><span class="line">var inner1 &#x3D; outerFn();</span><br><span class="line">var inner2 &#x3D; outerFn();</span><br><span class="line">inner1();</span><br><span class="line">inner2();</span><br><span class="line">inner1();</span><br><span class="line">inner2();    &#x2F;&#x2F;1 1 2 2 </span><br></pre></td></tr></table></figure>
+
+<p><strong>/* 例子6 */</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">(function() &#123; </span><br><span class="line">  var m &#x3D; 0; </span><br><span class="line">  function getM() &#123; return m; &#125; </span><br><span class="line">  function seta(val) &#123; m &#x3D; val; &#125; </span><br><span class="line">  window.g &#x3D; getM; </span><br><span class="line">  window.f &#x3D; seta; </span><br><span class="line">&#125;)(); </span><br><span class="line">f(100);</span><br><span class="line">console.info(g());   &#x2F;&#x2F;100  闭包找到的是同一地址中父级函数中对应变量最终的值 </span><br></pre></td></tr></table></figure>
+
+<p><strong>/* 例子7 */</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">function a() &#123; </span><br><span class="line">  var i &#x3D; 0; </span><br><span class="line">  function b() &#123; alert(++i); &#125; </span><br><span class="line">  return b; </span><br><span class="line">&#125; </span><br><span class="line">var c &#x3D; a(); </span><br><span class="line">c();      &#x2F;&#x2F;1 </span><br><span class="line">c();      &#x2F;&#x2F;2 </span><br></pre></td></tr></table></figure>
+
+<p><strong>/* 例子8 */</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">function f() &#123; </span><br><span class="line">  var count &#x3D; 0; </span><br><span class="line">  return  function() &#123; </span><br><span class="line">      count++; </span><br><span class="line">      console.info(count); </span><br><span class="line">  &#125; </span><br><span class="line">&#125; </span><br><span class="line">var t1 &#x3D; f();</span><br><span class="line">t1();     &#x2F;&#x2F;1 </span><br><span class="line">t1();     &#x2F;&#x2F;2 </span><br><span class="line">t1();     &#x2F;&#x2F;3 </span><br></pre></td></tr></table></figure>
+
+<p><strong>/* 例子9 */</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">var add &#x3D; function(x) &#123; </span><br><span class="line">  var sum &#x3D; 1; </span><br><span class="line">  var tmp &#x3D; function(x) &#123; </span><br><span class="line">      sum &#x3D; sum + x; </span><br><span class="line">      return tmp;    </span><br><span class="line">  &#125; </span><br><span class="line">  tmp.toString &#x3D; function() &#123; </span><br><span class="line">      return sum; </span><br><span class="line">  &#125;</span><br><span class="line">  return tmp; </span><br><span class="line">&#125; </span><br><span class="line">alert(add(1)(2)(3));     &#x2F;&#x2F;6 </span><br></pre></td></tr></table></figure>
+
+<p><strong>/* 例子10 */</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var lis &#x3D; document.getElementsByTagName(&quot;li&quot;);</span><br><span class="line">for(var i&#x3D;0;i&lt;lis.length;i++)&#123;</span><br><span class="line">  (function(i)&#123;</span><br><span class="line">      lis[i].onclick &#x3D; function()&#123;</span><br><span class="line">           console.log(i);</span><br><span class="line">      &#125;;</span><br><span class="line">  &#125;)(i);       &#x2F;&#x2F;事件处理函数中闭包的写法</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+
+<p><strong>/* 例子11 */</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">function m1()&#123;</span><br><span class="line">     var x &#x3D; 1;</span><br><span class="line">     return function()&#123;</span><br><span class="line">          console.log(++x);</span><br><span class="line">     &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">m1()();   &#x2F;&#x2F;2</span><br><span class="line">m1()();   &#x2F;&#x2F;2</span><br><span class="line">m1()();   &#x2F;&#x2F;2</span><br><span class="line"></span><br><span class="line">var m2 &#x3D; m1();</span><br><span class="line">m2();   &#x2F;&#x2F;2</span><br><span class="line">m2();   &#x2F;&#x2F;3</span><br><span class="line">m2();   &#x2F;&#x2F;4 </span><br></pre></td></tr></table></figure>
+
+<p><strong>/* 例子12 */</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var  fn&#x3D;(function()&#123;</span><br><span class="line">   var  i&#x3D;10;</span><br><span class="line">   function  fn()&#123;</span><br><span class="line">      console.log(++i);</span><br><span class="line">   &#125;</span><br><span class="line">   return   fn;</span><br><span class="line">&#125;)() </span><br><span class="line">fn();   &#x2F;&#x2F;11</span><br><span class="line">fn();   &#x2F;&#x2F;12 </span><br></pre></td></tr></table></figure>
+
+<p><strong>/* 例子13 */</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">function love1()&#123;</span><br><span class="line">     var num &#x3D; 223;</span><br><span class="line">     var me1 &#x3D; function() &#123;</span><br><span class="line">           console.log(num);</span><br><span class="line">     &#125;</span><br><span class="line">     num++;</span><br><span class="line">     return me1;</span><br><span class="line">&#125;</span><br><span class="line">var loveme1 &#x3D; love1();</span><br><span class="line">loveme1();   &#x2F;&#x2F;输出224 </span><br></pre></td></tr></table></figure>
+
+<p><strong>/* 例子14 */</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">function fun(n,o) &#123;</span><br><span class="line">    console.log(o);</span><br><span class="line">    return &#123;</span><br><span class="line">         fun:function(m) &#123;</span><br><span class="line">               return fun(m,n);</span><br><span class="line">         &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br><span class="line">var a &#x3D; fun(0);  &#x2F;&#x2F;undefined</span><br><span class="line">a.fun(1);  &#x2F;&#x2F;0  </span><br><span class="line">a.fun(2);  &#x2F;&#x2F;0  </span><br><span class="line">a.fun(3);  &#x2F;&#x2F;0  </span><br><span class="line">var b &#x3D; fun(0).fun(1).fun(2).fun(3);   &#x2F;&#x2F;undefined  0  1  2</span><br><span class="line">var c &#x3D; fun(0).fun(1);  </span><br><span class="line">c.fun(2);  </span><br><span class="line">c.fun(3);  &#x2F;&#x2F;undefined  0  1  1 </span><br></pre></td></tr></table></figure>
+
+<p><strong>/* 例子15 */</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">function fn()&#123;</span><br><span class="line">   var arr &#x3D; [];</span><br><span class="line">   for(var i &#x3D; 0;i &lt; 5;i ++)&#123;</span><br><span class="line">	 arr[i] &#x3D; function()&#123;</span><br><span class="line">		 return i;</span><br><span class="line">	 &#125;</span><br><span class="line">   &#125;</span><br><span class="line">   return arr;</span><br><span class="line">&#125;</span><br><span class="line">var list &#x3D; fn();</span><br><span class="line">for(var i &#x3D; 0,len &#x3D; list.length;i &lt; len ; i ++)&#123;</span><br><span class="line">   console.log(list[i]());</span><br><span class="line">&#125;  &#x2F;&#x2F;5 5 5 5 5 </span><br></pre></td></tr></table></figure>
+
+<p><strong>/* 例子16 */</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">function fn()&#123;</span><br><span class="line">  var arr &#x3D; [];</span><br><span class="line">  for(var i &#x3D; 0;i &lt; 5;i ++)&#123;</span><br><span class="line">	arr[i] &#x3D; (function(i)&#123;</span><br><span class="line">		return function ()&#123;</span><br><span class="line">			return i;</span><br><span class="line">		&#125;;</span><br><span class="line">	&#125;)(i);</span><br><span class="line">  &#125;</span><br><span class="line">  return arr;</span><br><span class="line">&#125;</span><br><span class="line">var list &#x3D; fn();</span><br><span class="line">for(var i &#x3D; 0,len &#x3D; list.length;i &lt; len ; i ++)&#123;</span><br><span class="line">  console.log(list[i]());</span><br><span class="line">&#125;  &#x2F;&#x2F;0 1 2 3 4 </span><br></pre></td></tr></table></figure>
       
 
       
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/02/24/my-first-blog/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-cookie" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/02/24/cookie/">cookie</a>
-    </h1>
-  
-
-        
-        <a href="/2021/02/24/cookie/" class="archive-article-date">
-  	<time datetime="2021-02-24T01:12:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-02-24</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <div class="edit-comment-hide">
-<task-lists disabled sortable>
-<table class="d-block" data-paste-markdown-skip>
-  <tbody class="d-block">
-    <tr class="d-block">
-      <td class="d-block comment-body markdown-body  js-comment-body">
-          <h2>前言</h2>
-<p>2 月份发布的 Chrome 80 版本中默认屏蔽了第三方的 Cookie，在灰度期间，就导致了阿里系的很多应用都产生了问题，为此还专门成立了小组，推动各 BU 进行改造，目前阿里系基本已经改造完成。所有的前端团队估计都收到过通知，也着实加深了一把大家对于 Cookie 的理解，所以很可能就此出个面试题，而即便不是面试题，当问到 HTTP 相关内容的时候，不妨也扯到这件事情来，一能表明你对前端时事的跟进，二还能借此引申到前端安全方面的内容，为你的面试加分。</p></td></tr></tbody></table></task-lists></div>
-        
-          <a class="article-more-a" href="/2021/02/24/cookie/#more">more >></a>
-        
-      
-
       
     </div>
     <div class="article-info article-info-index">
@@ -262,11 +266,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">ps</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">ai</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
         		</li>
       		
 		</ul>
@@ -282,15 +282,19 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="/categories/Diary/PlayStation//" class="article-tag-list-link color2">PlayStation</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
         			<a href="/categories/Diary/Games//" class="article-tag-list-link color1">Games</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
         			<a href="/categories/Life//" class="article-tag-list-link color5">Life</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/js//" class="article-tag-list-link color3">js</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/js/PlayStation//" class="article-tag-list-link color2">PlayStation</a>
         		</li>
       		
 		</ul>
@@ -298,16 +302,75 @@
 
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/02/24/cookie/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2021/05/24/jsproject/closure/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2021/05/24/jsproject/vueWebpack/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">vue-cli中 assetsPublicPath, assetsSubDirectory的区别</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -327,115 +390,14 @@
 
 
 
-
-  
-    <article id="post-actionScope" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/02/20/actionScope/">作用域</a>
-    </h1>
-  
-
-        
-        <a href="/2021/02/20/actionScope/" class="archive-article-date">
-  	<time datetime="2021-02-20T01:12:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-02-20</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <table class="d-block" data-paste-markdown-skip><tbody class="d-block"><tr class="d-block"><td class="d-block comment-body markdown-body  js-comment-body"><h2>作用域</h2><p>作用域是指程序源代码中定义变量的区域。</p><p>作用域规定了如何查找变量，也就是确定当前执行代码对变量的访问权限。</p><p>JavaScript 采用词法作用域(lexical scoping)，也就是静态作用域。</p><h2>静态作用域与动态作用域</h2><p>因为 JavaScript 采用的是词法作用域，函数的作用域在函数定义的时候就决定了。</p><p>而与词法作用域相对的是动态作用域，函数的作用域是在函数调用的时候才决定的。</p><p>让我们认真看个例子就能明白之间的区别：</p></td></tr></tbody></table>
-        
-          <a class="article-more-a" href="/2021/02/20/actionScope/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">ps</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">ai</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Diary//" class="article-tag-list-link color1">Diary</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Diary/PlayStation//" class="article-tag-list-link color2">PlayStation</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Diary/Games//" class="article-tag-list-link color1">Games</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Life//" class="article-tag-list-link color5">Life</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/02/20/actionScope/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
   
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/2/">上一页</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
-    </nav>
+  
+
+  
+
+  
+
   
 
 
@@ -458,8 +420,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
