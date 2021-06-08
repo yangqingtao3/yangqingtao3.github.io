@@ -8,17 +8,17 @@
   <link rel="dns-prefetch" href="http://example.com">
   <title>vue中$set和$delete | God-son</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="vue给对象新增属性对于一般的对象新增属性,只需要对象新增属性赋值操作就可以啦,但是不会触发视图更新.示例： 12345678910111213141516171819202122232425262728&lt;template&gt;  &lt;div&gt;     &lt;div class&#x3D;&quot;box&quot;&gt;       &lt;span&gt;姓名： &amp;#1">
+  <meta name="description" content="vue给对象新增属性对于一般的对象新增属性,只需要对象新增属性赋值操作就可以啦,但是不会触发视图更新.示例： 12345678910111213141516171819202122232425262728&lt;template&gt;  &lt;div&gt;     &lt;div class&#x3D;&quot;box&quot;&gt;       &lt;span&gt;姓名： &amp;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="vue中$set和$delete">
 <meta property="og:url" content="http://example.com/2021/05/28/jsproject/vue$set/index.html">
 <meta property="og:site_name" content="God-son">
-<meta property="og:description" content="vue给对象新增属性对于一般的对象新增属性,只需要对象新增属性赋值操作就可以啦,但是不会触发视图更新.示例： 12345678910111213141516171819202122232425262728&lt;template&gt;  &lt;div&gt;     &lt;div class&#x3D;&quot;box&quot;&gt;       &lt;span&gt;姓名： &amp;#1">
+<meta property="og:description" content="vue给对象新增属性对于一般的对象新增属性,只需要对象新增属性赋值操作就可以啦,但是不会触发视图更新.示例： 12345678910111213141516171819202122232425262728&lt;template&gt;  &lt;div&gt;     &lt;div class&#x3D;&quot;box&quot;&gt;       &lt;span&gt;姓名： &amp;">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://img2018.cnblogs.com/blog/1403465/201909/1403465-20190906144337355-173557479.jpg">
 <meta property="og:image" content="https://img2018.cnblogs.com/blog/1403465/201909/1403465-20190906144347355-1186899631.jpg">
 <meta property="article:published_time" content="2021-05-28T06:23:15.000Z">
-<meta property="article:modified_time" content="2021-05-28T06:33:54.058Z">
+<meta property="article:modified_time" content="2021-05-28T08:47:05.832Z">
 <meta property="article:author" content="qingtao Yang">
 <meta property="article:tag" content="js">
 <meta name="twitter:card" content="summary">
@@ -178,7 +178,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="vue给对象新增属性"><a href="#vue给对象新增属性" class="headerlink" title="vue给对象新增属性"></a>vue给对象新增属性</h3><p>对于一般的对象新增属性,只需要对象新增属性赋值操作就可以啦,但是不会触发视图更新.<br>示例：</p>
+        <meta name="referrer" content="no-referrer">
+
+<h3 id="vue给对象新增属性"><a href="#vue给对象新增属性" class="headerlink" title="vue给对象新增属性"></a>vue给对象新增属性</h3><p>对于一般的对象新增属性,只需要对象新增属性赋值操作就可以啦,但是不会触发视图更新.<br>示例：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">     &lt;div class&#x3D;&quot;box&quot;&gt;</span><br><span class="line">       &lt;span&gt;姓名： &#123;&#123;infos.name&#125;&#125;&lt;&#x2F;span&gt;</span><br><span class="line">       &lt;span&gt;&#123;&#123;infos.message&#125;&#125;&lt;&#x2F;span&gt;</span><br><span class="line">       &lt;button @click&#x3D;&quot;addtooltip&quot;&gt;查看信息&lt;&#x2F;button&gt;</span><br><span class="line">     &lt;&#x2F;div&gt;</span><br><span class="line">  &lt;&#x2F;div&gt;</span><br><span class="line">&lt;&#x2F;template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">  export default &#123;</span><br><span class="line">    name: &quot;module1&quot;,</span><br><span class="line">    data() &#123;</span><br><span class="line">      return &#123;</span><br><span class="line">        infos: &#123;</span><br><span class="line">          name: &#39;张三&#39;，</span><br><span class="line">          age: 24</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    methods:&#123;</span><br><span class="line">       addtooltip() &#123;</span><br><span class="line">          this.infos.message &#x3D; &#39;出生于四川遂宁&#39;;</span><br><span class="line">       &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&lt;&#x2F;script&gt; </span><br></pre></td></tr></table></figure>
 <span id="more"></span>
 <p>而在我们点击“查看信息”按钮时，看到页面并没有显示，而打印 <code>this.infos</code> 就有<code>message</code>字段，所以</p>

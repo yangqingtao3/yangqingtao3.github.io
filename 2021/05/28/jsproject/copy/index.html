@@ -8,14 +8,14 @@
   <link rel="dns-prefetch" href="http://example.com">
   <title>彻底弄清深浅拷贝 | God-son</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一、数据类型数据分为基本数据类型(String, Number, Boolean, Null, Undefined，Symbol)和对象数据类型。 1、基本数据类型的特点：直接存储在栈(stack)中的数据 2、引用数据类型的特点：存储的是该对象在栈中引用，真实的数据存放在堆内存里 引用数据类型在栈中存储了指针，该指针指向堆中该实体的起始地址。当解释器寻找引用值时，会首先检索其在栈中的地址，取得地">
+  <meta name="description" content="一、数据类型数据分为基本数据类型(String, Number, Boolean, Null, Undefined，Symbol)和对象数据类型。 1、基本数据类型的特点：直接存储在栈(stack)中的数据 2、引用数据类型的特点：存储的是该对象在栈中引用，真实的数据存放在堆内存里 引用数据类型在栈中存储了指针，该指针指向堆中该实体的起始地址。当解释器寻找引用值时，会首先检索其在栈中的地址，取">
 <meta property="og:type" content="article">
 <meta property="og:title" content="彻底弄清深浅拷贝">
 <meta property="og:url" content="http://example.com/2021/05/28/jsproject/copy/index.html">
 <meta property="og:site_name" content="God-son">
-<meta property="og:description" content="一、数据类型数据分为基本数据类型(String, Number, Boolean, Null, Undefined，Symbol)和对象数据类型。 1、基本数据类型的特点：直接存储在栈(stack)中的数据 2、引用数据类型的特点：存储的是该对象在栈中引用，真实的数据存放在堆内存里 引用数据类型在栈中存储了指针，该指针指向堆中该实体的起始地址。当解释器寻找引用值时，会首先检索其在栈中的地址，取得地">
+<meta property="og:description" content="一、数据类型数据分为基本数据类型(String, Number, Boolean, Null, Undefined，Symbol)和对象数据类型。 1、基本数据类型的特点：直接存储在栈(stack)中的数据 2、引用数据类型的特点：存储的是该对象在栈中引用，真实的数据存放在堆内存里 引用数据类型在栈中存储了指针，该指针指向堆中该实体的起始地址。当解释器寻找引用值时，会首先检索其在栈中的地址，取">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/13253432-74602a0f1cc0d432">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/13253432-74602a0f1cc0d432?imageMogr2/auto-orient/strip%7CimageView2/2/w/459/format/webp">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/13253432-aca35e0020358b3d">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/13253432-d07c828f441d8860.png">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/13253432-1336dee4c3871572.png">
@@ -26,11 +26,11 @@
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/13253432-69586c8b47ecf244.png">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/13253432-73ffbdd9677977af.png">
 <meta property="article:published_time" content="2021-05-28T06:51:15.000Z">
-<meta property="article:modified_time" content="2021-05-28T06:52:26.003Z">
+<meta property="article:modified_time" content="2021-05-28T08:46:35.263Z">
 <meta property="article:author" content="qingtao Yang">
 <meta property="article:tag" content="js">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/13253432-74602a0f1cc0d432">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/13253432-74602a0f1cc0d432?imageMogr2/auto-orient/strip%7CimageView2/2/w/459/format/webp">
   
     <link rel="alternative" href="/atom.xml" title="God-son" type="application/atom+xml">
   
@@ -186,11 +186,13 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="一、数据类型"><a href="#一、数据类型" class="headerlink" title="一、数据类型"></a>一、数据类型</h1><p>数据分为基本数据类型(String, Number, Boolean, Null, Undefined，Symbol)和对象数据类型。</p>
+        <meta name="referrer" content="no-referrer">
+
+<h1 id="一、数据类型"><a href="#一、数据类型" class="headerlink" title="一、数据类型"></a>一、数据类型</h1><p>数据分为基本数据类型(String, Number, Boolean, Null, Undefined，Symbol)和对象数据类型。</p>
 <p>1、基本数据类型的特点：直接存储在栈(stack)中的数据</p>
 <p>2、引用数据类型的特点：<strong>存储的是该对象在栈中引用，真实的数据存放在堆内存里</strong></p>
 <p>引用数据类型在栈中存储了指针，该指针指向堆中该实体的起始地址。当解释器寻找引用值时，会首先检索其在栈中的地址，取得地址后从堆中获得实体。</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/13253432-74602a0f1cc0d432"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/13253432-74602a0f1cc0d432?imageMogr2/auto-orient/strip%7CimageView2/2/w/459/format/webp"></p>
 <p>堆内存</p>
 <span id="more"></span>
 
@@ -386,6 +388,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2021/05/28/jsproject/sliceAndsplice/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          数组slice与splice的区别
+        
+      </div>
+    </a>
   
   
     <a href="/2021/05/28/jsproject/vue$set/" id="article-nav-older" class="article-nav-link-wrap">
