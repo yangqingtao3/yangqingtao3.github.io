@@ -6,17 +6,33 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Category: js | God-son</title>
+  <title>当 better-scroll 遇见 Vue  | God-son</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="本人的一些学习笔记及工作过程中遇到的问题填过的坑">
-<meta property="og:type" content="website">
-<meta property="og:title" content="God-son">
-<meta property="og:url" content="http://example.com/categories/js/index.html">
+  <meta name="description" content="通过前几天写的两篇博客(浅谈移动端三大viewport和移动端em和rem区别)，我们现在来总结一下如何实现一个最佳方案。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="当 better-scroll 遇见 Vue ">
+<meta property="og:url" content="http://example.com/2021/06/18/jsproject/yidongduan/index.html">
 <meta property="og:site_name" content="God-son">
-<meta property="og:description" content="本人的一些学习笔记及工作过程中遇到的问题填过的坑">
+<meta property="og:description" content="通过前几天写的两篇博客(浅谈移动端三大viewport和移动端em和rem区别)，我们现在来总结一下如何实现一个最佳方案。">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://images2015.cnblogs.com/blog/728583/201707/728583-20170720163716208-280508659.png">
+<meta property="og:image" content="https://images2015.cnblogs.com/blog/728583/201707/728583-20170720164343552-703337737.png">
+<meta property="og:image" content="https://images2015.cnblogs.com/blog/728583/201707/728583-20170720164409536-696709346.png">
+<meta property="og:image" content="https://images2015.cnblogs.com/blog/728583/201707/728583-20170720165956740-387883820.png">
+<meta property="og:image" content="https://images2015.cnblogs.com/blog/728583/201707/728583-20170720170122068-360567492.png">
+<meta property="og:image" content="https://images2015.cnblogs.com/blog/728583/201707/728583-20170720170503505-986259132.png">
+<meta property="og:image" content="https://images2015.cnblogs.com/blog/728583/201707/728583-20170720171654365-532217589.png">
+<meta property="og:image" content="https://images2015.cnblogs.com/blog/728583/201707/728583-20170720175329552-900228281.png">
+<meta property="og:image" content="https://images2015.cnblogs.com/blog/728583/201707/728583-20170720175306990-1807182573.png">
+<meta property="og:image" content="https://images2015.cnblogs.com/blog/728583/201707/728583-20170720175219802-1131772457.png">
+<meta property="og:image" content="https://images2015.cnblogs.com/blog/728583/201707/728583-20170720175246068-1476340299.png">
+<meta property="og:image" content="https://images2015.cnblogs.com/blog/728583/201707/728583-20170720175814005-2013799603.png">
+<meta property="article:published_time" content="2021-06-18T08:12:15.000Z">
+<meta property="article:modified_time" content="2021-06-18T08:52:54.283Z">
 <meta property="article:author" content="qingtao Yang">
+<meta property="article:tag" content="js">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://images2015.cnblogs.com/blog/728583/201707/728583-20170720163716208-280508659.png">
   
     <link rel="alternative" href="/atom.xml" title="God-son" type="application/atom+xml">
   
@@ -152,101 +168,95 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-jsproject/yidongduan" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2021" class="archive-year">2021</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/06/21/jsproject/ipone/" class="archive-article-date">
-  	<time datetime="2021-06-21T08:12:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-06-21</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/06/21/jsproject/ipone/">移动端适配 </a>
+    <h1 class="article-title" itemprop="name">
+      当 better-scroll 遇见 Vue 
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Diary//" class="article-tag-list-link color1">Diary</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Diary/Games//" class="article-tag-list-link color1">Games</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Life//" class="article-tag-list-link color5">Life</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/js//" class="article-tag-list-link color3">js</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/js/PlayStation//" class="article-tag-list-link color2">PlayStation</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/06/18/jsproject/yidongduan/" class="archive-article-date">
+        
+        <a href="/2021/06/18/jsproject/yidongduan/" class="archive-article-date">
   	<time datetime="2021-06-18T08:12:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-06-18</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/06/18/jsproject/yidongduan/">当 better-scroll 遇见 Vue </a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <meta name="referrer" content="no-referrer">
 
-        <div class="article-info info-on-right">
-          
+<p>通过前几天写的两篇博客(<a target="_blank" rel="noopener" href="http://www.cnblogs.com/ssh-007/p/7196748.html">浅谈移动端三大viewport</a>和<a target="_blank" rel="noopener" href="http://www.cnblogs.com/ssh-007/p/7207605.html">移动端em和rem区别</a>)，我们现在来总结一下如何实现一个最佳方案。</p>
+<span id="more"></span>
+<p>之前在第二篇博客中提到过我们可以使用媒体查询来针对不同设备及做适配，如下图</p>
+<p><img src="https://images2015.cnblogs.com/blog/728583/201707/728583-20170720163716208-280508659.png"></p>
+<p>但是这个可能不会太精准，比如我的设备布局viewport可能是370px，这样只能使用320这一版本。而事实上，他们的viewport并不相同，所以他们的布局也得不一样。也就是说我们如果用css媒体查询只能说是可以用，但不是最佳实践。其实通过看某些牛逼的移动端网站，可以看到他们的共同点，他们都是使用js方式来实现的。</p>
+<p><img src="https://images2015.cnblogs.com/blog/728583/201707/728583-20170720164343552-703337737.png"></p>
+<p><img src="https://images2015.cnblogs.com/blog/728583/201707/728583-20170720164409536-696709346.png"></p>
+<p> 可以看到，慕课网以及我们现在做的今日十大H5页面，他们共同的地方就是在根html上设置data-dpr以及font-size。</p>
+<p>为什么要设置这两个东西呢？</p>
+<p> 我们可以回归移动端的本质，就是根据不同的设备规划不同的布局，这里面有一点需要注意，就是任何分辨率下我们的字体要保持一致。所以data-dpr是针对字体设置的，font-size是我们不同设备上用rem的基准值。其实有一个规范的js文件可以帮我们解决以上问题，flexible.js(可以到github上copy)基本满足我们的需求。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><span class="line">;(function(win, lib) &#123; var doc &#x3D; win.document; var docEl &#x3D; doc.documentElement; var metaEl &#x3D; doc.querySelector(&#39;meta\[name&#x3D;&quot;viewport&quot;\]&#39;); var flexibleEl &#x3D; doc.querySelector(&#39;meta\[name&#x3D;&quot;flexible&quot;\]&#39;); var dpr &#x3D; 0; var scale &#x3D; 0; var tid; var flexible &#x3D; lib.flexible || (lib.flexible &#x3D; &#123;&#125;); if (metaEl) &#123;</span><br><span class="line">        console.warn(&#39;将根据已有的meta标签来设置缩放比例&#39;); var match &#x3D; metaEl.getAttribute(&#39;content&#39;).match(&#x2F;initial\\-scale&#x3D;(\[\\d\\.\]+)&#x2F;); if (match) &#123;</span><br><span class="line">            scale \&#x3D; parseFloat(match\[1\]);</span><br><span class="line">            dpr \&#x3D; parseInt(1 &#x2F; scale);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; else if (flexibleEl) &#123; var content &#x3D; flexibleEl.getAttribute(&#39;content&#39;); if (content) &#123; var initialDpr &#x3D; content.match(&#x2F;initial\\-dpr&#x3D;(\[\\d\\.\]+)&#x2F;); var maximumDpr &#x3D; content.match(&#x2F;maximum\\-dpr&#x3D;(\[\\d\\.\]+)&#x2F;); if (initialDpr) &#123;</span><br><span class="line">                dpr \&#x3D; parseFloat(initialDpr\[1\]);</span><br><span class="line">                scale \&#x3D; parseFloat((1 &#x2F; dpr).toFixed(2));    </span><br><span class="line">            &#125; if (maximumDpr) &#123;</span><br><span class="line">                dpr \&#x3D; parseFloat(maximumDpr\[1\]);</span><br><span class="line">                scale \&#x3D; parseFloat((1 &#x2F; dpr).toFixed(2));    </span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; if (!dpr &amp;&amp; !scale) &#123; var isAndroid &#x3D; win.navigator.appVersion.match(&#x2F;android&#x2F;gi); var isIPhone &#x3D; win.navigator.appVersion.match(&#x2F;iphone&#x2F;gi); var devicePixelRatio &#x3D; win.devicePixelRatio; if (isIPhone) &#123; &#x2F;&#x2F; iOS下，对于2和3的屏，用2倍的方案，其余的用1倍方案</span><br><span class="line">            if (devicePixelRatio &gt;&#x3D; 3 &amp;&amp; (!dpr || dpr &gt;&#x3D; 3)) &#123;                </span><br><span class="line">                dpr \&#x3D; 3;</span><br><span class="line">            &#125; else if (devicePixelRatio &gt;&#x3D; 2 &amp;&amp; (!dpr || dpr &gt;&#x3D; 2))&#123;</span><br><span class="line">                dpr \&#x3D; 2;</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                dpr \&#x3D; 1;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; else &#123; &#x2F;&#x2F; 其他设备下，仍旧使用1倍的方案</span><br><span class="line">            dpr &#x3D; 1;</span><br><span class="line">        &#125;</span><br><span class="line">        scale \&#x3D; 1 &#x2F; dpr;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    docEl.setAttribute(&#39;data-dpr&#39;, dpr); if (!metaEl) &#123;</span><br><span class="line">        metaEl \&#x3D; doc.createElement(&#39;meta&#39;);</span><br><span class="line">        metaEl.setAttribute(&#39;name&#39;, &#39;viewport&#39;);</span><br><span class="line">        metaEl.setAttribute(&#39;content&#39;, &#39;initial-scale&#x3D;&#39; + scale + &#39;, maximum-scale&#x3D;&#39; + scale + &#39;, minimum-scale&#x3D;&#39; + scale + &#39;, user-scalable&#x3D;no&#39;); if (docEl.firstElementChild) &#123;</span><br><span class="line">            docEl.firstElementChild.appendChild(metaEl);</span><br><span class="line">        &#125; else &#123; var wrap &#x3D; doc.createElement(&#39;div&#39;);</span><br><span class="line">            wrap.appendChild(metaEl);</span><br><span class="line">            doc.write(wrap.innerHTML);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; function refreshRem()&#123; var width &#x3D; docEl.getBoundingClientRect().width; if (width &#x2F; dpr &gt; 540) &#123;</span><br><span class="line">            width \&#x3D; 540 \* dpr;</span><br><span class="line">        &#125; var rem &#x3D; width &#x2F; 10;</span><br><span class="line">        docEl.style.fontSize \&#x3D; rem + &#39;px&#39;;</span><br><span class="line">        flexible.rem \&#x3D; win.rem &#x3D; rem;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    win.addEventListener(&#39;resize&#39;, function() &#123;</span><br><span class="line">        clearTimeout(tid);</span><br><span class="line">        tid \&#x3D; setTimeout(refreshRem, 300);</span><br><span class="line">    &#125;, false);</span><br><span class="line">    win.addEventListener(&#39;pageshow&#39;, function(e) &#123; if (e.persisted) &#123;</span><br><span class="line">            clearTimeout(tid);</span><br><span class="line">            tid \&#x3D; setTimeout(refreshRem, 300);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;, false); if (doc.readyState &#x3D;&#x3D;&#x3D; &#39;complete&#39;) &#123;</span><br><span class="line">        doc.body.style.fontSize \&#x3D; 12 \* dpr + &#39;px&#39;;</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        doc.addEventListener(&#39;DOMContentLoaded&#39;, function(e) &#123;</span><br><span class="line">            doc.body.style.fontSize \&#x3D; 12 \* dpr + &#39;px&#39;;</span><br><span class="line">        &#125;, false);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">    refreshRem();</span><br><span class="line"></span><br><span class="line">    flexible.dpr \&#x3D; win.dpr &#x3D; dpr;</span><br><span class="line">    flexible.refreshRem \&#x3D; refreshRem;</span><br><span class="line">    flexible.rem2px \&#x3D; function(d) &#123; var val &#x3D; parseFloat(d) \* this.rem; if (typeof d &#x3D;&#x3D;&#x3D; &#39;string&#39; &amp;&amp; d.match(&#x2F;rem$&#x2F;)) &#123;</span><br><span class="line">            val +&#x3D; &#39;px&#39;;</span><br><span class="line">        &#125; return val;</span><br><span class="line">    &#125;</span><br><span class="line">    flexible.px2rem \&#x3D; function(d) &#123; var val &#x3D; parseFloat(d) &#x2F; this.rem; if (typeof d &#x3D;&#x3D;&#x3D; &#39;string&#39; &amp;&amp; d.match(&#x2F;px$&#x2F;)) &#123;</span><br><span class="line">            val +&#x3D; &#39;rem&#39;;</span><br><span class="line">        &#125; return val;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;)(window, window\[&#39;lib&#39;\] || (window\[&#39;lib&#39;\] &#x3D; &#123;&#125;));</span><br></pre></td></tr></table></figure>
+
+<p>简单的说一下这里面的重点吧，我们先设置页面viewport中的scale，这个用来解决border 1px问题，下面是我的一个css demo</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html\&gt;</span><br><span class="line">&lt;html lang\&#x3D;&quot;en&quot;\&gt;</span><br><span class="line">&lt;head\&gt;</span><br><span class="line">    &lt;meta charset\&#x3D;&quot;UTF-8&quot;\&gt;</span><br><span class="line">    &lt;meta name\&#x3D;&quot;viewport&quot; content\&#x3D;&quot;width&#x3D;device-width, user-scalable&#x3D;no, initial-scale&#x3D;1.0, maximum-scale&#x3D;1.0, minimum-scale&#x3D;1.0&quot;\&gt;</span><br><span class="line">    &lt;title\&gt;Document&lt;&#x2F;title\&gt;</span><br><span class="line">    &lt;style\&gt; ul li &#123; width: 100px; padding: 8px 0 8px 15px; color: #7c7c7c; position: relative;</span><br><span class="line">        &#125; ul li + li:before &#123; position: absolute; top: -1px; left: 0; content: &#39;&#39;; width: 100%; height: 1px; border-top: 1px solid #ddd;</span><br><span class="line">            &#x2F;\*transform: scaleY(0.5);\*&#x2F;</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;&#x2F;style\&gt;</span><br><span class="line">&lt;&#x2F;head\&gt;</span><br><span class="line">&lt;body\&gt;</span><br><span class="line">    &lt;ul\&gt;</span><br><span class="line">        &lt;li\&gt;&lt;&#x2F;li\&gt;</span><br><span class="line">        &lt;li\&gt;&lt;&#x2F;li\&gt;</span><br><span class="line">        &lt;li\&gt;&lt;&#x2F;li\&gt;</span><br><span class="line">    &lt;&#x2F;ul\&gt;</span><br><span class="line">&lt;&#x2F;body\&gt;</span><br><span class="line">&lt;&#x2F;html\&gt;</span><br></pre></td></tr></table></figure>
+
+<p> 然后我们下面展示的样式第一个是注释掉 transform: scaleY(0.5)的，第二个是打开的。</p>
+<p><img src="https://images2015.cnblogs.com/blog/728583/201707/728583-20170720165956740-387883820.png"><img src="https://images2015.cnblogs.com/blog/728583/201707/728583-20170720170122068-360567492.png"></p>
+<p>为什么会这样子呢，我在<a target="_blank" rel="noopener" href="http://www.cnblogs.com/ssh-007/p/7196748.html">浅谈移动端三大viewport</a>说过，dpr为2的高清屏下，1个css像素=4个物理像素(1px = dpr²*dp)</p>
+<p><img src="https://images2015.cnblogs.com/blog/728583/201707/728583-20170720170503505-986259132.png"></p>
+<p>所以，设计师想要的retina下<code>border: 1px;</code>其实就是1物理像素宽，对于css而言，可以认为是<code>border: 0.5px;</code>，这是高清屏下(dpr=2)下能显示的最小单位，但并不是所有的浏览器都支持border:0.5px,所以我们需要scale（0.5），也就是上面flexible.js提到的scale，通过不同的dpr(devicePixelRatio)来设置不同的scale。</p>
+<p> 然后我们的主角rem是通过refreshRem函数中的docEl.getBoundingClientRect().width来获取的，这个值跟document.body.clientWidth是相同的，也就是布局viewport，之后的width/10纯属是为了便于计算。等下，当我们在iphone5下查看布局viewport时，为什么是640，而不是320，</p>
+<p><img src="https://images2015.cnblogs.com/blog/728583/201707/728583-20170720171654365-532217589.png"></p>
+<p>这是因为我们在前面设置了scale，在iphone5下，通过获取dpr(devicePixelRatio)是2，然后计算出initial-scale是0.5，因为在initial-scale为1情况下，我们知道布局viewport等于设备宽度，也就是等于理想视口（screen.width），iphone5下的理想视口是320，然后缩放比是0.5，所以最终的布局viewport是640。移动端大神PPK曾经说initial-scale是理想视口与视觉视口之比，但我感觉既然设置了initial-scale，我们的视觉视口与布局视口就相等了，所以我们在计算时用的document.body.client_Width,_用window.innerWidth（视觉视口）其结果也一样，只不过是为了给大家演示。最后根据我们计算出来的html的基值可以在css编码中还原视觉稿的真实宽高。</p>
+<p>比如我们拿到一个iphone6的高清设计稿（750×1334），在psd中量出一个div宽为750，如何转换为rem单位呢？</p>
+<p>公式—— rem = px / 基值</p>
+<p>通过flexible.js计算根html的font-size为75px,所以我们可以这样写css</p>
+<p>div {</p>
+<p>　　width: 10rem;</p>
+<p>}</p>
+<p>转换成html就是这样</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">width: 10rem; &#x2F;&#x2F; -&gt; 750px</span><br></pre></td></tr></table></figure>
+
+<p>最后因为dpr为2，scale了0.5，所以手机屏幕上的真实宽度为375px，就刚刚好。试想一下，假如我们不用initial-scale=0.5，那样我们得在这个设计稿上量完div后，再口算除以2，才会写width=375px,想想就累。</p>
+<p>最后说一下字体的设置吧，这个比较特殊。以下分别是我们现在做的项目（今日十大）中不同设备的字体展示，可以清楚地看到任何手机屏幕上字体大小都要统一。</p>
+<p><img src="https://images2015.cnblogs.com/blog/728583/201707/728583-20170720175329552-900228281.png"><img src="https://images2015.cnblogs.com/blog/728583/201707/728583-20170720175306990-1807182573.png"></p>
+<p><img src="https://images2015.cnblogs.com/blog/728583/201707/728583-20170720175219802-1131772457.png"><img src="https://images2015.cnblogs.com/blog/728583/201707/728583-20170720175246068-1476340299.png"></p>
+<p> 当然为了方便，我们使用sass做了一次遍历。在不同的data-dpr中遍历font-size（这里我们就看到了之前html中data-dpr的作用了）</p>
+<p> <img src="https://images2015.cnblogs.com/blog/728583/201707/728583-20170720175814005-2013799603.png"></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -258,7 +268,7 @@
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -287,540 +297,112 @@
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2021/06/18/jsproject/yidongduan/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/06/10/jsproject/bsCrollVue/" class="archive-article-date">
-  	<time datetime="2021-06-10T08:12:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-06-10</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2021/06/21/jsproject/ipone/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          移动端适配 
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2021/06/10/jsproject/bsCrollVue/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">当 better-scroll 遇见 Vue </div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/06/10/jsproject/bsCrollVue/">当 better-scroll 遇见 Vue </a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Diary//" class="article-tag-list-link color1">Diary</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Diary/Games//" class="article-tag-list-link color1">Games</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Life//" class="article-tag-list-link color5">Life</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/js//" class="article-tag-list-link color3">js</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/js/PlayStation//" class="article-tag-list-link color2">PlayStation</a>
-        		</li>
-      		
-		</ul>
-	</div>
+        
+        
+    </div>
+</aside>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/06/10/jsproject/reg/" class="archive-article-date">
-  	<time datetime="2021-06-10T08:12:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-06-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/06/10/jsproject/reg/">正则表达式 - (?!), (?:), (?=)</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Diary//" class="article-tag-list-link color1">Diary</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Diary/Games//" class="article-tag-list-link color1">Games</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Life//" class="article-tag-list-link color5">Life</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/js//" class="article-tag-list-link color3">js</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/js/PlayStation//" class="article-tag-list-link color2">PlayStation</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/06/10/jsproject/proxyTable/" class="archive-article-date">
-  	<time datetime="2021-06-10T02:12:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-06-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/06/10/jsproject/proxyTable/">vue proxyTable中跨域中pathRewrite配置</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Diary//" class="article-tag-list-link color1">Diary</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Diary/Games//" class="article-tag-list-link color1">Games</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Life//" class="article-tag-list-link color5">Life</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/js//" class="article-tag-list-link color3">js</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/js/PlayStation//" class="article-tag-list-link color2">PlayStation</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/06/09/jsproject/cssanimation/" class="archive-article-date">
-  	<time datetime="2021-06-09T08:12:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-06-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/06/09/jsproject/cssanimation/">css动画</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Diary//" class="article-tag-list-link color1">Diary</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Diary/Games//" class="article-tag-list-link color1">Games</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Life//" class="article-tag-list-link color5">Life</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/js//" class="article-tag-list-link color3">js</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/js/PlayStation//" class="article-tag-list-link color2">PlayStation</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/06/08/jsproject/remPlus/" class="archive-article-date">
-  	<time datetime="2021-06-08T08:12:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-06-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/06/08/jsproject/remPlus/">手机端页面自适应解决方案—rem布局进阶版</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Diary//" class="article-tag-list-link color1">Diary</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Diary/Games//" class="article-tag-list-link color1">Games</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Life//" class="article-tag-list-link color5">Life</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/js//" class="article-tag-list-link color3">js</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/js/PlayStation//" class="article-tag-list-link color2">PlayStation</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/06/08/jsproject/rem/" class="archive-article-date">
-  	<time datetime="2021-06-08T07:12:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-06-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/06/08/jsproject/rem/">手机端页面自适应解决方案—rem布局</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Diary//" class="article-tag-list-link color1">Diary</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Diary/Games//" class="article-tag-list-link color1">Games</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Life//" class="article-tag-list-link color5">Life</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/js//" class="article-tag-list-link color3">js</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/js/PlayStation//" class="article-tag-list-link color2">PlayStation</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/06/08/jsproject/sort/" class="archive-article-date">
-  	<time datetime="2021-06-08T05:12:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-06-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/06/08/jsproject/sort/">数组排序</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Diary//" class="article-tag-list-link color1">Diary</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Diary/Games//" class="article-tag-list-link color1">Games</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Life//" class="article-tag-list-link color5">Life</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/js//" class="article-tag-list-link color3">js</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/js/PlayStation//" class="article-tag-list-link color2">PlayStation</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/06/01/jsproject/iframeGetDom/" class="archive-article-date">
-  	<time datetime="2021-06-01T09:12:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-06-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/06/01/jsproject/iframeGetDom/">原生js获取iframe中dom元素--父子页面相互获取对方dom元素的方法</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Diary//" class="article-tag-list-link color1">Diary</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Diary/Games//" class="article-tag-list-link color1">Games</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Life//" class="article-tag-list-link color5">Life</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/js//" class="article-tag-list-link color3">js</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/js/PlayStation//" class="article-tag-list-link color2">PlayStation</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
   
-    </div></section>
   
 
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/categories/js/page/2/">2</a><a class="page-number" href="/categories/js/page/3/">3</a><a class="page-number" href="/categories/js/page/4/">4</a><a class="extend next" rel="next" href="/categories/js/page/2/">Next &amp;raquo;</a>
-    </nav>
+  
+
+  
+
   
 
 
@@ -844,10 +426,10 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
-		isCategory: true,
+		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
 		root: "/",

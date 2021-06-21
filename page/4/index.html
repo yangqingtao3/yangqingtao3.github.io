@@ -154,34 +154,29 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-keepAlive" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-stopDefaltEvent" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2021/03/11/keepAlive/">vue-router 之 keep-alive</a>
+      <a class="article-title" href="/2021/03/16/stopDefaltEvent/">阻止默认事件，冒泡</a>
     </h1>
   
 
         
-        <a href="/2021/03/11/keepAlive/" class="archive-article-date">
-  	<time datetime="2021-03-11T02:12:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-11</time>
+        <a href="/2021/03/16/stopDefaltEvent/" class="archive-article-date">
+  	<time datetime="2021-03-16T02:12:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-16</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <blockquote>
-<p>本文基于 Vue2.0<br>keep-alive 简介</p>
-</blockquote>
-<hr>
-<p><code>keep-alive</code> 是 Vue 内置的一个组件，可以使被包含的组件保留状态，或避免重新渲染。<br>用法也很简单：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;keep-alive&gt;</span><br><span class="line">  &lt;component&gt;</span><br><span class="line">    &lt;!-- 该组件将被缓存！ --&gt;</span><br><span class="line">  &lt;&#x2F;component&gt;</span><br><span class="line">&lt;&#x2F;keep-alive&gt; </span><br></pre></td></tr></table></figure>
+        <h1 id="preventDefault："><a href="#preventDefault：" class="headerlink" title="preventDefault："></a><strong>preventDefault：</strong></h1><p>preventDefault它是事件对象(Event)的一个方法，作用是取消一个目标元素的默认行为。既然是说默认行为，当然是元素必须有默认行为才能被取消，如果元素本身就没有默认行为，调用当然就无效了。什么元素有默认行为呢？如链接<a>，提交按钮等。<strong>当Event对象的cancelable为false时，表示没有默认行为，这时即使有默认行为，调用 preventDefault也是不会起作用的。</strong></a></p>
         
-          <a class="article-more-a" href="/2021/03/11/keepAlive/#more">more >></a>
+          <a class="article-more-a" href="/2021/03/16/stopDefaltEvent/#more">more >></a>
         
       
 
@@ -232,7 +227,111 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2021/03/11/keepAlive/">展开全文 >></a>
+          <a class="article-more-a" href="/2021/03/16/stopDefaltEvent/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-debounce" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/03/16/debounce/">防抖及节流</a>
+    </h1>
+  
+
+        
+        <a href="/2021/03/16/debounce/" class="archive-article-date">
+  	<time datetime="2021-03-16T02:12:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>函数节流与函数防抖是我们解决频繁触发DOM事件的两种常用解决方案，但是经常傻傻分不清楚。。。这不，在项目中又用遇到了，在此处记录一下</p>
+<h3 id="函数防抖-debounce"><a href="#函数防抖-debounce" class="headerlink" title="函数防抖 debounce"></a>函数防抖 debounce</h3>
+        
+          <a class="article-more-a" href="/2021/03/16/debounce/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Diary//" class="article-tag-list-link color1">Diary</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Diary/Games//" class="article-tag-list-link color1">Games</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Life//" class="article-tag-list-link color5">Life</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/js//" class="article-tag-list-link color3">js</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/js/PlayStation//" class="article-tag-list-link color2">PlayStation</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/03/16/debounce/">展开全文 >></a>
         </p>
       
 
@@ -439,6 +538,114 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2021/03/11/tuomin/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-keepAlive" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/03/11/keepAlive/">vue-router 之 keep-alive</a>
+    </h1>
+  
+
+        
+        <a href="/2021/03/11/keepAlive/" class="archive-article-date">
+  	<time datetime="2021-03-11T02:12:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>本文基于 Vue2.0<br>keep-alive 简介</p>
+</blockquote>
+<hr>
+<p><code>keep-alive</code> 是 Vue 内置的一个组件，可以使被包含的组件保留状态，或避免重新渲染。<br>用法也很简单：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;keep-alive&gt;</span><br><span class="line">  &lt;component&gt;</span><br><span class="line">    &lt;!-- 该组件将被缓存！ --&gt;</span><br><span class="line">  &lt;&#x2F;component&gt;</span><br><span class="line">&lt;&#x2F;keep-alive&gt; </span><br></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/2021/03/11/keepAlive/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Diary//" class="article-tag-list-link color1">Diary</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Diary/Games//" class="article-tag-list-link color1">Games</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Life//" class="article-tag-list-link color5">Life</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/js//" class="article-tag-list-link color3">js</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/js/PlayStation//" class="article-tag-list-link color2">PlayStation</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/03/11/keepAlive/">展开全文 >></a>
         </p>
       
 
@@ -919,174 +1126,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2021/02/25/chain/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-mychart" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/02/25/mychart/">图表配置</a>
-    </h1>
-  
-
-        
-        <a href="/2021/02/25/mychart/" class="archive-article-date">
-  	<time datetime="2021-02-25T02:12:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-02-25</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote><p>好用的工具记录</p>
-<footer><strong>html转化为md文件</strong><cite><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/viZcUh6HyQsIJZpr_Mikfw">mp.weixin.qq.com/s/viZcUh6HyQsIJZpr_Mikfw</a></cite></footer></blockquote>
-<blockquote><p>NEW: DevDocs now comes with syntax highlighting. <a target="_blank" rel="noopener" href="http://devdocs.io/">http://devdocs.io</a></p>
-<footer><strong>@DevDocs</strong><cite><a target="_blank" rel="noopener" href="https://twitter.com/devdocs/status/356095192085962752">twitter.com/devdocs/status/356095192085962752</a></cite></footer></blockquote>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">ps</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">ai</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Diary//" class="article-tag-list-link color1">Diary</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Diary/PlayStation//" class="article-tag-list-link color2">PlayStation</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Diary/Games//" class="article-tag-list-link color1">Games</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Life//" class="article-tag-list-link color5">Life</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/02/25/mychart/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-my-first-blog" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/02/24/my-first-blog/">vue3笔记</a>
-    </h1>
-  
-
-        
-        <a href="/2021/02/24/my-first-blog/" class="archive-article-date">
-  	<time datetime="2021-02-24T09:01:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-02-24</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>1.setUp取代了befocreate 与 created 之间<br>2.setUp 不可以使用this<br>3.渲染流程mount-&gt;render-&gt;patch-&gt;processComponent-&gt;mountComponent<br>4 <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/306594318">https://zhuanlan.zhihu.com/p/306594318</a> 源码分析<br>5.（1）按需编译体积比vue2.0更小 treeShanking support</p>
-        
-          <a class="article-more-a" href="/2021/02/24/my-first-blog/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/02/24/my-first-blog/">展开全文 >></a>
         </p>
       
 
