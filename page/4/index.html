@@ -154,6 +154,112 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-vueData" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/03/17/vueData/">vue里data为什末是个方法而不是个对象</a>
+    </h1>
+  
+
+        
+        <a href="/2021/03/17/vueData/" class="archive-article-date">
+  	<time datetime="2021-03-17T02:12:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-17</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="vue学习笔记之：为何data是一个方法"><a href="#vue学习笔记之：为何data是一个方法" class="headerlink" title="vue学习笔记之：为何data是一个方法"></a>vue学习笔记之：为何data是一个方法</h1><p>在vue开发中，我们可以发现，data中的属性值是在function中return出来的。可为何data必须是一个函数呢？我们先看官方的解释：</p>
+<blockquote>
+<p>当一个组件被定义， data 必须声明为返回一个初始数据对象的函数，因为组件可能被用来创建多个实例。如果 data 仍然是一个纯粹的对象，则所有的实例将共享引用同一个数据对象！通过提供 data 函数，每次创建一个新实例后，我们能够调用 data 函数，从而返回初始数据的一个全新副本数据对象</p>
+</blockquote>
+<p>而我对这句话的理解是：</p>
+<p>类比与引用数据类型。<strong>如果不用function return 每个组件的data都是内存的同一个地址</strong>，那一个数据改变其他也改变了，这当然就不是我们想要的。<strong>用function return 其实就相当于申明了新的变量，相互独立</strong>，自然就不会有这样的问题；js在赋值object对象时，是直接一个相同的内存地址。所以为了每个组件的data独立，采用了这种方式。如果不是组件的话，正常data的写法可以直接写一个对象，比如<code>data：&#123; msg ： &#39; 下载 &#39; &#125;</code>，但由于组件是会在多个地方引用的，JS中直接共享对象会造成引用传递，也就是说修改了msg后所有按钮的msg都会跟着修改，所以这里用function来每次返回一个<strong>对象实例</strong>。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Diary//" class="article-tag-list-link color1">Diary</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Diary/Games//" class="article-tag-list-link color1">Games</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Life//" class="article-tag-list-link color5">Life</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/js//" class="article-tag-list-link color3">js</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/js/PlayStation//" class="article-tag-list-link color2">PlayStation</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/03/17/vueData/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-stopDefaltEvent" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1023,109 +1129,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2021/02/25/photo/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-chain" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/02/25/chain/">原形链</a>
-    </h1>
-  
-
-        
-        <a href="/2021/02/25/chain/" class="archive-article-date">
-  	<time datetime="2021-02-25T02:12:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-02-25</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <table class="d-block" data-paste-markdown-skip><tbody class="d-block"><tr class="d-block"><td class="d-block comment-body markdown-body  js-comment-body"><h2>构造函数创建对象</h2><p>我们先使用构造函数创建一个对象：</p><div class="highlight highlight-source-js"><pre><span class="pl-k">function</span> <span class="pl-v">Person</span><span class="pl-kos">(</span><span class="pl-kos">)</span> <span class="pl-kos">{</span></pre></div></td></tr></tbody></table>
-        
-          <a class="article-more-a" href="/2021/02/25/chain/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Diary//" class="article-tag-list-link color1">Diary</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Diary/Games//" class="article-tag-list-link color1">Games</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Life//" class="article-tag-list-link color5">Life</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/js//" class="article-tag-list-link color3">js</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/js/PlayStation//" class="article-tag-list-link color2">PlayStation</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/02/25/chain/">展开全文 >></a>
         </p>
       
 
