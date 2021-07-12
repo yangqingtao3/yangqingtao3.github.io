@@ -6,16 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Category: Life | God-son</title>
+  <title>vue keepl-alive  | God-son</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="本人的一些学习笔记及工作过程中遇到的问题填过的坑">
-<meta property="og:type" content="website">
-<meta property="og:title" content="God-son">
-<meta property="og:url" content="http://example.com/categories/Life/page/4/index.html">
+  <meta name="description" content="一、使用情景 &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;  在使用Vue开发单页面应用时，我们通常会使用Vue-Router进行页面导航，Vue-Router在进行路由切换的时候，页面是会重新加载，对应的生命周期函数也会再次执行一遍，但是在有些业务场景下，比如：    在有分页数据列表中，切换到第三页需要查看列表对应数据的详情页面，然后返回，如果不加任何处理，列表页面会重新加载，默认显示第一页数据，而不在是之前的第三页，这样">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vue keepl-alive ">
+<meta property="og:url" content="http://example.com/2021/07/12/jsproject/keeplife/index.html">
 <meta property="og:site_name" content="God-son">
-<meta property="og:description" content="本人的一些学习笔记及工作过程中遇到的问题填过的坑">
+<meta property="og:description" content="一、使用情景 &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;  在使用Vue开发单页面应用时，我们通常会使用Vue-Router进行页面导航，Vue-Router在进行路由切换的时候，页面是会重新加载，对应的生命周期函数也会再次执行一遍，但是在有些业务场景下，比如：    在有分页数据列表中，切换到第三页需要查看列表对应数据的详情页面，然后返回，如果不加任何处理，列表页面会重新加载，默认显示第一页数据，而不在是之前的第三页，这样">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-07-12T07:15:15.000Z">
+<meta property="article:modified_time" content="2021-07-12T07:15:34.542Z">
 <meta property="article:author" content="qingtao Yang">
+<meta property="article:tag" content="js">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="God-son" type="application/atom+xml">
@@ -152,36 +155,100 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-jsproject/keeplife" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      vue keepl-alive 
+    </h1>
+  
+
+        
+        <a href="/2021/07/12/jsproject/keeplife/" class="archive-article-date">
+  	<time datetime="2021-07-12T07:15:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-12</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <meta name="referrer" content="no-referrer">
+一、使用情景
+======
+
+<p>在使用<code>Vue</code>开发单页面应用时，我们通常会使用<code>Vue-Router</code>进行页面导航，<code>Vue-Router</code>在进行路由切换的时候，页面是会重新加载，对应的生命周期函数也会再次执行一遍，但是在有些业务场景下，<br>比如：</p>
+<ul>
+<li>  在有分页数据列表中，切换到第三页需要查看列表对应数据的详情页面，然后返回，如果不加任何处理，列表页面会重新加载，默认显示第一页数据，而不在是之前的第三页，这样如果还需要查看之前查看数据的下一条时，还需要切换到第三页，如此反复。</li>
+<li>  在列表页面进行条件筛选查询，查询到对应的数据后查询详情，跳转详情页面，然后在返回，列表默认会清空查询条件，显示所有数据。</li>
+</ul>
+<p>以上两种情景都会带来很不好的用户体验。此时，就需要对列表页面进行路由缓存。在<code>Vue-Router</code>中可以使用<code>keep-alive</code>进行路由页面缓存。</p>
+<span id="more"></span>
+
+<h1 id="二、keep-alive基本认识"><a href="#二、keep-alive基本认识" class="headerlink" title="二、keep-alive基本认识"></a>二、keep-alive基本认识</h1><ul>
+<li>  <code>Vue</code>中提供了一个内置组件<code>keep-alive</code>，使用<code>&lt;keep-alive&gt;</code>元素将动态组件包裹起来，内部组件就会被缓存起来。</li>
+<li>  <code>&lt;keep-alive&gt;</code>包裹的组件，加载过的页面，再次进入时，是不会执行页面第一次进入时的部分生命周期函数。</li>
+<li>  <code>&lt;keep-alive&gt;</code>包裹的组件会新增两个生命周期函数<code>activated</code>和<code>deactivated</code>.</li>
+<li>  两个属性<code>include</code>和<code>exclude</code>可以让<code>&lt;keep-alive&gt;</code>实现有条件的进行缓存。<code>include</code>包含的组件会被进行缓存，<code>exclude</code>包含的组件不会被缓存。</li>
+</ul>
+<h1 id="三、keep-alive实现路由页面缓存"><a href="#三、keep-alive实现路由页面缓存" class="headerlink" title="三、keep-alive实现路由页面缓存"></a>三、keep-alive实现路由页面缓存</h1><p>通过<code>keep-alive</code>实现路由页面缓存有两种如下两种方式：</p>
+<h2 id="（一）、使用include控制需要缓存的页面"><a href="#（一）、使用include控制需要缓存的页面" class="headerlink" title="（一）、使用include控制需要缓存的页面"></a>（一）、使用<code>include</code>控制需要缓存的页面</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; home.vue</span><br><span class="line">&lt;template&gt;</span><br><span class="line"> &lt;div&gt;</span><br><span class="line">   ...</span><br><span class="line">  &lt;keep-alive :include&#x3D;&#39;cashViews&#39;&gt;</span><br><span class="line">    &lt;router-view&gt;&lt;&#x2F;router-view&gt;</span><br><span class="line">  &lt;&#x2F;keep-alive&gt;</span><br><span class="line"> &lt;&#x2F;div&gt;</span><br><span class="line">&lt;&#x2F;template&gt;  </span><br><span class="line">&lt;script&gt;</span><br><span class="line">  export default&#123;</span><br><span class="line">    data() &#123;</span><br><span class="line">      return &#123;</span><br><span class="line">        &#x2F;&#x2F; 要缓存的组件</span><br><span class="line">        cashViews: [&#39;list&#39;]</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&lt;&#x2F;script&gt; </span><br><span class="line">&#96;&#96;&#96;&#96;&#96;&#96;</span><br><span class="line">&#x2F;&#x2F; list.vue</span><br><span class="line">&lt;script&gt;</span><br><span class="line">  export default&#123;</span><br><span class="line">    &#x2F;&#x2F; 在组件内路由守卫钩子函数中处理逻辑</span><br><span class="line">    beforeRouteEnter (to, from, next) &#123;</span><br><span class="line">      if (from.name &#x3D;&#x3D;&#x3D; &#39;Index&#39;) &#123; &#x2F;&#x2F; 处理页面缓存后，返回首页再次进入缓存页时数据为更新</span><br><span class="line">        &#x2F;&#x2F; 该生命周期无法获取到this，因此把vm实例当作参数传递</span><br><span class="line">        next(vm &#x3D;&gt; &#123;</span><br><span class="line">          vm.pages.pageNum &#x3D; 1</span><br><span class="line">          &#x2F;&#x2F; 因为我这里查询表单是动态的，所以首页进入时需要调用一次，在改方法中请求返回后调用了获取列表数据getTableDatas方法</span><br><span class="line">          vm.getQueryList()</span><br><span class="line">        &#125;)</span><br><span class="line">      &#125; else if (!from.name) &#123; &#x2F;&#x2F; 处理刷新页面时，获取动态表单方法未执行，导致表单无法加载</span><br><span class="line">        next(vm &#x3D;&gt; &#123;</span><br><span class="line">          vm.getQueryList()</span><br><span class="line">        &#125;)</span><br><span class="line">      &#125; else &#123;</span><br><span class="line">        &#x2F;&#x2F; 详情返回时只更新列表数据，因为如果在详情页面做了操作，列表数据状态会改变，其他使用缓存</span><br><span class="line">        next(vm &#x3D;&gt; &#123;</span><br><span class="line">          vm.getTableDatas()</span><br><span class="line">        &#125;)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&lt;&#x2F;script&gt; </span><br></pre></td></tr></table></figure>
+
+<p>以上实现，是针对我自己项目业务场景的实现，如果查询表单不是动态获取的，是页面写死的，可以在<code>activated</code>钩子中调用查询列表数据方法。这样每次进入的缓存页面的时候，只会更新列表数据，不会改变其他缓存。</p>
+<p><code>问题</code>：同样会存在，列表缓存数据后，返回首页，再次进入列表页面，缓存数据还在，这样可以在路由守卫<code>beforeRouterLeave</code>钩子中处理。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"> activated() &#123;</span><br><span class="line">   this.getTableDatas()</span><br><span class="line">  &#125;,</span><br><span class="line">  beforeRouterLeave(to, from, next) &#123;</span><br><span class="line">  if (from.name &#x3D;&#x3D;&#x3D; &#39;Index&#39;) &#123;</span><br><span class="line">    &#x2F;&#x2F; 如果从首页进入时调用重置方法</span><br><span class="line">    this.reset()</span><br><span class="line">  &#125;</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>两点注意：<ul>
+<li>  要缓存的路由组件必须设置<code>name</code>属性，跟<code>cashViews</code>中的值对应；</li>
+<li>  如果要缓存的组件比较多时，可以使用<code>vuex</code>管理<code>cashViews</code>。</li>
+</ul>
+</li>
+</ul>
+<h2 id="（二-、根据v-if控制显示的router-view"><a href="#（二-、根据v-if控制显示的router-view" class="headerlink" title="（二)、根据v-if控制显示的router-view"></a>（二)、根据<code>v-if</code>控制显示的<code>router-view</code></h2><ol>
+<li> 在路由表<code>routes</code>中配置<code>meta</code>属性，新增<code>keepAlive</code>属性，需要缓存的页面设置<code>keepAlive</code>为<code>true</code>.</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  path: &#39;&#x2F;list&#39;,</span><br><span class="line">  name: &#39;List&#39;,</span><br><span class="line">  component: List,</span><br><span class="line">  meta: &#123;</span><br><span class="line">    keepAlive: true</span><br><span class="line">  &#125;</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li> 根据当前访问路由的<code>keepAlive</code>值控制是否缓存组件</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; home.vue</span><br><span class="line">&lt;template&gt;</span><br><span class="line">  ...</span><br><span class="line">  &lt;keep-alive&gt;</span><br><span class="line">    &lt;router-view v-if&#x3D;&quot;$route.meta.keepAlive&quot;&gt;&lt;&#x2F;router-view&gt;</span><br><span class="line">  &lt;&#x2F;keep-alive&gt;</span><br><span class="line">  &lt;router-view v-if&#x3D;&quot;!$route.meta.keepAlive&quot;&gt;&lt;&#x2F;router-view&gt;</span><br><span class="line">&lt;&#x2F;template&gt; </span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li> 在组件的守卫钩子中修改<code>keepAlive</code>的值，控制页面缓存与否</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; List.vue</span><br><span class="line">export default &#123;</span><br><span class="line">  &#x2F;* 从List组件离开时,修改keepAlive值为false，保证进入该页面时页面刷新</span><br><span class="line">  *&#x2F;</span><br><span class="line">  beforeRouteLeave(to, from, next) &#123;</span><br><span class="line">    from.meta.keepAlive &#x3D; false</span><br><span class="line">    next()</span><br><span class="line">  &#125;</span><br><span class="line">&#125; </span><br><span class="line">&#96;&#96;&#96;&#96;&#96;&#96;</span><br><span class="line">&#x2F;&#x2F; Detail.vue</span><br><span class="line">export default &#123;</span><br><span class="line">  &#x2F;*从Detail返回List时，修改List的keepAlive为true,确保返回List页面时使用缓存不刷新页面</span><br><span class="line">  *&#x2F;</span><br><span class="line">  beforeRouteLeave(to, from, next)&#123;</span><br><span class="line">    if(to.name &#x3D;&#x3D;&#x3D; &#39;List&#39;) &#123;</span><br><span class="line">      to.meta.keepAlive &#x3D; true</span><br><span class="line">    &#125;</span><br><span class="line">    next()</span><br><span class="line">  &#125;</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2021" class="archive-year">2021</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/03/23/dateType/" class="archive-article-date">
-  	<time datetime="2021-03-23T08:12:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/03/23/dateType/">JS日期、年月日、时分秒的无敌秘籍、文艺之行</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -193,7 +260,7 @@
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -222,605 +289,112 @@
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2021/07/12/jsproject/keeplife/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/03/23/filter/" class="archive-article-date">
-  	<time datetime="2021-03-23T02:12:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-23</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2021/07/12/jsproject/vurouter/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          vue-router有哪几种导航钩子，导航钩子的作用是什么？ 
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2021/06/22/jsproject/pxtovw/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">移动端适配 </div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/03/23/filter/">数组filtter</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/js//" class="article-tag-list-link color3">js</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/js/PlayStation//" class="article-tag-list-link color2">PlayStation</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Diary//" class="article-tag-list-link color1">Diary</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Diary/Games//" class="article-tag-list-link color1">Games</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Life//" class="article-tag-list-link color5">Life</a>
-        		</li>
-      		
-		</ul>
-	</div>
+        
+        
+    </div>
+</aside>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/03/17/vueData/" class="archive-article-date">
-  	<time datetime="2021-03-17T02:12:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-17</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/03/17/vueData/">vue里data为什末是个方法而不是个对象</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/js//" class="article-tag-list-link color3">js</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/js/PlayStation//" class="article-tag-list-link color2">PlayStation</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Diary//" class="article-tag-list-link color1">Diary</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Diary/Games//" class="article-tag-list-link color1">Games</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Life//" class="article-tag-list-link color5">Life</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/03/17/online/" class="archive-article-date">
-  	<time datetime="2021-03-17T02:12:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-17</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/03/17/online/">一些线上的知识点</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/js//" class="article-tag-list-link color3">js</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/js/PlayStation//" class="article-tag-list-link color2">PlayStation</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Diary//" class="article-tag-list-link color1">Diary</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Diary/Games//" class="article-tag-list-link color1">Games</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Life//" class="article-tag-list-link color5">Life</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/03/16/stopDefaltEvent/" class="archive-article-date">
-  	<time datetime="2021-03-16T02:12:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/03/16/stopDefaltEvent/">阻止默认事件，冒泡</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/js//" class="article-tag-list-link color3">js</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/js/PlayStation//" class="article-tag-list-link color2">PlayStation</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Diary//" class="article-tag-list-link color1">Diary</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Diary/Games//" class="article-tag-list-link color1">Games</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Life//" class="article-tag-list-link color5">Life</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/03/16/debounce/" class="archive-article-date">
-  	<time datetime="2021-03-16T02:12:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/03/16/debounce/">防抖及节流</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/js//" class="article-tag-list-link color3">js</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/js/PlayStation//" class="article-tag-list-link color2">PlayStation</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Diary//" class="article-tag-list-link color1">Diary</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Diary/Games//" class="article-tag-list-link color1">Games</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Life//" class="article-tag-list-link color5">Life</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/03/11/telnum/" class="archive-article-date">
-  	<time datetime="2021-03-11T02:12:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-11</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/03/11/telnum/">名字，身份证，名字脱敏</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/js//" class="article-tag-list-link color3">js</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/js/PlayStation//" class="article-tag-list-link color2">PlayStation</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Diary//" class="article-tag-list-link color1">Diary</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Diary/Games//" class="article-tag-list-link color1">Games</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Life//" class="article-tag-list-link color5">Life</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/03/11/tuomin/" class="archive-article-date">
-  	<time datetime="2021-03-11T02:12:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-11</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/03/11/tuomin/">正则里的符号代表的意思</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/js//" class="article-tag-list-link color3">js</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/js/PlayStation//" class="article-tag-list-link color2">PlayStation</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Diary//" class="article-tag-list-link color1">Diary</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Diary/Games//" class="article-tag-list-link color1">Games</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Life//" class="article-tag-list-link color5">Life</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/03/11/keepAlive/" class="archive-article-date">
-  	<time datetime="2021-03-11T02:12:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-11</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/03/11/keepAlive/">vue-router 之 keep-alive</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/js//" class="article-tag-list-link color3">js</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/js/PlayStation//" class="article-tag-list-link color2">PlayStation</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Diary//" class="article-tag-list-link color1">Diary</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Diary/Games//" class="article-tag-list-link color1">Games</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Life//" class="article-tag-list-link color5">Life</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/03/11/commitImg/" class="archive-article-date">
-  	<time datetime="2021-03-11T02:12:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-11</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/03/11/commitImg/">本地上传文件</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/js//" class="article-tag-list-link color3">js</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/js/PlayStation//" class="article-tag-list-link color2">PlayStation</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Diary//" class="article-tag-list-link color1">Diary</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Diary/Games//" class="article-tag-list-link color1">Games</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Life//" class="article-tag-list-link color5">Life</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
   
-    </div></section>
   
 
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/categories/Life/page/3/">&amp;laquo; Prev</a><a class="page-number" href="/categories/Life/">1</a><a class="page-number" href="/categories/Life/page/2/">2</a><a class="page-number" href="/categories/Life/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/categories/Life/page/5/">5</a><a class="extend next" rel="next" href="/categories/Life/page/5/">Next &amp;raquo;</a>
-    </nav>
+  
+
+  
+
   
 
 
@@ -844,10 +418,10 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
-		isCategory: true,
+		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
 		root: "/",

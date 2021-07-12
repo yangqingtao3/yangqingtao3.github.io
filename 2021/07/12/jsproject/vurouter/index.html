@@ -6,16 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Category: Life | God-son</title>
+  <title>vue-router有哪几种导航钩子，导航钩子的作用是什么？  | God-son</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="本人的一些学习笔记及工作过程中遇到的问题填过的坑">
-<meta property="og:type" content="website">
-<meta property="og:title" content="God-son">
-<meta property="og:url" content="http://example.com/categories/Life/page/4/index.html">
+  <meta name="description" content="### [](https:&#x2F;&#x2F;blog.csdn.net&#x2F;weixin_43680581&#x2F;article&#x2F;details&#x2F;104372295)1.导航钩子的作用     vue-router提供的导航钩子主要用来拦截导航，让它完成跳转或取消。  2.导航钩子的分类   全局守卫   路由独享守卫   局部守卫">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vue-router有哪几种导航钩子，导航钩子的作用是什么？ ">
+<meta property="og:url" content="http://example.com/2021/07/12/jsproject/vurouter/index.html">
 <meta property="og:site_name" content="God-son">
-<meta property="og:description" content="本人的一些学习笔记及工作过程中遇到的问题填过的坑">
+<meta property="og:description" content="### [](https:&#x2F;&#x2F;blog.csdn.net&#x2F;weixin_43680581&#x2F;article&#x2F;details&#x2F;104372295)1.导航钩子的作用     vue-router提供的导航钩子主要用来拦截导航，让它完成跳转或取消。  2.导航钩子的分类   全局守卫   路由独享守卫   局部守卫">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-07-12T07:21:15.000Z">
+<meta property="article:modified_time" content="2021-07-12T07:58:31.733Z">
 <meta property="article:author" content="qingtao Yang">
+<meta property="article:tag" content="js">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="God-son" type="application/atom+xml">
@@ -152,36 +155,94 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-jsproject/vurouter" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      vue-router有哪几种导航钩子，导航钩子的作用是什么？ 
+    </h1>
+  
+
+        
+        <a href="/2021/07/12/jsproject/vurouter/" class="archive-article-date">
+  	<time datetime="2021-07-12T07:21:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-12</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <meta name="referrer" content="no-referrer">
+### [](https://blog.csdn.net/weixin_43680581/article/details/104372295)1.导航钩子的作用
+
+<ul>
+<li>  vue-router提供的导航钩子主要用来拦截导航，让它完成跳转或取消。</li>
+</ul>
+<h3 id="2-导航钩子的分类"><a href="#2-导航钩子的分类" class="headerlink" title="2.导航钩子的分类"></a><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43680581/article/details/104372295"></a>2.导航钩子的分类</h3><ul>
+<li>  全局守卫</li>
+<li>  路由独享守卫</li>
+<li>  局部守卫<span id="more"></span>
+<h3 id="3-全局守卫"><a href="#3-全局守卫" class="headerlink" title="3.全局守卫"></a><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43680581/article/details/104372295"></a>3.全局守卫</h3></li>
+</ul>
+<p>是指路由示例上直接操作的钩子函数，特点是所有路由配置的组件都会触发。简单点说就是触发路由就会触发这些钩子函数。钩子函数执行顺序包括beforeEach、beforeResolve、afterEach三个。</p>
+<h6 id="beforeEach-：在路由跳转前触发，参数包括to-from-next三个，这个钩子作用主要是用于登录验证，也就是路由还没跳转提前告知，以免跳转了再通知就为时已晚。"><a href="#beforeEach-：在路由跳转前触发，参数包括to-from-next三个，这个钩子作用主要是用于登录验证，也就是路由还没跳转提前告知，以免跳转了再通知就为时已晚。" class="headerlink" title="[beforeEach]：在路由跳转前触发，参数包括to,from,next三个，这个钩子作用主要是用于登录验证，也就是路由还没跳转提前告知，以免跳转了再通知就为时已晚。"></a><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43680581/article/details/104372295"></a>[beforeEach]：在路由跳转前触发，参数包括to,from,next三个，这个钩子作用主要是用于登录验证，也就是路由还没跳转提前告知，以免跳转了再通知就为时已晚。</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">router.beforeEach  router.beforeResolve  router.afterEach</span><br><span class="line">   const router &#x3D; new VueRouter(&#123; ... &#125;);</span><br><span class="line">   router.beforeEach((to, from, next) &#x3D;&gt; &#123;</span><br><span class="line">       &#x2F;&#x2F; do someting</span><br><span class="line">   &#125;); </span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>  to：代表要进入的目标，它是一个路由对象</li>
+<li>  from：代表当前正要离开的路由，同样也是一个路由对象</li>
+<li>  next：这是一个必须需要调用的方法，而具体的执行效果则依赖next方法调用的参数</li>
+</ul>
+<h6 id="beforeResolve-：这个钩子和beforeEach类似，也是路由跳转前触发，参数也是to-from-next三个，和beforeEach区别官方解释为："><a href="#beforeResolve-：这个钩子和beforeEach类似，也是路由跳转前触发，参数也是to-from-next三个，和beforeEach区别官方解释为：" class="headerlink" title="[beforeResolve]：这个钩子和beforeEach类似，也是路由跳转前触发，参数也是to,from,next三个，和beforeEach区别官方解释为："></a><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43680581/article/details/104372295"></a>[beforeResolve]：这个钩子和beforeEach类似，也是路由跳转前触发，参数也是to,from,next三个，和beforeEach区别官方解释为：</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">区别是在导航被确认之前，同时在所有组件内守卫和异步路由组件被解析之后，解析守卫就会被调用。 </span><br></pre></td></tr></table></figure>
+
+<p>即在beforeEach和组件内beforeRouteEnter之后，afterEach之后，afterEach之前调用。</p>
+<h6 id="afterEach-：和beforeEach相反，它是在路由跳转完成之后触发，参数包括to、from，没有了next，它发生在beforeEach和beforeResolve之后，beforeRouteEnter-足迹按内守卫-之前。"><a href="#afterEach-：和beforeEach相反，它是在路由跳转完成之后触发，参数包括to、from，没有了next，它发生在beforeEach和beforeResolve之后，beforeRouteEnter-足迹按内守卫-之前。" class="headerlink" title="[afterEach]：和beforeEach相反，它是在路由跳转完成之后触发，参数包括to、from，没有了next，它发生在beforeEach和beforeResolve之后，beforeRouteEnter(足迹按内守卫)之前。"></a><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43680581/article/details/104372295"></a>[afterEach]：和beforeEach相反，它是在路由跳转完成之后触发，参数包括to、from，没有了next，它发生在beforeEach和beforeResolve之后，beforeRouteEnter(足迹按内守卫)之前。</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">const router &#x3D; new VueRouter(&#123; ... &#125;);</span><br><span class="line">   router.beforeEach((to, from, next) &#x3D;&gt; &#123;</span><br><span class="line">       &#x2F;&#x2F; do someting</span><br><span class="line">   &#125;);</span><br><span class="line"> &#x2F;&#x2F;全局后置钩子，后置钩子并没有 next 函数，也不会改变导航本身</span><br><span class="line">   router.afterEach((to, from) &#x3D;&gt; &#123;</span><br><span class="line">       &#x2F;&#x2F; do someting</span><br><span class="line">   &#125;); </span><br></pre></td></tr></table></figure>
+
+<h3 id="4-路由独享守卫"><a href="#4-路由独享守卫" class="headerlink" title="4.路由独享守卫"></a><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43680581/article/details/104372295"></a>4.路由独享守卫</h3><p>是指在单个路由配置的时候也可以设置的钩子函数，且只能在这个路由下起作用。其位置如下，也就是像File这样的组件都存在这样的钩子函数。目前它只有一个钩子函数beforeEnter。</p>
+<h6 id="beforeEnter-：和beforeEach完全相同，如果都设置则在beforeEach之后紧随执行，参数有to、from、next。"><a href="#beforeEnter-：和beforeEach完全相同，如果都设置则在beforeEach之后紧随执行，参数有to、from、next。" class="headerlink" title="[beforeEnter]：和beforeEach完全相同，如果都设置则在beforeEach之后紧随执行，参数有to、from、next。"></a><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43680581/article/details/104372295"></a>[beforeEnter]：和beforeEach完全相同，如果都设置则在beforeEach之后紧随执行，参数有to、from、next。</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">cont router &#x3D; new VueRouter(&#123;</span><br><span class="line">       routes: [</span><br><span class="line">           &#123;</span><br><span class="line">               path: &#39;&#x2F;file&#39;,</span><br><span class="line">               component: File,</span><br><span class="line">               beforeEnter: (to, from ,next) &#x3D;&gt; &#123;</span><br><span class="line">                   &#x2F;&#x2F; do someting</span><br><span class="line">               &#125;</span><br><span class="line">           &#125;</span><br><span class="line">       ]</span><br><span class="line">   &#125;); </span><br></pre></td></tr></table></figure>
+
+<h3 id="5-局部守卫"><a href="#5-局部守卫" class="headerlink" title="5.局部守卫"></a><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43680581/article/details/104372295"></a>5.局部守卫</h3><p>是指在组件内执行的钩子函数，类似于数组内的生命周期函数，相当于为配置路由的组件添加的生命周期钩子函数。钩子函数按执行顺序包括beforeRouteEnter、beforeRouteUpdate(2.2新增)、beforeRouteLeave三个，执行位置如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">const File &#x3D; &#123;</span><br><span class="line">       template: &#96;&lt;div&gt;This is file&lt;&#x2F;div&gt;&#96;,</span><br><span class="line">       beforeRouteEnter(to, from, next) &#123;</span><br><span class="line">           &#x2F;&#x2F; do someting</span><br><span class="line">           &#x2F;&#x2F; 在渲染该组件的对应路由被 confirm 前调用</span><br><span class="line">       &#125;,</span><br><span class="line">       beforeRouteUpdate(to, from, next) &#123;</span><br><span class="line">           &#x2F;&#x2F; do someting</span><br><span class="line">           &#x2F;&#x2F; 在当前路由改变，但是依然渲染该组件是调用</span><br><span class="line">       &#125;,</span><br><span class="line">       beforeRouteLeave(to, from ,next) &#123;</span><br><span class="line">           &#x2F;&#x2F; do someting</span><br><span class="line">           &#x2F;&#x2F; 导航离开该组件的对应路由时被调用</span><br><span class="line">       &#125;</span><br><span class="line">   &#125; </span><br></pre></td></tr></table></figure>
+
+<h3 id="6-路由跳转导航解析流程，当由A路由–-gt-B路由的时候"><a href="#6-路由跳转导航解析流程，当由A路由–-gt-B路由的时候" class="headerlink" title="6.路由跳转导航解析流程，当由A路由–&gt;B路由的时候"></a><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43680581/article/details/104372295"></a>6.路由跳转导航解析流程，当由A路由–&gt;B路由的时候</h3><ol>
+<li> 在A组件里调用离开守卫。 A组件中的beforeRouterLeave</li>
+<li> 调用全局的beforeEach守卫。 router.beforeEach</li>
+<li> 再执行B路由配置里调用beforeEnter。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">routes:[</span><br><span class="line">      &#123;</span><br><span class="line">          path:&#39;&#x2F;b&#39;,</span><br><span class="line">          component:B,</span><br><span class="line">          beforeEnter:(to,form,next)&#x3D;&gt;&#123;</span><br><span class="line">             ..... </span><br><span class="line">          &#125;</span><br><span class="line">      &#125;</span><br><span class="line">  ] </span><br></pre></td></tr></table></figure>
+
+<p>4.再执行B组件的进入守卫。 B组件中beforeRouterEnter<br>5. 调用全局的beforeResolve守卫(2.5+)。 router.beforeResolve<br>6. 导航被确认。<br>7. 调用全局的afterEach钩子。 router.afterEach<br>8. 触发DOM更新。</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2021" class="archive-year">2021</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/03/23/dateType/" class="archive-article-date">
-  	<time datetime="2021-03-23T08:12:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/03/23/dateType/">JS日期、年月日、时分秒的无敌秘籍、文艺之行</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -193,7 +254,7 @@
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -222,605 +283,112 @@
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2021/07/12/jsproject/vurouter/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/03/23/filter/" class="archive-article-date">
-  	<time datetime="2021-03-23T02:12:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-23</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2021/07/12/jsproject/vueLifeStyles/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          vue生命周期 
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2021/07/12/jsproject/keeplife/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">vue keepl-alive </div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/03/23/filter/">数组filtter</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/js//" class="article-tag-list-link color3">js</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/js/PlayStation//" class="article-tag-list-link color2">PlayStation</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Diary//" class="article-tag-list-link color1">Diary</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Diary/Games//" class="article-tag-list-link color1">Games</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Life//" class="article-tag-list-link color5">Life</a>
-        		</li>
-      		
-		</ul>
-	</div>
+        
+        
+    </div>
+</aside>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/03/17/vueData/" class="archive-article-date">
-  	<time datetime="2021-03-17T02:12:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-17</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/03/17/vueData/">vue里data为什末是个方法而不是个对象</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/js//" class="article-tag-list-link color3">js</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/js/PlayStation//" class="article-tag-list-link color2">PlayStation</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Diary//" class="article-tag-list-link color1">Diary</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Diary/Games//" class="article-tag-list-link color1">Games</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Life//" class="article-tag-list-link color5">Life</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/03/17/online/" class="archive-article-date">
-  	<time datetime="2021-03-17T02:12:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-17</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/03/17/online/">一些线上的知识点</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/js//" class="article-tag-list-link color3">js</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/js/PlayStation//" class="article-tag-list-link color2">PlayStation</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Diary//" class="article-tag-list-link color1">Diary</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Diary/Games//" class="article-tag-list-link color1">Games</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Life//" class="article-tag-list-link color5">Life</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/03/16/stopDefaltEvent/" class="archive-article-date">
-  	<time datetime="2021-03-16T02:12:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/03/16/stopDefaltEvent/">阻止默认事件，冒泡</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/js//" class="article-tag-list-link color3">js</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/js/PlayStation//" class="article-tag-list-link color2">PlayStation</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Diary//" class="article-tag-list-link color1">Diary</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Diary/Games//" class="article-tag-list-link color1">Games</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Life//" class="article-tag-list-link color5">Life</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/03/16/debounce/" class="archive-article-date">
-  	<time datetime="2021-03-16T02:12:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/03/16/debounce/">防抖及节流</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/js//" class="article-tag-list-link color3">js</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/js/PlayStation//" class="article-tag-list-link color2">PlayStation</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Diary//" class="article-tag-list-link color1">Diary</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Diary/Games//" class="article-tag-list-link color1">Games</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Life//" class="article-tag-list-link color5">Life</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/03/11/telnum/" class="archive-article-date">
-  	<time datetime="2021-03-11T02:12:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-11</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/03/11/telnum/">名字，身份证，名字脱敏</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/js//" class="article-tag-list-link color3">js</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/js/PlayStation//" class="article-tag-list-link color2">PlayStation</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Diary//" class="article-tag-list-link color1">Diary</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Diary/Games//" class="article-tag-list-link color1">Games</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Life//" class="article-tag-list-link color5">Life</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/03/11/tuomin/" class="archive-article-date">
-  	<time datetime="2021-03-11T02:12:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-11</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/03/11/tuomin/">正则里的符号代表的意思</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/js//" class="article-tag-list-link color3">js</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/js/PlayStation//" class="article-tag-list-link color2">PlayStation</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Diary//" class="article-tag-list-link color1">Diary</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Diary/Games//" class="article-tag-list-link color1">Games</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Life//" class="article-tag-list-link color5">Life</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/03/11/keepAlive/" class="archive-article-date">
-  	<time datetime="2021-03-11T02:12:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-11</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/03/11/keepAlive/">vue-router 之 keep-alive</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/js//" class="article-tag-list-link color3">js</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/js/PlayStation//" class="article-tag-list-link color2">PlayStation</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Diary//" class="article-tag-list-link color1">Diary</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Diary/Games//" class="article-tag-list-link color1">Games</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Life//" class="article-tag-list-link color5">Life</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/03/11/commitImg/" class="archive-article-date">
-  	<time datetime="2021-03-11T02:12:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-11</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/03/11/commitImg/">本地上传文件</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/js//" class="article-tag-list-link color3">js</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/js/PlayStation//" class="article-tag-list-link color2">PlayStation</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Diary//" class="article-tag-list-link color1">Diary</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Diary/Games//" class="article-tag-list-link color1">Games</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Life//" class="article-tag-list-link color5">Life</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
   
-    </div></section>
   
 
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/categories/Life/page/3/">&amp;laquo; Prev</a><a class="page-number" href="/categories/Life/">1</a><a class="page-number" href="/categories/Life/page/2/">2</a><a class="page-number" href="/categories/Life/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/categories/Life/page/5/">5</a><a class="extend next" rel="next" href="/categories/Life/page/5/">Next &amp;raquo;</a>
-    </nav>
+  
+
+  
+
   
 
 
@@ -844,10 +412,10 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
-		isCategory: true,
+		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
 		root: "/",
