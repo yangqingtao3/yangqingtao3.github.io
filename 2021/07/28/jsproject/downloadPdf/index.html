@@ -6,20 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>原生js获取iframe中dom元素--父子页面相互获取对方dom元素的方法 | God-son</title>
+  <title>将HTML页面转化为PDF下载 | God-son</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="123456789101112131415161718192021&lt;!DOCTYPE html PUBLIC &quot;-&#x2F;&#x2F;W3C&#x2F;&#x2F;DTD XHTML 1.0 Transitional&#x2F;&#x2F;EN&quot; &quot;http:&#x2F;&#x2F;www.w3.org&#x2F;TR&#x2F;xhtml1&#x2F;">
+  <meta name="description" content="&gt; 将HTML页面转化为PDF下载是前端经常会遇到的需求，下面就列举两种方式进行实现。以下两种方式默认都是在Vue项目环境下，其他框架项目自行灵活运用。  方式一：使用html2canvas和jspdf插件实现该方式是通过html2canvas将HTML页面转换成图片，然后再通过jspdf将图片的base64生成为pdf文件。实现步骤如下：">
 <meta property="og:type" content="article">
-<meta property="og:title" content="原生js获取iframe中dom元素--父子页面相互获取对方dom元素的方法">
-<meta property="og:url" content="http://example.com/2021/06/01/jsproject/iframeGetDom/index.html">
+<meta property="og:title" content="将HTML页面转化为PDF下载">
+<meta property="og:url" content="http://example.com/2021/07/28/jsproject/downloadPdf/index.html">
 <meta property="og:site_name" content="God-son">
-<meta property="og:description" content="123456789101112131415161718192021&lt;!DOCTYPE html PUBLIC &quot;-&#x2F;&#x2F;W3C&#x2F;&#x2F;DTD XHTML 1.0 Transitional&#x2F;&#x2F;EN&quot; &quot;http:&#x2F;&#x2F;www.w3.org&#x2F;TR&#x2F;xhtml1&#x2F;">
+<meta property="og:description" content="&gt; 将HTML页面转化为PDF下载是前端经常会遇到的需求，下面就列举两种方式进行实现。以下两种方式默认都是在Vue项目环境下，其他框架项目自行灵活运用。  方式一：使用html2canvas和jspdf插件实现该方式是通过html2canvas将HTML页面转换成图片，然后再通过jspdf将图片的base64生成为pdf文件。实现步骤如下：">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-06-01T09:12:15.000Z">
-<meta property="article:modified_time" content="2021-06-07T06:09:01.536Z">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/4921980-a44fa0f4b6c88c3f.png">
+<meta property="article:published_time" content="2021-07-28T02:12:15.000Z">
+<meta property="article:modified_time" content="2021-07-28T09:06:13.680Z">
 <meta property="article:author" content="qingtao Yang">
 <meta property="article:tag" content="js">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/4921980-a44fa0f4b6c88c3f.png">
   
     <link rel="alternative" href="/atom.xml" title="God-son" type="application/atom+xml">
   
@@ -155,20 +157,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-jsproject/iframeGetDom" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-jsproject/downloadPdf" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      原生js获取iframe中dom元素--父子页面相互获取对方dom元素的方法
+      将HTML页面转化为PDF下载
     </h1>
   
 
         
-        <a href="/2021/06/01/jsproject/iframeGetDom/" class="archive-article-date">
-  	<time datetime="2021-06-01T09:12:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-06-01</time>
+        <a href="/2021/07/28/jsproject/downloadPdf/" class="archive-article-date">
+  	<time datetime="2021-07-28T02:12:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-28</time>
 </a>
         
       </header>
@@ -176,13 +178,36 @@
     <div class="article-entry" itemprop="articleBody">
       
         <meta name="referrer" content="no-referrer">
+> 将HTML页面转化为PDF下载是前端经常会遇到的需求，下面就列举两种方式进行实现。以下两种方式默认都是在Vue项目环境下，其他框架项目自行灵活运用。
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html PUBLIC &quot;-&#x2F;&#x2F;W3C&#x2F;&#x2F;DTD XHTML 1.0 Transitional&#x2F;&#x2F;EN&quot; &quot;http:&#x2F;&#x2F;www.w3.org&#x2F;TR&#x2F;xhtml1&#x2F;DTD&#x2F;xhtml1-transitional.dtd&quot;&gt;</span><br><span class="line">&lt;html xmlns&#x3D;&quot;http:&#x2F;&#x2F;www.w3.org&#x2F;1999&#x2F;xhtml&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">	&lt;meta http-equiv&#x3D;&quot;Content-Type&quot; content&#x3D;&quot;text&#x2F;html; charset&#x3D;utf-8&quot; &#x2F;&gt;</span><br><span class="line">	&lt;title&gt;demo��ҳ��&lt;&#x2F;title&gt;</span><br><span class="line">	&lt;script type&#x3D;&quot;text&#x2F;javascript&quot;&gt;</span><br><span class="line">	window.onload &#x3D; function()&#123;</span><br><span class="line">		var \_iframe &#x3D; document.getElementById(&#39;iframeId&#39;).contentWindow;</span><br><span class="line">		var \_div &#x3D;\_iframe.document.getElementById(&#39;objId&#39;);</span><br><span class="line">		\_div.style.backgroundColor &#x3D; &#39;#ccc&#39;;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	&lt;&#x2F;script&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line"></span><br><span class="line">&lt;body&gt;</span><br><span class="line"></span><br><span class="line">&lt;div id&#x3D;&#39;parDiv&#39;&gt;��ҳ��&lt;&#x2F;div&gt;</span><br><span class="line">&lt;iframe src&#x3D;&quot;demo-iframe.html&quot; id&#x3D;&quot;iframeId&quot; height&#x3D;&quot;150&quot; width&#x3D;&quot;150&quot;&gt;&lt;&#x2F;iframe&gt; </span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
-
+<h1 id="方式一：使用html2canvas和jspdf插件实现"><a href="#方式一：使用html2canvas和jspdf插件实现" class="headerlink" title="方式一：使用html2canvas和jspdf插件实现"></a>方式一：使用html2canvas和jspdf插件实现</h1><p>该方式是通过<code>html2canvas</code>将HTML页面转换成图片，然后再通过<code>jspdf</code>将图片的base64生成为pdf文件。实现步骤如下：</p>
 <span id="more"></span>
+<h2 id="1-下载插件模块"><a href="#1-下载插件模块" class="headerlink" title="1,下载插件模块"></a>1,下载插件模块</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install html2canvas jspdf --save </span><br></pre></td></tr></table></figure>
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html PUBLIC &quot;-&#x2F;&#x2F;W3C&#x2F;&#x2F;DTD XHTML 1.0 Transitional&#x2F;&#x2F;EN&quot; &quot;http:&#x2F;&#x2F;www.w3.org&#x2F;TR&#x2F;xhtml1&#x2F;DTD&#x2F;xhtml1-transitional.dtd&quot;&gt;</span><br><span class="line">&lt;html xmlns&#x3D;&quot;http:&#x2F;&#x2F;www.w3.org&#x2F;1999&#x2F;xhtml&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">	&lt;meta http-equiv&#x3D;&quot;Content-Type&quot; content&#x3D;&quot;text&#x2F;html; charset&#x3D;utf-8&quot; &#x2F;&gt;</span><br><span class="line">	&lt;title&gt;��ҳ��demo13-iframe.html&lt;&#x2F;title&gt;</span><br><span class="line">	&lt;script type&#x3D;&quot;text&#x2F;javascript&quot;&gt;</span><br><span class="line">	window.onload &#x3D; function()&#123;</span><br><span class="line">		var \_iframe &#x3D; window.parent;</span><br><span class="line">		var \_div &#x3D;\_iframe.document.getElementById(&#39;parDiv&#39;);</span><br><span class="line">		\_div.style.color &#x3D; &#39;red&#39;;</span><br><span class="line">	&#125;</span><br><span class="line">	&lt;&#x2F;script&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line"></span><br><span class="line">&lt;body&gt;</span><br><span class="line">	&lt;div id&#x3D;&#39;objId&#39; style&#x3D;&#39;width:100px;height:100px;background-color:red;&#39;&gt;��ҳ��&lt;&#x2F;div&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="2-定义功能实现方法"><a href="#2-定义功能实现方法" class="headerlink" title="2,定义功能实现方法"></a>2,定义功能实现方法</h2><p>在项目工具方法存放文件夹utils中创建<code>htmlToPdf.js</code>文件，代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 导出页面为PDF格式</span><br><span class="line">import html2Canvas from &#39;html2canvas&#39;</span><br><span class="line">import JsPDF from &#39;jspdf&#39;</span><br><span class="line">export default&#123;</span><br><span class="line">  install (Vue, options) &#123;</span><br><span class="line">    Vue.prototype.getPdf &#x3D; function () &#123;</span><br><span class="line">      var title &#x3D; this.htmlTitle</span><br><span class="line">      html2Canvas(document.querySelector(&#39;#pdfDom&#39;), &#123;</span><br><span class="line">        allowTaint: true</span><br><span class="line">      &#125;).then(function (canvas) &#123;</span><br><span class="line">        let contentWidth &#x3D; canvas.width</span><br><span class="line">        let contentHeight &#x3D; canvas.height</span><br><span class="line">        let pageHeight &#x3D; contentWidth &#x2F; 592.28 * 841.89</span><br><span class="line">        let leftHeight &#x3D; contentHeight</span><br><span class="line">        let position &#x3D; 0</span><br><span class="line">        let imgWidth &#x3D; 595.28</span><br><span class="line">        let imgHeight &#x3D; 592.28 &#x2F; contentWidth * contentHeight</span><br><span class="line">        let pageData &#x3D; canvas.toDataURL(&#39;image&#x2F;jpeg&#39;, 1.0)</span><br><span class="line">        let PDF &#x3D; new JsPDF(&#39;&#39;, &#39;pt&#39;, &#39;a4&#39;)</span><br><span class="line">        if (leftHeight &lt; pageHeight) &#123;</span><br><span class="line">          PDF.addImage(pageData, &#39;JPEG&#39;, 0, 0, imgWidth, imgHeight)</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">          while (leftHeight &gt; 0) &#123;</span><br><span class="line">            PDF.addImage(pageData, &#39;JPEG&#39;, 0, position, imgWidth, imgHeight)</span><br><span class="line">            leftHeight -&#x3D; pageHeight</span><br><span class="line">            position -&#x3D; 841.89</span><br><span class="line">            if (leftHeight &gt; 0) &#123;</span><br><span class="line">              PDF.addPage()</span><br><span class="line">            &#125;</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        PDF.save(title + &#39;.pdf&#39;)</span><br><span class="line">      &#125;</span><br><span class="line">      )</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
 
+<h2 id="3-全局引入实现方法"><a href="#3-全局引入实现方法" class="headerlink" title="3, 全局引入实现方法"></a>3, 全局引入实现方法</h2><p>在项目主文件<code>main.js</code>中引入定义好的实现方法，并注册。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import htmlToPdf from &#39;@&#x2F;components&#x2F;utils&#x2F;htmlToPdf&#39;</span><br><span class="line">&#x2F;&#x2F; 使用Vue.use()方法就会调用工具方法中的install方法</span><br><span class="line">Vue.use(htmlToPdf) </span><br></pre></td></tr></table></figure>
+
+<h2 id="4-在相关要导出的页面中，点击时调用绑定在Vue原型上的getPdf方法，传入id即可"><a href="#4-在相关要导出的页面中，点击时调用绑定在Vue原型上的getPdf方法，传入id即可" class="headerlink" title="4, 在相关要导出的页面中，点击时调用绑定在Vue原型上的getPdf方法，传入id即可"></a>4, 在相关要导出的页面中，点击时调用绑定在Vue原型上的getPdf方法，传入id即可</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;html</span><br><span class="line"> &lt;div id&#x3D;&quot;pdfDom&quot;&gt;</span><br><span class="line">   &lt;!-- 要下载的HTML页面,页面是由后台返回 --&gt;</span><br><span class="line">  &lt;div v-html&#x3D;&quot;pageData&quot;&gt;&lt;&#x2F;div&gt;</span><br><span class="line">&lt;&#x2F;div&gt;</span><br><span class="line">&lt;el-button type&#x3D;&quot;primary&quot; size&#x3D;&quot;small&quot; @click&#x3D;&quot;getPdf(&#39;#pdfDom&#39;)&quot;&gt;点击下载&lt;&#x2F;el-button&gt;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;js</span><br><span class="line">export default &#123;</span><br><span class="line">  data () &#123;</span><br><span class="line">      return &#123;</span><br><span class="line">      htmlTitle: &#39;页面导出PDF文件名&#39;</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br><span class="line"> &#125; </span><br></pre></td></tr></table></figure>
+
+<h1 id="方式二：读取后台返回文件流，利用HTML5中a标签的download属性实现下载"><a href="#方式二：读取后台返回文件流，利用HTML5中a标签的download属性实现下载" class="headerlink" title="方式二：读取后台返回文件流，利用HTML5中a标签的download属性实现下载"></a>方式二：读取后台返回文件流，利用HTML5中a标签的download属性实现下载</h1><blockquote>
+<p>该方法需要先请求后台，后台会返回一个文件流，然后解析文件流，再通过HTML5中<code>&lt;a&gt;</code>标签的<code>download</code>属性实现下载功能。步骤如下：</p>
+</blockquote>
+<h2 id="1-发送请求，获取到后台返回的文件流及文件信息"><a href="#1-发送请求，获取到后台返回的文件流及文件信息" class="headerlink" title="1,发送请求，获取到后台返回的文件流及文件信息"></a>1,发送请求，获取到后台返回的文件流及文件信息</h2><ul>
+<li>  前端发送请求获取下载文件信息：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 引入下载方法</span><br><span class="line">import &#123;download&#125; from &#39;utils&#39;</span><br><span class="line">export default&#123;</span><br><span class="line">  methods: &#123;</span><br><span class="line">    async downloadFile () &#123;</span><br><span class="line">      let res &#x3D; await axios.get(</span><br><span class="line">        url: &#39;xxxx&#x2F;xxxx&#39;,</span><br><span class="line">        method: &#39;GET&#39;,</span><br><span class="line">        &#x2F;&#x2F; 设置返回数据类型，这里一定要设置，否则下载下来的pdf会是空白,也可以是&#96;arraybuffer&#96;</span><br><span class="line">        responseType: &#39;blob&#39;,</span><br><span class="line">        params: &#123;</span><br><span class="line">          id: &#39;xxxxxx&#39;</span><br><span class="line">        &#125;</span><br><span class="line">      )</span><br><span class="line">      &#x2F;&#x2F; 获取在response headers中返回的下载文件类型</span><br><span class="line">      let type &#x3D; JSON.parse(res.headers)[&#39;content-type&#39;]</span><br><span class="line">      </span><br><span class="line">      &#x2F;*获取在response headers中返回的下载文件名</span><br><span class="line">        因为返回文件名是通过encodeURIComponent()函数进行了编码，因此需要通过decodeURIComponent()函数解码</span><br><span class="line">      *&#x2F;</span><br><span class="line">      let fileName &#x3D; decodeURIComponent(JSON.parse(res.headers)[&#39;file-name&#39;])</span><br><span class="line">      &#x2F;&#x2F; 调用封装好的下载函数</span><br><span class="line">      download(res, type, fileName)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>后台返回的文件流格式：  <img src="https://upload-images.jianshu.io/upload_images/4921980-a44fa0f4b6c88c3f.png">  文件流.png</li>
+</ul>
+<h2 id="2-封装下载方法-解析文件流，创建a标签并设置下载相关属性。"><a href="#2-封装下载方法-解析文件流，创建a标签并设置下载相关属性。" class="headerlink" title="2, 封装下载方法 - 解析文件流，创建a标签并设置下载相关属性。"></a>2, 封装下载方法 - 解析文件流，创建a标签并设置下载相关属性。</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; utils.js</span><br><span class="line">export const download &#x3D; (res, type, filename) &#x3D;&gt; &#123;</span><br><span class="line">  &#x2F;&#x2F; 创建blob对象，解析流数据</span><br><span class="line">  const blob &#x3D; new Blob([res], &#123;</span><br><span class="line">    &#x2F;&#x2F; 如何后端没返回下载文件类型，则需要手动设置：type: &#39;application&#x2F;pdf;chartset&#x3D;UTF-8&#39; 表示下载文档为pdf，如果是word则设置为msword，excel为excel</span><br><span class="line">    type: type</span><br><span class="line">  &#125;)</span><br><span class="line">  const a &#x3D; document.createElement(&#39;a&#39;)</span><br><span class="line">  &#x2F;&#x2F; 兼容webkix浏览器，处理webkit浏览器中href自动添加blob前缀，默认在浏览器打开而不是下载</span><br><span class="line">  const URL &#x3D; window.URL || window.webkitURL</span><br><span class="line">  &#x2F;&#x2F; 根据解析后的blob对象创建URL 对象</span><br><span class="line">  const herf &#x3D; URL.createObjectURL(blob)</span><br><span class="line">  &#x2F;&#x2F; 下载链接</span><br><span class="line">  a.href &#x3D; herf</span><br><span class="line">  &#x2F;&#x2F; 下载文件名,如果后端没有返回，可以自己写a.download &#x3D; &#39;文件.pdf&#39;</span><br><span class="line">  a.download &#x3D; filename</span><br><span class="line">  document.body.appendChild(a)</span><br><span class="line">  a.click()</span><br><span class="line">  document.body.removeChild(a)</span><br><span class="line">  &#x2F;&#x2F; 在内存中移除URL 对象</span><br><span class="line">  window.URL.revokeObjectURL(herf)</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+
+<h2 id="3，点击下载按钮，调用下载方法"><a href="#3，点击下载按钮，调用下载方法" class="headerlink" title="3，点击下载按钮，调用下载方法"></a>3，点击下载按钮，调用下载方法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"> &lt;div id&#x3D;&quot;pdfDom&quot;&gt;</span><br><span class="line">    &lt;!-- 要下载的页面 --&gt;</span><br><span class="line">    &lt;div v-html&#x3D;&quot;pageData&quot;&gt;&lt;&#x2F;div&gt;</span><br><span class="line">&lt;&#x2F;div&gt;</span><br><span class="line">&lt;el-button type&#x3D;&quot;primary&quot; size&#x3D;&quot;small&quot; @click&#x3D;&quot;downloadFile&quot;&gt;点击下载&lt;&#x2F;el-button&gt; </span><br></pre></td></tr></table></figure>
+
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>以上两种实现方式各有优劣，方式一是纯前端实现，需要引入第三方插件，可能会导致项目体积增加。方式二虽然更加简洁，但<code>a</code>标签的<code>download</code>属性为HTML5新增属性，可能存在兼容性问题。如果有需要，可以根据自己情况来选择。</p>
 
       
 
@@ -300,7 +325,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2021/06/01/jsproject/iframeGetDom/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2021/07/28/jsproject/downloadPdf/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -314,18 +339,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2021/06/01/jsproject/xunhuan/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          JavaScript 中哪一种循环最快呢？
-        
-      </div>
-    </a>
   
-  
-    <a href="/2021/06/01/jsproject/kuayu/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">聊聊跨域那些事 </div>
+    <a href="/2021/07/12/jsproject/vueLifeStyles/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">vue生命周期 </div>
       <i class="icon-circle-right"></i>
     </a>
   
